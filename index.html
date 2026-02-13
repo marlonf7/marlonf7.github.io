@@ -6,12 +6,14 @@
 <title>ReceptionPoint | Your 24/7 Virtual Reception Team</title>
 
 <style>
+/* GLOBAL STYLES */
 body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
   line-height: 1.6;
   background-color: #F4F6F9;
   color: #1F2A44;
+  padding-top: 80px; /* space for fixed header */
 }
 
 section {
@@ -24,6 +26,42 @@ section {
   margin: auto;
 }
 
+/* STICKY HEADER */
+.header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: white;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 5%;
+  z-index: 1000;
+}
+
+.header-logo {
+  font-weight: bold;
+  font-size: 20px;
+  color: #1F2A44;
+}
+
+.header-button {
+  padding: 10px 20px;
+  background-color: #2F6BFF;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+.header-button:hover {
+  background-color: #1c4ed8;
+}
+
+/* HERO */
 .hero {
   background: linear-gradient(135deg, #3E7BFA, #1F2A44);
   color: white;
@@ -40,20 +78,7 @@ section {
   margin-bottom: 40px;
 }
 
-.button {
-  display: inline-block;
-  padding: 15px 35px;
-  background-color: #2F6BFF;
-  color: white;
-  text-decoration: none;
-  border-radius: 8px;
-  font-weight: bold;
-}
-
-.button:hover {
-  background-color: #1c4ed8;
-}
-
+/* FEATURE CARDS */
 .alt-section {
   background-color: white;
 }
@@ -72,13 +97,31 @@ section {
   box-shadow: 0 8px 20px rgba(0,0,0,0.05);
 }
 
+/* PRICING */
 .pricing-box {
   background: #F4F6F9;
-  padding: 25px;
+  padding: 40px;
   border-radius: 12px;
+  margin-top: 40px;
   box-shadow: 0 8px 20px rgba(0,0,0,0.05);
 }
 
+/* CTA BUTTONS */
+.button {
+  display: inline-block;
+  padding: 15px 35px;
+  background-color: #2F6BFF;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+.button:hover {
+  background-color: #1c4ed8;
+}
+
+/* FOOTER */
 .footer {
   background-color: #1F2A44;
   color: white;
@@ -86,6 +129,7 @@ section {
   font-size: 14px;
 }
 
+/* RESPONSIVE */
 @media (max-width: 768px) {
   .hero h1 {
     font-size: 32px;
@@ -95,12 +139,12 @@ section {
     flex-direction: column;
     align-items: center;
     gap: 10px;
-    padding: 10px 15px;
+    padding: 10px 5%;
   }
 
   .header-button {
     width: 100%;
-    max-width: 300px;  /* optional, keeps it neat */
+    max-width: 300px;
     text-align: center;
     padding: 10px 0;
     font-size: 16px;
@@ -110,61 +154,27 @@ section {
     font-size: 18px;
   }
 }
-
-
-  /* HEADER */
-.header {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  background: white;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-  display: flex;
-  justify-content: space-between;  /* logo left, button right */
-  align-items: center;
-  padding: 15px 5%;               /* responsive horizontal padding */
-  flex-wrap: nowrap;               /* prevent button from wrapping */
-  z-index: 1000;
-}
-
-.header-logo {
-  font-weight: bold;
-  font-size: 20px;
-  color: #1F2A44;
-}
-
-.header-button {
-  padding: 10px 20px;
-  background-color: #2F6BFF;
-  color: white;
-  text-decoration: none;
-  border-radius: 6px;
-  font-weight: bold;
-  font-size: 14px;
-}
-
-
-
-
 </style>
 </head>
 
 <body>
+
+<!-- STICKY HEADER -->
 <div class="header">
   <div class="header-logo">ReceptionPoint</div>
   <a href="https://forms.gle/2P3ALc9TFZ9oAzkFA" class="header-button">Get Started</a>
 </div>
 
-<!-- HERO -->
+<!-- HERO SECTION -->
 <section class="hero">
   <div class="container">
     <h1>Never Miss Another Customer Enquiry</h1>
-<p>ReceptionPoint acts as your 24/7 virtual reception team — capturing bookings and enquiries even when you're busy or offline.</p>
-    <a href="https://forms.gle/JsCZbshZoUrQQogJA" class="button">Get Started</a>
+    <p>ReceptionPoint acts as your 24/7 virtual reception team — capturing bookings and enquiries even when you're busy or offline.</p>
+    <a href="https://forms.gle/2P3ALc9TFZ9oAzkFA" class="button">Get Started</a>
   </div>
 </section>
 
-<!-- PROBLEM -->
+<!-- PROBLEM SECTION -->
 <section>
   <div class="container">
     <h2>Is This Familiar?</h2>
@@ -173,7 +183,7 @@ section {
   </div>
 </section>
 
-<!-- SOLUTION -->
+<!-- SOLUTION SECTION -->
 <section class="alt-section">
   <div class="container">
     <h2>How ReceptionPoint Helps</h2>
@@ -183,59 +193,4 @@ section {
         <p>Answers visitors 24/7 so you never miss an enquiry.</p>
       </div>
       <div class="feature-box">
-        <h3>Booking & Enquiries</h3>
-        <p>Handles appointments and common questions instantly.</p>
-      </div>
-      <div class="feature-box">
-        <h3>Smart Escalation</h3>
-        <p>Complex enquiries sent directly to your email.</p>
-      </div>
-      <div class="feature-box">
-        <h3>Fully Managed</h3>
-        <p>We set everything up for you in less than 7 days.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- HOW IT WORKS -->
-<section>
-  <div class="container">
-    <h2>Getting Started Is Simple</h2>
-    <p>1. Fill in your details.</p>
-    <p>2. We build your virtual receptionist.</p>
-    <p>3. Go live and start capturing every enquiry automatically.</p>
-  </div>
-</section>
-
-<!-- PRICING -->
-<section class="alt-section">
-  <div class="container">
-    <h2>Simple, Transparent Pricing</h2>
-    <div class="pricing-box">
-      <h3>Setup Fee: £200</h3>
-      <h3>Monthly Fee: £75</h3>
-      <p>No hidden costs. Fully managed service.</p>
-    </div>
-  </div>
-</section>
-
-<!-- FINAL CTA -->
-<section>
-  <div class="container">
-    <h2>Ready to Never Miss Another Customer?</h2>
-    <p>Fill in your details and we’ll set up your virtual receptionist in under a week.</p>
-    <a href="https://forms.gle/JsCZbshZoUrQQogJA" class="button">Get Started</a>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<section class="footer">
-  <div class="container">
-    <p>© 2026 ReceptionPoint. All rights reserved.</p>
-    <p>hello@receptionpoint.co.uk</p>
-  </div>
-</section>
-
-</body>
-</html>
+        <h
