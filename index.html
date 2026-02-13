@@ -118,15 +118,19 @@ section {
   top: 0;
   width: 100%;
   background: white;
-  padding: 15px 20px;  /* reduce side padding */
   box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;      /* allows items to wrap if needed */
   z-index: 1000;
 }
 
+.header .container {
+  max-width: 1000px;        /* same as page container */
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;       /* horizontal padding */
+  flex-wrap: wrap;
+}
 
 .header-logo {
   font-weight: bold;
@@ -144,22 +148,42 @@ section {
   font-size: 14px;
 }
 
-.header-button:hover {
-  background-color: #1c4ed8;
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .header .container {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .header-button {
+    width: 100%;
+    max-width: 300px;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 16px;
+  }
+
+  .header-logo {
+    font-size: 18px;
+  }
 }
 
-/* Push page content down because header is fixed */
+/* Push content down for fixed header */
 body {
   padding-top: 80px;
 }
+
 
 </style>
 </head>
 
 <body>
 <div class="header">
-  <div class="header-logo">ReceptionPoint</div>
-  <a href="https://forms.gle/9duc7WsTZJmi7yVT9" class="header-button">Get Started</a>
+  <div class="container">
+    <div class="header-logo">ReceptionPoint</div>
+    <a href="https://forms.gle/APiKtFmZkdAeFCS26" class="header-button">Get Started</a>
+  </div>
 </div>
 <!-- HERO -->
 <section class="hero">
