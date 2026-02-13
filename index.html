@@ -161,6 +161,23 @@ section {
     font-size: 18px;
   }
 }
+/* Shrink effect */
+.header.shrink {
+  padding: 8px 0; /* smaller top/bottom padding */
+  transition: padding 0.3s ease;
+}
+
+.header.shrink .header-logo {
+  font-size: 18px; /* shrink logo slightly */
+  transition: font-size 0.3s ease;
+}
+
+.header.shrink .header-button {
+  padding: 8px 16px; /* shrink button slightly */
+  font-size: 13px;
+  transition: all 0.3s ease;
+}
+
 </style>
 </head>
 
@@ -255,6 +272,17 @@ section {
     <p>hello@receptionpoint.co.uk</p>
   </div>
 </section>
+
+  <script>
+window.addEventListener('scroll', function() {
+  const header = document.querySelector('.header');
+  if (window.scrollY > 50) {
+    header.classList.add('shrink');
+  } else {
+    header.classList.remove('shrink');
+  }
+});
+</script>
 
 </body>
 </html>
