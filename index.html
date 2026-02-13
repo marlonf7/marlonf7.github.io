@@ -101,12 +101,18 @@ section {
   top: 0;
   width: 100%;
   background: white;
+  padding: 15px 0; /* top/bottom only */
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  z-index: 1000;
+}
+
+/* HEADER CONTAINER */
+.header-container {
+  max-width: 1000px;
+  margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 5%; /* responsive */
-  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-  z-index: 1000;
   flex-wrap: nowrap;
 }
 
@@ -137,11 +143,10 @@ section {
     font-size: 32px;
   }
 
-  .header {
+  .header-container {
     flex-direction: column;
     align-items: center;
     gap: 10px;
-    padding: 10px 5%;
   }
 
   .header-button {
@@ -163,8 +168,10 @@ section {
 
 <!-- STICKY HEADER -->
 <div class="header">
-  <div class="header-logo">ReceptionPoint</div>
-  <a href="https://forms.gle/2P3ALc9TFZ9oAzkFA" class="header-button" target="_blank">Get Started</a>
+  <div class="header-container">
+    <div class="header-logo">ReceptionPoint</div>
+    <a href="https://forms.gle/2P3ALc9TFZ9oAzkFA" class="header-button" target="_blank">Get Started</a>
+  </div>
 </div>
 
 <!-- HERO -->
