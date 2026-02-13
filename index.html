@@ -87,29 +87,30 @@ section {
 }
 
 @media (max-width: 768px) {
-  /* Shrink hero headline */
   .hero h1 {
     font-size: 32px;
   }
 
-  /* Make header responsive */
   .header {
     flex-direction: column;
-    padding: 10px 20px;
+    align-items: center;
     gap: 10px;
+    padding: 10px 15px;
+  }
+
+  .header-button {
+    width: 100%;
+    max-width: 300px;  /* optional, keeps it neat */
+    text-align: center;
+    padding: 10px 0;
+    font-size: 16px;
   }
 
   .header-logo {
     font-size: 18px;
   }
-
-  .header-button {
-    width: 100%;
-    text-align: center;
-    padding: 10px 0;
-    font-size: 16px;
-  }
 }
+
 
   /* HEADER */
 .header {
@@ -117,13 +118,15 @@ section {
   top: 0;
   width: 100%;
   background: white;
-  padding: 15px 40px;
+  padding: 15px 20px;  /* reduce side padding */
   box-shadow: 0 4px 15px rgba(0,0,0,0.05);
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;      /* allows items to wrap if needed */
   z-index: 1000;
 }
+
 
 .header-logo {
   font-weight: bold;
