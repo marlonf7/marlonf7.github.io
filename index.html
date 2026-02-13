@@ -91,11 +91,53 @@ section {
     font-size: 32px;
   }
 }
+  /* HEADER */
+.header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: white;
+  padding: 15px 40px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+}
+
+.header-logo {
+  font-weight: bold;
+  font-size: 20px;
+  color: #1F2A44;
+}
+
+.header-button {
+  padding: 10px 20px;
+  background-color: #2F6BFF;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.header-button:hover {
+  background-color: #1c4ed8;
+}
+
+/* Push page content down because header is fixed */
+body {
+  padding-top: 80px;
+}
+
 </style>
 </head>
 
 <body>
-
+<div class="header">
+  <div class="header-logo">ReceptionPoint</div>
+  <a href="https://your-google-form-link.com" class="header-button">Get Started</a>
+</div>
 <!-- HERO -->
 <section class="hero">
   <div class="container">
