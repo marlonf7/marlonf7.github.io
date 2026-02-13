@@ -120,10 +120,10 @@ section {
   background: white;
   box-shadow: 0 4px 15px rgba(0,0,0,0.05);
   display: flex;
-  justify-content: space-between;
+  justify-content: space-between;  /* logo left, button right */
   align-items: center;
-  padding: 15px 5vw;  /* use % of screen width instead of fixed px */
-  flex-wrap: wrap;
+  padding: 15px 5%;               /* responsive horizontal padding */
+  flex-wrap: nowrap;               /* prevent button from wrapping */
   z-index: 1000;
 }
 
@@ -143,32 +143,6 @@ section {
   font-size: 14px;
 }
 
-/* Mobile responsiveness */
-@media (max-width: 768px) {
-  .header {
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-    padding: 10px 5vw;
-  }
-
-  .header-button {
-    width: 100%;
-    max-width: 300px;
-    text-align: center;
-    padding: 10px 0;
-    font-size: 16px;
-  }
-
-  .header-logo {
-    font-size: 18px;
-  }
-}
-
-/* Push content down for fixed header */
-body {
-  padding-top: 80px;
-}
 
 
 
@@ -178,8 +152,9 @@ body {
 <body>
 <div class="header">
   <div class="header-logo">ReceptionPoint</div>
-  <a href="https://forms.gle/t2syaC8CrSHavk9F6" class="header-button">Get Started</a>
+  <a href="https://forms.gle/2P3ALc9TFZ9oAzkFA" class="header-button">Get Started</a>
 </div>
+
 <!-- HERO -->
 <section class="hero">
   <div class="container">
