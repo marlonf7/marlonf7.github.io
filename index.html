@@ -6,12 +6,14 @@
 <title>ReceptionPoint | Your 24/7 Virtual Reception Team</title>
 
 <style>
+/* GLOBAL STYLES */
 body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
   line-height: 1.6;
   background-color: #F4F6F9;
   color: #1F2A44;
+  padding-top: 80px; /* space for fixed header */
 }
 
 section {
@@ -24,6 +26,7 @@ section {
   margin: auto;
 }
 
+/* HERO */
 .hero {
   background: linear-gradient(135deg, #3E7BFA, #1F2A44);
   color: white;
@@ -40,6 +43,7 @@ section {
   margin-bottom: 40px;
 }
 
+/* BUTTONS */
 .button {
   display: inline-block;
   padding: 15px 35px;
@@ -54,10 +58,12 @@ section {
   background-color: #1c4ed8;
 }
 
+/* ALT SECTION */
 .alt-section {
   background-color: white;
 }
 
+/* FEATURES */
 .features {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -72,13 +78,16 @@ section {
   box-shadow: 0 8px 20px rgba(0,0,0,0.05);
 }
 
+/* PRICING */
 .pricing-box {
   background: #F4F6F9;
   padding: 25px;
   border-radius: 12px;
   box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+  margin-top: 40px;
 }
 
+/* FOOTER */
 .footer {
   background-color: #1F2A44;
   color: white;
@@ -86,12 +95,48 @@ section {
   font-size: 14px;
 }
 
+/* STICKY HEADER */
+.header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 5%; /* responsive */
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  z-index: 1000;
+  flex-wrap: nowrap;
+}
+
+.header-logo {
+  font-weight: bold;
+  font-size: 20px;
+  color: #1F2A44;
+}
+
+.header-button {
+  padding: 10px 20px;
+  background-color: #2F6BFF;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+.header-button:hover {
+  background-color: #1c4ed8;
+}
+
+/* RESPONSIVE */
 @media (max-width: 768px) {
   .hero h1 {
     font-size: 32px;
   }
-}
-@media (max-width: 768px) {
+
   .header {
     flex-direction: column;
     align-items: center;
@@ -111,53 +156,23 @@ section {
     font-size: 18px;
   }
 }
-  /* HEADER */
-.header {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  background: white;
-  display: flex;
-  justify-content: space-between; /* logo left, button right */
-  align-items: center;
-  padding: 15px 5%; /* responsive padding, replaces fixed 40px */
-  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-  z-index: 1000;
-  flex-wrap: nowrap; /* prevents button from wrapping */
-}
-
-.header-logo {
-  font-weight: bold;
-  font-size: 20px;
-  color: #1F2A44;
-}
-
-.header-button {
-  padding: 10px 20px;
-  background-color: #2F6BFF;
-  color: white;
-  text-decoration: none;
-  border-radius: 6px;
-  font-weight: bold;
-  font-size: 14px;
-  flex-shrink: 0; /* ensures button never shrinks */
-}
-
-.header-button:hover {
-  background-color: #1c4ed8;
-}
+</style>
+</head>
 
 <body>
+
+<!-- STICKY HEADER -->
 <div class="header">
   <div class="header-logo">ReceptionPoint</div>
-  <a href="https://forms.gle/9duc7WsTZJmi7yVT9" class="header-button">Get Started</a>
+  <a href="https://forms.gle/2P3ALc9TFZ9oAzkFA" class="header-button" target="_blank">Get Started</a>
 </div>
+
 <!-- HERO -->
 <section class="hero">
   <div class="container">
     <h1>Never Miss Another Customer Enquiry</h1>
-<p>ReceptionPoint acts as your 24/7 virtual reception team — capturing bookings and enquiries even when you're busy or offline.</p>
-    <a href="https://forms.gle/JsCZbshZoUrQQogJA" class="button">Get Started</a>
+    <p>ReceptionPoint acts as your 24/7 virtual reception team — capturing bookings and enquiries even when you're busy or offline.</p>
+    <a href="https://forms.gle/2P3ALc9TFZ9oAzkFA" class="button" target="_blank">Get Started</a>
   </div>
 </section>
 
@@ -222,7 +237,7 @@ section {
   <div class="container">
     <h2>Ready to Never Miss Another Customer?</h2>
     <p>Fill in your details and we’ll set up your virtual receptionist in under a week.</p>
-    <a href="https://forms.gle/JsCZbshZoUrQQogJA" class="button">Get Started</a>
+    <a href="https://forms.gle/2P3ALc9TFZ9oAzkFA" class="button" target="_blank">Get Started</a>
   </div>
 </section>
 
