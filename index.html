@@ -91,18 +91,39 @@ section {
     font-size: 32px;
   }
 }
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 5%;
+  }
+
+  .header-button {
+    width: 100%;
+    max-width: 300px;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 16px;
+  }
+
+  .header-logo {
+    font-size: 18px;
+  }
+}
   /* HEADER */
 .header {
   position: fixed;
   top: 0;
   width: 100%;
   background: white;
-  padding: 15px 40px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
   display: flex;
-  justify-content: space-between;
+  justify-content: space-between; /* logo left, button right */
   align-items: center;
+  padding: 15px 5%; /* responsive padding, replaces fixed 40px */
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
   z-index: 1000;
+  flex-wrap: nowrap; /* prevents button from wrapping */
 }
 
 .header-logo {
@@ -119,19 +140,12 @@ section {
   border-radius: 6px;
   font-weight: bold;
   font-size: 14px;
+  flex-shrink: 0; /* ensures button never shrinks */
 }
 
 .header-button:hover {
   background-color: #1c4ed8;
 }
-
-/* Push page content down because header is fixed */
-body {
-  padding-top: 80px;
-}
-
-</style>
-</head>
 
 <body>
 <div class="header">
