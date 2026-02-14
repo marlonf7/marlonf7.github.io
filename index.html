@@ -12,6 +12,8 @@ body {
   line-height: 1.6;
   background-color: #F4F6F9;
   color: #1F2A44;
+  padding-top: 80px; /* for fixed header */
+  padding-bottom: 40px; /* ensures bottom sections visible */
 }
 
 section {
@@ -27,7 +29,8 @@ section {
 .hero {
   background: linear-gradient(135deg, #3E7BFA, #1F2A44);
   color: white;
-  padding: 120px 20px 60px 20px;
+  padding: 60px 20px 40px 20px; /* smaller hero height */
+  min-height: 50vh; /* ensure it doesn’t take entire viewport */
 }
 
 .hero h1 {
@@ -76,8 +79,6 @@ section {
 .header-logo { font-weight: bold; font-size: 20px; color: #1F2A44; }
 .header-button { padding: 10px 20px; background-color: #2F6BFF; color: white; text-decoration: none; border-radius: 6px; font-weight: bold; font-size: 14px; }
 .header-button:hover { background-color: #1c4ed8; }
-
-body { padding-top: 80px; }
 
 /* Chatbot container */
 .chatbot-mockup {
@@ -139,11 +140,13 @@ body { padding-top: 80px; }
   </div>
 </div>
 
+<!-- HERO -->
 <section class="hero">
   <div class="container">
     <h1>Never Miss Another Customer Enquiry</h1>
     <p>ReceptionPoint acts as your 24/7 virtual reception team — capturing bookings and enquiries even when you're busy or offline.</p>
     
+    <!-- Chatbot -->
     <div class="chatbot-mockup" id="chatbot"></div>
 
     <a href="https://buy.stripe.com/8x214mbC5gOq9tjcQq9AA01" class="button" target="_blank">Get Started</a>
@@ -151,6 +154,69 @@ body { padding-top: 80px; }
       After payment, fill in your business details: 
       <a href="https://forms.gle/2P3ALc9TFZ9oAzkFA" target="_blank" style="color:#FFFFFF; text-decoration:underline;">Submit Details</a>
     </p>
+  </div>
+</section>
+
+<!-- PROBLEM -->
+<section>
+  <div class="container">
+    <h2>Is This Familiar?</h2>
+    <p>Missing enquiries after hours? Losing bookings while you're busy? Spending time answering the same customer questions repeatedly?</p>
+    <p>Every missed enquiry could be lost revenue.</p>
+  </div>
+</section>
+
+<!-- SOLUTION -->
+<section class="alt-section">
+  <div class="container">
+    <h2>How ReceptionPoint Helps</h2>
+    <div class="features">
+      <div class="feature-box">
+        <h3>Always On</h3>
+        <p>Answers visitors 24/7 so you never miss an enquiry.</p>
+      </div>
+      <div class="feature-box">
+        <h3>Booking & Enquiries</h3>
+        <p>Handles appointments and common questions instantly.</p>
+      </div>
+      <div class="feature-box">
+        <h3>Smart Escalation</h3>
+        <p>Complex enquiries sent directly to your email.</p>
+      </div>
+      <div class="feature-box">
+        <h3>Fully Managed</h3>
+        <p>We set everything up for you in less than 7 days.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="alt-section">
+  <div class="container">
+    <h2>Simple, Transparent Pricing</h2>
+    <div class="pricing-box">
+      <h3>Setup Fee: £200</h3>
+      <h3>Monthly Fee: £75</h3>
+      <p>No hidden costs. Fully managed service.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section>
+  <div class="container">
+    <h2>Ready to Never Miss Another Customer?</h2>
+    <p>Fill in your details and we’ll set up your virtual receptionist in under a week.</p>
+    <a href="https://buy.stripe.com/8x214mbC5gOq9tjcQq9AA01" class="button" target="_blank">Get Started</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<section class="footer">
+  <div class="container">
+    <p>© 2026 ReceptionPoint. All rights reserved.</p>
+    <p>hello@receptionpoint.co.uk</p>
   </div>
 </section>
 
@@ -176,7 +242,6 @@ function showMessage() {
   const msg = messages[index];
 
   if(msg.type === 'ai') {
-    // Show typing animation first
     const typingWrapper = document.createElement('div');
     typingWrapper.className = 'typing-wrapper';
     const typing = document.createElement('div');
@@ -193,7 +258,7 @@ function showMessage() {
     setTimeout(() => {
       chatContainer.removeChild(typingWrapper);
       appendMessage(msg);
-    }, 1200); // typing duration
+    }, 1200);
   } else {
     appendMessage(msg);
   }
