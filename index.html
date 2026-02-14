@@ -140,6 +140,35 @@ section {
 body {
   padding-top: 80px;
 }
+
+/* Chat bubbles animation */
+.chat-bubble {
+  padding: 10px 15px;
+  border-radius: 15px;
+  margin-bottom: 8px;
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeInUp 0.5s forwards;
+}
+
+.chat-bubble.ai {
+  background: #2F6BFF;
+  color: white;
+  border-radius: 15px 15px 15px 0;
+}
+
+.chat-bubble.user {
+  background: #F4F6F9;
+  color: #1F2A44;
+  margin-left: 40px;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 </style>
 </head>
 
@@ -151,23 +180,17 @@ body {
   </div>
 </div>
 
-<!-- HERO with Chatbot Preview -->
+<!-- HERO with Animated Chatbot Preview -->
 <section class="hero">
   <div class="container">
     <h1>Never Miss Another Customer Enquiry</h1>
     <p>ReceptionPoint acts as your 24/7 virtual reception team — capturing bookings and enquiries even when you're busy or offline.</p>
     
-    <!-- Chatbot Mockup -->
+    <!-- Animated Chatbot Mockup -->
     <div class="chatbot-mockup" style="max-width:400px; margin:40px auto; background:white; border-radius:15px; box-shadow:0 8px 20px rgba(0,0,0,0.1); padding:20px; text-align:left; font-family:Arial, sans-serif;">
-      <div style="margin-bottom:15px;">
-        <div style="background:#2F6BFF; color:white; padding:10px 15px; border-radius:15px 15px 15px 0; display:inline-block; margin-bottom:8px;">Hello! How can I help you today?</div>
-      </div>
-      <div style="margin-bottom:15px;">
-        <div style="background:#F4F6F9; color:#1F2A44; padding:10px 15px; border-radius:15px; display:inline-block; margin-left:40px; margin-bottom:8px;">Can you book me an appointment for tomorrow?</div>
-      </div>
-      <div>
-        <div style="background:#2F6BFF; color:white; padding:10px 15px; border-radius:15px 15px 15px 0; display:inline-block;">Sure! What time works best for you?</div>
-      </div>
+      <div class="chat-bubble ai" style="animation-delay: 0.5s;">Hello! How can I help you today?</div>
+      <div class="chat-bubble user" style="animation-delay: 1.5s;">Can you book me an appointment for tomorrow?</div>
+      <div class="chat-bubble ai" style="animation-delay: 2.5s;">Sure! What time works best for you?</div>
     </div>
 
     <a href="https://buy.stripe.com/8x214mbC5gOq9tjcQq9AA01" class="button" target="_blank">Get Started</a>
