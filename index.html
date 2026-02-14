@@ -106,7 +106,6 @@ section {
   z-index: 1000;
 }
 
-/* container inside header handles alignment and padding */
 .header .container {
   max-width: 1000px;
   margin: auto;
@@ -141,14 +140,43 @@ body {
   padding-top: 80px;
 }
 
-/* Chat bubbles animation */
-.chat-bubble {
-  padding: 10px 15px;
+/* Chatbot bubbles with avatars */
+.chatbot-mockup {
+  max-width: 400px;
+  margin: 40px auto;
+  background: white;
   border-radius: 15px;
-  margin-bottom: 8px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  padding: 20px;
+  text-align: left;
+  font-family: Arial, sans-serif;
+}
+
+.chat-bubble-wrapper {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 10px;
   opacity: 0;
   transform: translateY(10px);
   animation: fadeInUp 0.5s forwards;
+}
+
+.chat-bubble-wrapper.user {
+  flex-direction: row-reverse;
+}
+
+.chat-avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin: 0 10px;
+  flex-shrink: 0;
+}
+
+.chat-bubble {
+  padding: 10px 15px;
+  border-radius: 15px;
+  max-width: 75%;
 }
 
 .chat-bubble.ai {
@@ -160,13 +188,49 @@ body {
 .chat-bubble.user {
   background: #F4F6F9;
   color: #1F2A44;
-  margin-left: 40px;
+  border-radius: 15px 15px 0 15px;
 }
 
+/* fade in animation */
 @keyframes fadeInUp {
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+/* typing dots animation for AI */
+.typing {
+  width: 40px;
+  height: 20px;
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  margin-left: 45px;
+}
+
+.typing-dot {
+  width: 8px;
+  height: 8px;
+  background: white;
+  border-radius: 50%;
+  animation: blink 1.4s infinite both;
+}
+
+.typing-dot:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.typing-dot:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes blink {
+  0%, 80%, 100% {
+    opacity: 0;
+  }
+  40% {
+    opacity: 1;
   }
 }
 </style>
@@ -180,17 +244,35 @@ body {
   </div>
 </div>
 
-<!-- HERO with Animated Chatbot Preview -->
+<!-- HERO with Animated Chatbot + Avatars -->
 <section class="hero">
   <div class="container">
     <h1>Never Miss Another Customer Enquiry</h1>
     <p>ReceptionPoint acts as your 24/7 virtual reception team — capturing bookings and enquiries even when you're busy or offline.</p>
     
-    <!-- Animated Chatbot Mockup -->
-    <div class="chatbot-mockup" style="max-width:400px; margin:40px auto; background:white; border-radius:15px; box-shadow:0 8px 20px rgba(0,0,0,0.1); padding:20px; text-align:left; font-family:Arial, sans-serif;">
-      <div class="chat-bubble ai" style="animation-delay: 0.5s;">Hello! How can I help you today?</div>
-      <div class="chat-bubble user" style="animation-delay: 1.5s;">Can you book me an appointment for tomorrow?</div>
-      <div class="chat-bubble ai" style="animation-delay: 2.5s;">Sure! What time works best for you?</div>
+    <!-- Chatbot Mockup -->
+    <div class="chatbot-mockup">
+      <div class="chat-bubble-wrapper ai" style="animation-delay: 0.5s;">
+        <img src="https://i.imgur.com/4AiXzf8.png" alt="AI" class="chat-avatar">
+        <div class="chat-bubble ai">Hello! How can I help you today?</div>
+      </div>
+      <div class="chat-bubble-wrapper user" style="animation-delay: 1.5s;">
+        <img src="https://i.imgur.com/8Km9tLL.png" alt="User" class="chat-avatar">
+        <div class="chat-bubble user">Can you book me an appointment for tomorrow?</div>
+      </div>
+      <div class="chat-bubble-wrapper ai" style="animation-delay: 2.5s;">
+        <img src="https://i.imgur.com/4AiXzf8.png" alt="AI" class="chat-avatar">
+        <div class="chat-bubble ai">Sure! What time works best for you?</div>
+      </div>
+      <!-- Typing indicator for AI -->
+      <div class="chat-bubble-wrapper ai" style="animation-delay: 3.5s;">
+        <img src="https://i.imgur.com/4AiXzf8.png" alt="AI" class="chat-avatar">
+        <div class="typing">
+          <div class="typing-dot"></div>
+          <div class="typing-dot"></div>
+          <div class="typing-dot"></div>
+        </div>
+      </div>
     </div>
 
     <a href="https://buy.stripe.com/8x214mbC5gOq9tjcQq9AA01" class="button" target="_blank">Get Started</a>
