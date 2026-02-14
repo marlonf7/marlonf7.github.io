@@ -54,49 +54,7 @@ section {
   background-color: #1c4ed8;
 }
 
-.alt-section {
-  background-color: white;
-}
-
-.features {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 30px;
-  margin-top: 40px;
-}
-
-.feature-box {
-  background: #F4F6F9;
-  padding: 25px;
-  border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.05);
-}
-
-.pricing-box {
-  background: #F4F6F9;
-  padding: 25px;
-  border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.05);
-}
-
-.footer {
-  background-color: #1F2A44;
-  color: white;
-  padding: 40px 20px;
-  font-size: 14px;
-}
-
-@media (max-width: 768px) {
-  .hero h1 {
-    font-size: 32px;
-  }
-  .header .container {
-    flex-direction: column;
-    gap: 10px;
-  }
-}
-
-/* HEADER */
+/* Header */
 .header {
   position: fixed;
   top: 0;
@@ -115,29 +73,11 @@ section {
   align-items: center;
 }
 
-.header-logo {
-  font-weight: bold;
-  font-size: 20px;
-  color: #1F2A44;
-}
+.header-logo { font-weight: bold; font-size: 20px; color: #1F2A44; }
+.header-button { padding: 10px 20px; background-color: #2F6BFF; color: white; text-decoration: none; border-radius: 6px; font-weight: bold; font-size: 14px; }
+.header-button:hover { background-color: #1c4ed8; }
 
-.header-button {
-  padding: 10px 20px;
-  background-color: #2F6BFF;
-  color: white;
-  text-decoration: none;
-  border-radius: 6px;
-  font-weight: bold;
-  font-size: 14px;
-}
-
-.header-button:hover {
-  background-color: #1c4ed8;
-}
-
-body {
-  padding-top: 80px;
-}
+body { padding-top: 80px; }
 
 /* Chatbot container */
 .chatbot-mockup {
@@ -163,50 +103,19 @@ body {
 }
 
 /* Customer left, AI right */
-.chat-bubble-wrapper.user {
-  justify-content: flex-start;
-}
-
-.chat-bubble-wrapper.ai {
-  justify-content: flex-end;
-}
+.chat-bubble-wrapper.user { justify-content: flex-start; }
+.chat-bubble-wrapper.ai { justify-content: flex-end; }
 
 /* Avatar */
-.chat-avatar {
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  flex-shrink: 0;
-  margin: 0 8px;
-}
+.chat-avatar { width: 30px; height: 30px; border-radius: 50%; flex-shrink: 0; margin: 0 8px; }
 
 /* Bubble styles */
-.chat-bubble {
-  padding: 10px 15px;
-  border-radius: 15px;
-  max-width: 70%;
-  word-wrap: break-word;
-}
+.chat-bubble { padding: 10px 15px; border-radius: 15px; max-width: 70%; word-wrap: break-word; }
+.chat-bubble.user { background: #2F6BFF; color: white; border-radius: 15px 15px 15px 0; }
+.chat-bubble.ai { background: #E0E0E0; color: #1F2A44; border-radius: 15px 15px 0 15px; }
 
-.chat-bubble.user {
-  background: #2F6BFF;
-  color: white;
-  border-radius: 15px 15px 15px 0;
-}
-
-.chat-bubble.ai {
-  background: #E0E0E0;
-  color: #1F2A44;
-  border-radius: 15px 15px 0 15px;
-}
-
-/* Typing indicator */
-.typing-wrapper {
-  display: flex;
-  justify-content: flex-end;
-  margin-bottom: 8px;
-}
-
+/* Typing animation */
+.typing-wrapper { display: flex; justify-content: flex-end; margin-bottom: 8px; }
 .typing {
   display: flex;
   gap: 4px;
@@ -215,26 +124,14 @@ body {
   border-radius: 15px 15px 0 15px;
   background: #E0E0E0;
 }
-
-.typing-dot {
-  width: 6px;
-  height: 6px;
-  background: #1F2A44;
-  border-radius: 50%;
-  animation: blink 1.4s infinite both;
-}
-
+.typing-dot { width: 6px; height: 6px; background: #1F2A44; border-radius: 50%; animation: blink 1.4s infinite both; }
 .typing-dot:nth-child(2) { animation-delay: 0.2s; }
 .typing-dot:nth-child(3) { animation-delay: 0.4s; }
-
-@keyframes blink {
-  0%, 80%, 100% { opacity: 0; }
-  40% { opacity: 1; }
-}
+@keyframes blink { 0%, 80%, 100% { opacity: 0; } 40% { opacity: 1; } }
 </style>
 </head>
-<body>
 
+<body>
 <div class="header">
   <div class="container">
     <div class="header-logo">ReceptionPoint</div>
@@ -242,16 +139,12 @@ body {
   </div>
 </div>
 
-<!-- HERO -->
 <section class="hero">
   <div class="container">
     <h1>Never Miss Another Customer Enquiry</h1>
     <p>ReceptionPoint acts as your 24/7 virtual reception team — capturing bookings and enquiries even when you're busy or offline.</p>
     
-    <!-- Chatbot -->
-    <div class="chatbot-mockup" id="chatbot">
-      <!-- Messages will appear here -->
-    </div>
+    <div class="chatbot-mockup" id="chatbot"></div>
 
     <a href="https://buy.stripe.com/8x214mbC5gOq9tjcQq9AA01" class="button" target="_blank">Get Started</a>
     <p style="font-size:14px; margin-top:5px; color:#FFFFFF;">
@@ -270,18 +163,45 @@ const messages = [
 ];
 
 const avatars = {
-  ai: 'https://i.imgur.com/4AiXzf8.png', // AI right
-  user: 'https://i.imgur.com/8Km9tLL.png' // customer left
+  ai: 'https://i.imgur.com/4AiXzf8.png',
+  user: 'https://i.imgur.com/8Km9tLL.png'
 };
 
 const chatContainer = document.getElementById('chatbot');
 let index = 0;
 
 function showMessage() {
-  if (index >= messages.length) return;
+  if(index >= messages.length) return;
 
   const msg = messages[index];
-  
+
+  if(msg.type === 'ai') {
+    // Show typing animation first
+    const typingWrapper = document.createElement('div');
+    typingWrapper.className = 'typing-wrapper';
+    const typing = document.createElement('div');
+    typing.className = 'typing';
+    for(let i=0;i<3;i++){
+      const dot = document.createElement('div');
+      dot.className = 'typing-dot';
+      typing.appendChild(dot);
+    }
+    typingWrapper.appendChild(typing);
+    chatContainer.appendChild(typingWrapper);
+    chatContainer.scrollTop = chatContainer.scrollHeight;
+
+    setTimeout(() => {
+      chatContainer.removeChild(typingWrapper);
+      appendMessage(msg);
+    }, 1200); // typing duration
+  } else {
+    appendMessage(msg);
+  }
+  index++;
+  setTimeout(showMessage, 1800);
+}
+
+function appendMessage(msg){
   const wrapper = document.createElement('div');
   wrapper.className = `chat-bubble-wrapper ${msg.type}`;
   
@@ -292,17 +212,17 @@ function showMessage() {
   const bubble = document.createElement('div');
   bubble.className = `chat-bubble ${msg.type}`;
   bubble.textContent = msg.text;
-  
-  wrapper.appendChild(avatar);
-  wrapper.appendChild(bubble);
-  
-  chatContainer.appendChild(wrapper);
-  
-  // Scroll to bottom
-  chatContainer.scrollTop = chatContainer.scrollHeight;
 
-  index++;
-  setTimeout(showMessage, 1800);
+  if(msg.type === 'user'){
+    wrapper.appendChild(avatar);
+    wrapper.appendChild(bubble);
+  } else {
+    wrapper.appendChild(bubble);
+    wrapper.appendChild(avatar);
+  }
+
+  chatContainer.appendChild(wrapper);
+  chatContainer.scrollTop = chatContainer.scrollHeight;
 }
 
 showMessage();
