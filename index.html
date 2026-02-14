@@ -55,10 +55,10 @@ section {
   background-color: #1c4ed8;
 }
 
-.hero .subtext, .pricing-box .subtext {
+.hero .subtext {
   margin-top: 10px;
   font-size: 14px;
-  color: white; /* white for hero, override in pricing */
+  color: white; /* white only for hero */
 }
 
 .alt-section {
@@ -86,6 +86,13 @@ section {
   box-shadow: 0 8px 20px rgba(0,0,0,0.05);
   text-align: center;
   color: #1F2A44;
+}
+
+.pricing-box .subtext,
+section:last-of-type .subtext {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #1F2A44; /* dark text for pricing & final CTA */
 }
 
 .footer {
