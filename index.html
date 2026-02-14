@@ -13,7 +13,7 @@ body {
   background-color: #F4F6F9;
   color: #1F2A44;
   padding-top: 80px; /* for fixed header */
-  padding-bottom: 40px; /* ensures bottom sections visible */
+  padding-bottom: 40px;
 }
 
 section {
@@ -26,11 +26,12 @@ section {
   margin: auto;
 }
 
+/* HERO */
 .hero {
   background: linear-gradient(135deg, #3E7BFA, #1F2A44);
   color: white;
   padding: 60px 20px 40px 20px; /* smaller hero height */
-  min-height: 50vh; /* ensure it doesn’t take entire viewport */
+  min-height: 50vh;
 }
 
 .hero h1 {
@@ -57,7 +58,7 @@ section {
   background-color: #1c4ed8;
 }
 
-/* Header */
+/* HEADER */
 .header {
   position: fixed;
   top: 0;
@@ -129,6 +130,31 @@ section {
 .typing-dot:nth-child(2) { animation-delay: 0.2s; }
 .typing-dot:nth-child(3) { animation-delay: 0.4s; }
 @keyframes blink { 0%, 80%, 100% { opacity: 0; } 40% { opacity: 1; } }
+
+/* ALT SECTIONS, FEATURES, PRICING */
+.alt-section { background-color: white; }
+
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.feature-box, .pricing-box {
+  background: #F4F6F9;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+}
+
+/* FOOTER */
+.footer {
+  background-color: #1F2A44;
+  color: white;
+  padding: 40px 20px;
+  font-size: 14px;
+}
 </style>
 </head>
 
