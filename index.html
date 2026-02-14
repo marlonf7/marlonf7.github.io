@@ -6,7 +6,6 @@
 <title>ReceptionPoint | Your 24/7 Virtual Reception Team</title>
 
 <style>
-/* GLOBAL STYLES */
 body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
@@ -26,7 +25,6 @@ section {
   margin: auto;
 }
 
-/* HERO */
 .hero {
   background: linear-gradient(135deg, #3E7BFA, #1F2A44);
   color: white;
@@ -40,10 +38,9 @@ section {
 
 .hero p {
   font-size: 20px;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
 }
 
-/* BUTTONS */
 .button {
   display: inline-block;
   padding: 15px 35px;
@@ -58,12 +55,16 @@ section {
   background-color: #1c4ed8;
 }
 
-/* ALT SECTION */
+.hero .subtext {
+  margin-top: 10px;
+  font-size: 14px;
+  color: white;
+}
+
 .alt-section {
   background-color: white;
 }
 
-/* FEATURES */
 .features {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -78,16 +79,20 @@ section {
   box-shadow: 0 8px 20px rgba(0,0,0,0.05);
 }
 
-/* PRICING */
 .pricing-box {
   background: #F4F6F9;
-  padding: 25px;
+  padding: 30px;
   border-radius: 12px;
   box-shadow: 0 8px 20px rgba(0,0,0,0.05);
-  margin-top: 40px;
+  text-align: center;
 }
 
-/* FOOTER */
+.pricing-box .subtext {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #1F2A44;
+}
+
 .footer {
   background-color: #1F2A44;
   color: white;
@@ -95,25 +100,24 @@ section {
   font-size: 14px;
 }
 
-/* STICKY HEADER */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 32px;
+  }
+}
+
+/* HEADER */
 .header {
   position: fixed;
   top: 0;
   width: 100%;
   background: white;
-  padding: 15px 0; /* top/bottom only */
+  padding: 15px 40px;
   box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-  z-index: 1000;
-}
-
-/* HEADER CONTAINER */
-.header-container {
-  max-width: 1000px;
-  margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: nowrap;
+  z-index: 1000;
 }
 
 .header-logo {
@@ -130,50 +134,25 @@ section {
   border-radius: 6px;
   font-weight: bold;
   font-size: 14px;
-  flex-shrink: 0;
 }
 
 .header-button:hover {
   background-color: #1c4ed8;
 }
 
-/* RESPONSIVE */
-@media (max-width: 768px) {
-  .hero h1 {
-    font-size: 32px;
-  }
-
-  .header-container {
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-  }
-
-  .header-button {
-    width: 100%;
-    max-width: 300px;
-    text-align: center;
-    padding: 10px 0;
-    font-size: 16px;
-  }
-
-  .header-logo {
-    font-size: 18px;
-  }
-}
 /* Shrink effect */
 .header.shrink {
-  padding: 8px 0; /* smaller top/bottom padding */
+  padding: 8px 0;
   transition: padding 0.3s ease;
 }
 
 .header.shrink .header-logo {
-  font-size: 18px; /* shrink logo slightly */
+  font-size: 18px;
   transition: font-size 0.3s ease;
 }
 
 .header.shrink .header-button {
-  padding: 8px 16px; /* shrink button slightly */
+  padding: 8px 16px;
   font-size: 13px;
   transition: all 0.3s ease;
 }
@@ -182,13 +161,12 @@ section {
 </head>
 
 <body>
-
-<!-- STICKY HEADER -->
+<!-- HEADER -->
 <div class="header">
-  <div class="header-container">
-    <div class="header-logo">ReceptionPoint</div>
-    <a href="https://forms.gle/2P3ALc9TFZ9oAzkFA" class="header-button" target="_blank">Get Started</a>
-  </div>
+  <div class="header-logo">ReceptionPoint</div>
+  <a href="https://buy.stripe.com/test_aFa8wP3CgfH6gQvcgtdZ600" class="header-button" target="_blank">
+    Start Setup – £200 + £75/month
+  </a>
 </div>
 
 <!-- HERO -->
@@ -196,7 +174,8 @@ section {
   <div class="container">
     <h1>Never Miss Another Customer Enquiry</h1>
     <p>ReceptionPoint acts as your 24/7 virtual reception team — capturing bookings and enquiries even when you're busy or offline.</p>
-    <a href="https://forms.gle/2P3ALc9TFZ9oAzkFA" class="button" target="_blank">Get Started</a>
+    <a href="https://buy.stripe.com/test_aFa8wP3CgfH6gQvcgtdZ600" class="button" target="_blank">Start Setup – £200 + £75/month</a>
+    <p class="subtext">Cancel anytime via your secure customer portal</p>
   </div>
 </section>
 
@@ -249,9 +228,12 @@ section {
   <div class="container">
     <h2>Simple, Transparent Pricing</h2>
     <div class="pricing-box">
-      <h3>Setup Fee: £200</h3>
-      <h3>Monthly Fee: £75</h3>
-      <p>No hidden costs. Fully managed service.</p>
+      <h3>£200 Setup + £75/Month</h3>
+      <p>Fully managed virtual reception service. No hidden costs.</p>
+      <p class="subtext">Cancel anytime via your secure customer portal</p>
+      <a href="https://buy.stripe.com/test_aFa8wP3CgfH6gQvcgtdZ600" class="button" target="_blank" style="margin-top:20px;">
+        Get Started Now
+      </a>
     </div>
   </div>
 </section>
@@ -261,19 +243,21 @@ section {
   <div class="container">
     <h2>Ready to Never Miss Another Customer?</h2>
     <p>Fill in your details and we’ll set up your virtual receptionist in under a week.</p>
-    <a href="https://forms.gle/2P3ALc9TFZ9oAzkFA" class="button" target="_blank">Get Started</a>
+    <a href="https://buy.stripe.com/test_aFa8wP3CgfH6gQvcgtdZ600" class="button" target="_blank">Start Setup – £200 + £75/month</a>
+    <p class="subtext">Secure checkout. Cancel anytime via your customer portal.</p>
   </div>
 </section>
 
-<!-- Footer -->
+<!-- FOOTER -->
 <section class="footer">
   <div class="container">
     <p>© 2026 ReceptionPoint. All rights reserved.</p>
-    <p>receptionpointinfo@gmail.com</p> <!-- updated -->
+    <p>receptionpointinfo@gmail.com</p>
   </div>
 </section>
 
-  <script>
+<!-- SHRINK HEADER JS -->
+<script>
 window.addEventListener('scroll', function() {
   const header = document.querySelector('.header');
   if (window.scrollY > 50) {
