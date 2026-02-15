@@ -3,329 +3,294 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ReceptionPoint | Your 24/7 Virtual Reception Team</title>
-
+<title>ReceptionPoint | 24/7 Website Receptionist</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
 body {
-  margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  line-height: 1.6;
-  background-color: #F4F6F9;
-  color: #1F2A44;
-  padding-top: 80px; /* for fixed header */
-  padding-bottom: 40px;
-}
-
-section {
-  padding: 80px 20px;
-  text-align: center;
-  background-color: #F4F6F9; /* default background */
-}
-
-.alt-section {
-  background-color: white; /* alternating sections */
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background: #f8f9fc;
+    color: #111;
 }
 
 .container {
-  max-width: 1000px;
-  margin: auto;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 80px 20px;
 }
 
-/* HERO */
+header {
+    background: #fff;
+    padding: 20px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid #eee;
+}
+
+.nav {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-weight: 700;
+    font-size: 20px;
+}
+
+.cta-btn {
+    background: #2563eb;
+    color: #fff;
+    padding: 12px 22px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+}
+
 .hero {
-  background: linear-gradient(135deg, #3E7BFA, #1F2A44);
-  color: white;
-  padding: 60px 20px 40px 20px;
-  min-height: 50vh;
+    background: #fff;
+    text-align: center;
 }
 
 .hero h1 {
-  font-size: 42px;
-  margin-bottom: 20px;
+    font-size: 42px;
+    margin-bottom: 20px;
 }
 
 .hero p {
-  font-size: 20px;
-  margin-bottom: 40px;
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 30px;
 }
 
-.button {
-  display: inline-block;
-  padding: 15px 35px;
-  background-color: #2F6BFF;
-  color: white;
-  text-decoration: none;
-  border-radius: 8px;
-  font-weight: bold;
+.section-alt {
+    background: #ffffff;
 }
 
-.button:hover {
-  background-color: #1c4ed8;
+.section-gray {
+    background: #f1f4f9;
 }
 
-/* HEADER */
-.header {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  background: white;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-  z-index: 1000;
+h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
 }
 
-.header .container {
-  max-width: 1000px;
-  margin: auto;
-  padding: 15px 40px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.chat-box {
+    background: #fff;
+    border-radius: 14px;
+    padding: 25px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    max-width: 600px;
+    margin: 0 auto;
 }
 
-.header-logo { font-weight: bold; font-size: 20px; color: #1F2A44; }
-.header-button { padding: 10px 20px; background-color: #2F6BFF; color: white; text-decoration: none; border-radius: 6px; font-weight: bold; font-size: 14px; }
-.header-button:hover { background-color: #1c4ed8; }
-
-/* Chatbot container */
-.chatbot-mockup {
-  max-width: 400px;
-  height: 250px;
-  margin: 40px auto;
-  background: white;
-  border-radius: 15px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-  padding: 15px;
-  font-family: Arial, sans-serif;
-  overflow-y: auto;
-  display: flex;
-  flex-direction: column;
+.message {
+    display: flex;
+    margin-bottom: 15px;
+    align-items: flex-end;
 }
 
-/* Bubble wrapper */
-.chat-bubble-wrapper {
-  display: flex;
-  align-items: flex-start;
-  margin-bottom: 8px;
-  max-width: 100%;
+.message.customer {
+    flex-direction: row;
 }
 
-/* Customer left, AI right */
-.chat-bubble-wrapper.user { justify-content: flex-start; }
-.chat-bubble-wrapper.ai { justify-content: flex-end; }
-
-/* Avatar */
-.chat-avatar { width: 30px; height: 30px; border-radius: 50%; flex-shrink: 0; margin: 0 8px; }
-
-/* Bubble styles */
-.chat-bubble { padding: 10px 15px; border-radius: 15px; max-width: 70%; word-wrap: break-word; }
-.chat-bubble.user { background: #2F6BFF; color: white; border-radius: 15px 15px 15px 0; }
-.chat-bubble.ai { background: #E0E0E0; color: #1F2A44; border-radius: 15px 15px 0 15px; }
-
-/* Typing animation */
-.typing-wrapper { display: flex; justify-content: flex-end; margin-bottom: 8px; }
-.typing {
-  display: flex;
-  gap: 4px;
-  align-items: center;
-  padding: 10px 15px;
-  border-radius: 15px 15px 0 15px;
-  background: #E0E0E0;
+.message.bot {
+    flex-direction: row-reverse;
 }
-.typing-dot { width: 6px; height: 6px; background: #1F2A44; border-radius: 50%; animation: blink 1.4s infinite both; }
-.typing-dot:nth-child(2) { animation-delay: 0.2s; }
-.typing-dot:nth-child(3) { animation-delay: 0.4s; }
-@keyframes blink { 0%, 80%, 100% { opacity: 0; } 40% { opacity: 1; } }
 
-/* FEATURES & PRICING */
+.bubble {
+    max-width: 70%;
+    padding: 12px 16px;
+    border-radius: 14px;
+    font-size: 14px;
+}
+
+.customer .bubble {
+    background: #2563eb;
+    color: #fff;
+    border-bottom-left-radius: 4px;
+}
+
+.bot .bubble {
+    background: #e5e7eb;
+    color: #111;
+    border-bottom-right-radius: 4px;
+}
+
+.avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    margin: 0 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.customer .avatar {
+    background: #93c5fd;
+    color: #1e3a8a;
+}
+
+.bot .avatar {
+    background: #d1d5db;
+    color: #111;
+}
+
 .features {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 30px;
-  margin-top: 40px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
 }
 
-.feature-box, .pricing-box {
-  background: #F4F6F9;
-  padding: 25px;
-  border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+.feature-box {
+    background: #fff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.04);
 }
 
-/* FOOTER */
-.footer {
-  background-color: #1F2A44;
-  color: white;
-  padding: 40px 20px;
-  font-size: 14px;
+.pricing-box {
+    background: #fff;
+    padding: 40px;
+    border-radius: 14px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    text-align: center;
+    max-width: 500px;
+    margin: 0 auto;
 }
-.footer a { color: white; text-decoration: underline; }
+
+footer {
+    background: #111827;
+    color: #fff;
+    text-align: center;
+    padding: 40px 20px;
+}
+
+footer a {
+    color: #93c5fd;
+    text-decoration: none;
+}
 </style>
 </head>
 
 <body>
-<div class="header">
-  <div class="container">
-    <div class="header-logo">ReceptionPoint</div>
-    <a href="https://buy.stripe.com/8x214mbC5gOq9tjcQq9AA01" class="header-button" target="_blank">Get Started</a>
-  </div>
-</div>
 
-<!-- HERO -->
+<header>
+    <div class="nav">
+        <div class="logo">ReceptionPoint</div>
+        <a href="https://buy.stripe.com/8x214mbC5gOq9tjcQq9AA01" class="cta-btn">Get Started</a>
+    </div>
+</header>
+
 <section class="hero">
-  <div class="container">
-    <h1>Never Miss Another Customer Enquiry</h1>
-    <p>ReceptionPoint acts as your 24/7 virtual reception team — capturing bookings and enquiries even when you're busy or offline.</p>
-    
-    <!-- Chatbot -->
-    <div class="chatbot-mockup" id="chatbot"></div>
-
-    <a href="https://buy.stripe.com/8x214mbC5gOq9tjcQq9AA01" class="button" target="_blank">Get Started</a>
-    <p style="font-size:14px; margin-top:5px; color:#FFFFFF;">
-      After payment, fill in your business details: 
-      <a href="https://forms.gle/2P3ALc9TFZ9oAzkFA" target="_blank" style="color:#FFFFFF;">Submit Details</a>
-    </p>
-  </div>
-</section>
-
-<!-- PROBLEM -->
-<section class="alt-section">
-  <div class="container">
-    <h2>Is This Familiar?</h2>
-    <p>Missing enquiries after hours? Losing bookings while you're busy? Spending time answering the same customer questions repeatedly?</p>
-    <p>Every missed enquiry could be lost revenue.</p>
-  </div>
-</section>
-
-<!-- SOLUTION -->
-<section>
-  <div class="container">
-    <h2>How ReceptionPoint Helps</h2>
-    <div class="features">
-      <div class="feature-box">
-        <h3>Always On</h3>
-        <p>Answers visitors 24/7 so you never miss an enquiry.</p>
-      </div>
-      <div class="feature-box">
-        <h3>Booking & Enquiries</h3>
-        <p>Handles appointments and common questions instantly.</p>
-      </div>
-      <div class="feature-box">
-        <h3>Smart Escalation</h3>
-        <p>Complex enquiries sent directly to your email.</p>
-      </div>
-      <div class="feature-box">
-        <h3>Fully Managed</h3>
-        <p>We set everything up for you in less than 7 days.</p>
-      </div>
+    <div class="container">
+        <h1>Your 24/7 Website Receptionist</h1>
+        <p>Answer customer questions instantly and guide visitors to your existing booking page — even when you're busy or closed.</p>
+        <a href="https://buy.stripe.com/8x214mbC5gOq9tjcQq9AA01" class="cta-btn">Get Started</a>
     </div>
-  </div>
 </section>
 
-<!-- PRICING -->
-<section class="alt-section">
-  <div class="container">
-    <h2>Simple, Transparent Pricing</h2>
-    <div class="pricing-box">
-      <h3>Setup Fee: £200</h3>
-      <h3>Monthly Fee: £75</h3>
-      <p>No hidden costs. Fully managed service.</p>
+<section class="section-gray">
+    <div class="container">
+        <h2 style="text-align:center;">See How It Works</h2>
+        <div class="chat-box">
+
+            <div class="message customer">
+                <div class="avatar">C</div>
+                <div class="bubble">What times are you open?</div>
+            </div>
+
+            <div class="message bot">
+                <div class="avatar">RP</div>
+                <div class="bubble">Hi! We’re open Monday to Friday, 9am to 6pm. If you like, I can direct you to the booking page — would you like me to do that?</div>
+            </div>
+
+            <div class="message customer">
+                <div class="avatar">C</div>
+                <div class="bubble">Yes, please.</div>
+            </div>
+
+            <div class="message bot">
+                <div class="avatar">RP</div>
+                <div class="bubble">Great! Here’s the link to schedule your appointment.</div>
+            </div>
+
+            <div class="message customer">
+                <div class="avatar">C</div>
+                <div class="bubble">I might need something a bit different than the usual session.</div>
+            </div>
+
+            <div class="message bot">
+                <div class="avatar">RP</div>
+                <div class="bubble">No problem! Could you give me your name and email or phone number so our team can contact you?</div>
+            </div>
+
+            <div class="message customer">
+                <div class="avatar">C</div>
+                <div class="bubble">Sure, my name is John and my email is john@email.com.</div>
+            </div>
+
+            <div class="message bot">
+                <div class="avatar">RP</div>
+                <div class="bubble">Thanks, John! I’ll notify our team now so they can reach out to you shortly.</div>
+            </div>
+
+        </div>
     </div>
-  </div>
 </section>
 
-<!-- FINAL CTA -->
-<section>
-  <div class="container">
-    <h2>Ready to Never Miss Another Customer?</h2>
-    <p>Fill in your details and we’ll set up your virtual receptionist in under a week.</p>
-    <a href="https://buy.stripe.com/8x214mbC5gOq9tjcQq9AA01" class="button" target="_blank">Get Started</a>
-    <p style="font-size:14px; margin-top:5px;">
-      After payment, fill in your business details: 
-      <a href="https://forms.gle/2P3ALc9TFZ9oAzkFA" target="_blank">Submit Details</a>
-    </p>
-  </div>
+<section class="section-alt">
+    <div class="container">
+        <h2 style="text-align:center;">How It Works</h2>
+        <div class="features">
+
+            <div class="feature-box">
+                <h3>1. We Install It</h3>
+                <p>Your 24/7 website receptionist is installed on your website for you.</p>
+            </div>
+
+            <div class="feature-box">
+                <h3>2. It Answers Questions</h3>
+                <p>It responds instantly to common questions like opening hours, pricing and services.</p>
+            </div>
+
+            <div class="feature-box">
+                <h3>3. It Guides & Escalates</h3>
+                <p>It guides customers to your existing booking page. If someone needs something specific, it collects their contact details and notifies you directly.</p>
+            </div>
+
+        </div>
+    </div>
 </section>
 
-<!-- FOOTER -->
-<section class="footer">
-  <div class="container">
-    <p>© 2026 ReceptionPoint. All rights reserved.</p>
-    <p><a href="mailto:receptionpointinfo@gmail.com">receptionpointinfo@gmail.com</a></p>
-  </div>
+<section class="section-gray">
+    <div class="container">
+        <h2 style="text-align:center;">Simple Pricing</h2>
+        <div class="pricing-box">
+            <h3>£200 Setup</h3>
+            <p>One-time installation and configuration.</p>
+            <h3>£75 / month</h3>
+            <p>Your 24/7 website receptionist.</p>
+            <br>
+            <a href="https://buy.stripe.com/8x214mbC5gOq9tjcQq9AA01" class="cta-btn">Get Started</a>
+            <p style="margin-top:15px; color:#555;">Cancel anytime via your secure customer portal.</p>
+        </div>
+    </div>
 </section>
 
-<script>
-const messages = [
-  { type: 'user', text: 'Hi, I’d like to book an appointment.' },
-  { type: 'ai', text: 'Hello! Sure, what day and time works for you?' },
-  { type: 'user', text: 'Tomorrow morning, please.' },
-  { type: 'ai', text: 'Perfect! I’ve booked your appointment for tomorrow morning.' }
-];
-
-const avatars = {
-  ai: 'https://i.imgur.com/4AiXzf8.png',
-  user: 'https://i.imgur.com/8Km9tLL.png'
-};
-
-const chatContainer = document.getElementById('chatbot');
-let index = 0;
-
-function showMessage() {
-  if(index >= messages.length) return;
-
-  const msg = messages[index];
-
-  if(msg.type === 'ai') {
-    const typingWrapper = document.createElement('div');
-    typingWrapper.className = 'typing-wrapper';
-    const typing = document.createElement('div');
-    typing.className = 'typing';
-    for(let i=0;i<3;i++){
-      const dot = document.createElement('div');
-      dot.className = 'typing-dot';
-      typing.appendChild(dot);
-    }
-    typingWrapper.appendChild(typing);
-    chatContainer.appendChild(typingWrapper);
-    chatContainer.scrollTop = chatContainer.scrollHeight;
-
-    setTimeout(() => {
-      chatContainer.removeChild(typingWrapper);
-      appendMessage(msg);
-    }, 1200);
-  } else {
-    appendMessage(msg);
-  }
-  index++;
-  setTimeout(showMessage, 1800);
-}
-
-function appendMessage(msg){
-  const wrapper = document.createElement('div');
-  wrapper.className = `chat-bubble-wrapper ${msg.type}`;
-  
-  const avatar = document.createElement('img');
-  avatar.src = avatars[msg.type];
-  avatar.className = 'chat-avatar';
-  
-  const bubble = document.createElement('div');
-  bubble.className = `chat-bubble ${msg.type}`;
-  bubble.textContent = msg.text;
-
-  if(msg.type === 'user'){
-    wrapper.appendChild(avatar);
-    wrapper.appendChild(bubble);
-  } else {
-    wrapper.appendChild(bubble);
-    wrapper.appendChild(avatar);
-  }
-
-  chatContainer.appendChild(wrapper);
-  chatContainer.scrollTop = chatContainer.scrollHeight;
-}
-
-showMessage();
-</script>
+<footer>
+    <p>ReceptionPoint</p>
+    <p>Contact: <a href="mailto:receptionpointinfo@gmail.com">receptionpointinfo@gmail.com</a></p>
+</footer>
 
 </body>
 </html>
