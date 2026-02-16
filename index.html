@@ -94,26 +94,36 @@ section {
   background: white;
   border-radius: 15px;
   box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-  padding: 15px;
-  font-family: Arial, sans-serif;
-  overflow-y: auto;
   display: flex;
   flex-direction: column;
+  overflow: hidden; /* clip messages area */
+  font-family: Arial, sans-serif;
   position: relative;
 }
 
-/* Chat input inside chatbot */
-.chat-input {
-  position: sticky;
-  bottom: 0;
-  width: calc(100% - 30px);
-  margin: 0 auto;
+/* Scrollable messages area */
+.chat-messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Chat input at bottom */
+.chat-input-container {
+  padding: 8px 15px;
+  border-top: 1px solid #ccc;
+  background: #fff;
+}
+
+.chat-input-container input {
+  width: 100%;
   padding: 8px 12px;
   border: 1px solid #ccc;
   border-radius: 15px;
   font-size: 14px;
   outline: none;
-  margin-top: auto;
 }
 
 /* Bubble wrapper */
@@ -196,7 +206,10 @@ section {
     <p>ReceptionPoint acts as your 24/7 virtual reception team — capturing bookings and enquiries even when you're busy or offline.</p>
     
     <div class="chatbot-mockup" id="chatbot">
-      <input class="chat-input" type="text" placeholder="Type here..." disabled>
+      <div class="chat-messages" id="chat-messages"></div>
+      <div class="chat-input-container">
+        <input class="chat-input" type="text" placeholder="Type here..." disabled>
+      </div>
     </div>
 
     <a href="https://buy.stripe.com/8x214mbC5gOq9tjcQq9AA01" class="button" target="_blank">Get Started</a>
@@ -286,12 +299,13 @@ const avatars = {
   user: 'https://i.imgur.com/8Km9tLL.png'
 };
 
-const chatContainer = document.getElementById('chatbot');
+const chatMessages = document.getElementById('chat-messages');
+
 let index = 0;
 
 function scrollToBottom() {
-  chatContainer.scrollTo({
-    top: chatContainer.scrollHeight,
+  chatMessages.scrollTo({
+    top: chatMessages.scrollHeight,
     behavior: 'smooth'
   });
 }
@@ -300,7 +314,6 @@ function showMessage() {
   if (index >= messages.length) return;
 
   const msg = messages[index];
-  const inputBox = document.querySelector('.chat-input');
 
   if (msg.type === 'ai') {
     const typingWrapper = document.createElement('div');
@@ -313,11 +326,11 @@ function showMessage() {
       typing.appendChild(dot);
     }
     typingWrapper.appendChild(typing);
-    chatContainer.insertBefore(typingWrapper, inputBox); // Insert above sticky input
+    chatMessages.appendChild(typingWrapper);
     scrollToBottom();
 
     setTimeout(() => {
-      chatContainer.removeChild(typingWrapper);
+      chatMessages.removeChild(typingWrapper);
       appendMessage(msg);
     }, 1200);
   } else {
@@ -348,8 +361,7 @@ function appendMessage(msg) {
     wrapper.appendChild(avatar);
   }
 
-  const inputBox = document.querySelector('.chat-input');
-  chatContainer.insertBefore(wrapper, inputBox); // Insert above sticky input
+  chatMessages.appendChild(wrapper);
   scrollToBottom();
 }
 
