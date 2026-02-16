@@ -300,22 +300,20 @@ function showMessage() {
   if (index >= messages.length) return;
 
   const msg = messages[index];
+  const inputBox = document.querySelector('.chat-input');
 
   if (msg.type === 'ai') {
     const typingWrapper = document.createElement('div');
     typingWrapper.className = 'typing-wrapper';
-
     const typing = document.createElement('div');
     typing.className = 'typing';
-
     for (let i = 0; i < 3; i++) {
       const dot = document.createElement('div');
       dot.className = 'typing-dot';
       typing.appendChild(dot);
     }
-
     typingWrapper.appendChild(typing);
-    chatContainer.appendChild(typingWrapper);
+    chatContainer.insertBefore(typingWrapper, inputBox); // Insert above input
     scrollToBottom();
 
     setTimeout(() => {
@@ -340,7 +338,7 @@ function appendMessage(msg) {
 
   const bubble = document.createElement('div');
   bubble.className = `chat-bubble ${msg.type}`;
-  bubble.innerHTML = msg.text; // render links
+  bubble.innerHTML = msg.text;
 
   if (msg.type === 'user') {
     wrapper.appendChild(avatar);
@@ -350,10 +348,8 @@ function appendMessage(msg) {
     wrapper.appendChild(avatar);
   }
 
-  // Insert above the input box
   const inputBox = document.querySelector('.chat-input');
-  chatContainer.insertBefore(wrapper, inputBox);
-
+  chatContainer.insertBefore(wrapper, inputBox); // Insert above input
   scrollToBottom();
 }
 
