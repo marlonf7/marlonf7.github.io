@@ -115,10 +115,13 @@ section {
   padding: 8px 15px;
   border-top: 1px solid #ccc;
   background: #fff;
+  box-sizing: border-box; /* ensure it fits inside container */
 }
 
 .chat-input-container input {
   width: 100%;
+  max-width: 100%;
+  box-sizing: border-box; /* prevent overflow */
   padding: 8px 12px;
   border: 1px solid #ccc;
   border-radius: 15px;
