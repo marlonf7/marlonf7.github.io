@@ -313,7 +313,7 @@ function showMessage() {
       typing.appendChild(dot);
     }
     typingWrapper.appendChild(typing);
-    chatContainer.insertBefore(typingWrapper, inputBox); // Insert above input
+    chatContainer.insertBefore(typingWrapper, inputBox); // Insert above sticky input
     scrollToBottom();
 
     setTimeout(() => {
@@ -349,7 +349,7 @@ function appendMessage(msg) {
   }
 
   const inputBox = document.querySelector('.chat-input');
-  chatContainer.insertBefore(wrapper, inputBox); // Insert above input
+  chatContainer.insertBefore(wrapper, inputBox); // Insert above sticky input
   scrollToBottom();
 }
 
