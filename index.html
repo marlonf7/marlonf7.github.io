@@ -116,17 +116,29 @@ section {
   border-top: 1px solid #ccc;
   background: #fff;
   box-sizing: border-box; /* ensure it fits inside container */
+  display: flex;
+  gap: 8px;
+  align-items: center;
 }
 
 .chat-input-container input {
-  width: 100%;
-  max-width: 100%;
-  box-sizing: border-box; /* prevent overflow */
+  flex: 1;
   padding: 8px 12px;
   border: 1px solid #ccc;
   border-radius: 15px;
   font-size: 14px;
   outline: none;
+}
+
+/* Fake send button */
+.chat-input-container button {
+  padding: 8px 15px;
+  background-color: #2F6BFF;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-weight: bold;
+  cursor: pointer;
 }
 
 /* Bubble wrapper */
@@ -212,6 +224,7 @@ section {
       <div class="chat-messages" id="chat-messages"></div>
       <div class="chat-input-container">
         <input class="chat-input" type="text" placeholder="Type here..." disabled>
+        <button disabled>Send</button>
       </div>
     </div>
 
@@ -226,8 +239,8 @@ section {
 <section class="alt-section">
   <div class="container">
     <h2>Is This Familiar?</h2>
-    <p>Do you often miss enquiries after hours? Lose bookings when you're busy? Or spend too much time answering the same questions over and over?</p>
-    <p>ReceptionPoint ensures every visitor is answered quickly and guided to the right action — so you never miss another opportunity.</p>
+    <p>Do you often miss enquiries after hours? Lose bookings when you're busy? Or spend too much time answering the same questions repeatedly?</p>
+    <p>ReceptionPoint makes sure every visitor gets a quick response and is guided to the right action — so you never miss another opportunity.</p>
   </div>
 </section>
 
