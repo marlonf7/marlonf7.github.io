@@ -131,13 +131,15 @@ section {
 
 .chat-input-container button {
   padding: 8px 15px;
-  background-color: #ccc; /* greyed out to show uninteractive */
-  color: #666;
+  background-color: #2F6BFF; /* blue button */
+  color: white;
   border: none;
   border-radius: 15px;
   font-weight: bold;
-  cursor: not-allowed;
+  cursor: not-allowed;  /* shows it's not clickable */
+  pointer-events: none; /* disables clicking */
 }
+
 
 /* Bubble wrapper */
 .chat-bubble-wrapper {
