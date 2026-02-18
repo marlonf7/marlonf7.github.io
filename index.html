@@ -116,12 +116,10 @@ section {
   border-top: 1px solid #ccc;
   background: #fff;
   box-sizing: border-box; /* ensure it fits inside container */
-  display: flex;
-  gap: 8px;
 }
 
 .chat-input-container input {
-  flex: 1;
+  width: 100%;
   max-width: 100%;
   box-sizing: border-box; /* prevent overflow */
   padding: 8px 12px;
@@ -129,16 +127,6 @@ section {
   border-radius: 15px;
   font-size: 14px;
   outline: none;
-}
-
-.chat-input-container button {
-  padding: 8px 12px;
-  background-color: #2F6BFF;
-  border: none;
-  border-radius: 15px;
-  color: white;
-  font-weight: bold;
-  cursor: pointer;
 }
 
 /* Bubble wrapper */
@@ -218,13 +206,12 @@ section {
 <section class="hero">
   <div class="container">
     <h1>Never Miss Another Customer Enquiry</h1>
-    <p>ReceptionPoint acts as your 24/7 virtual reception team — instantly answering common questions, guiding visitors to your booking page, and escalating complex enquiries to your team.</p>
+    <p>ReceptionPoint acts as your 24/7 virtual reception team — capturing bookings and enquiries even when you're busy or offline.</p>
     
     <div class="chatbot-mockup" id="chatbot">
       <div class="chat-messages" id="chat-messages"></div>
       <div class="chat-input-container">
         <input class="chat-input" type="text" placeholder="Type here..." disabled>
-        <button>Send</button>
       </div>
     </div>
 
@@ -239,8 +226,7 @@ section {
 <section class="alt-section">
   <div class="container">
     <h2>Is This Familiar?</h2>
-    <p>Frustrated by unanswered enquiries after hours? Losing bookings while juggling a busy schedule? Tired of answering the same customer questions repeatedly?</p>
-    <p>Every missed enquiry is a missed opportunity to grow your business. Imagine a virtual receptionist that instantly answers common questions, guides visitors to your booking page, and escalates complex enquiries straight to your team — 24/7, without lifting a finger.</p>
+    <p>Missing enquiries after hours or spending time answering the same questions?</p>
   </div>
 </section>
 
