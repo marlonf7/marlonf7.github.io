@@ -191,33 +191,24 @@ section {
   margin-top: 40px;
 }
 
-.feature-box, .pricing-box {
+.feature-box, .pricing-box, .familiar-box {
   background: #F4F6F9;
   padding: 25px;
   border-radius: 12px;
   box-shadow: 0 8px 20px rgba(0,0,0,0.05);
-  text-align: center;
+  transition: transform 0.2s, box-shadow 0.2s;
 }
 
-.feature-box i, .is-familiar-box i {
+.feature-box:hover, .familiar-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+}
+
+.feature-box i, .familiar-box i {
   font-size: 36px;
-  margin-bottom: 15px;
   color: #2F6BFF;
-}
-
-.is-familiar-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 30px;
-  margin-top: 40px;
-}
-
-.is-familiar-box {
-  background: #F4F6F9;
-  padding: 25px;
-  border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.05);
-  text-align: center;
+  margin-bottom: 15px;
+  display: block;
 }
 
 /* FOOTER */
@@ -229,10 +220,8 @@ section {
 }
 .footer a { color: white; text-decoration: underline; }
 </style>
-
 <!-- Font Awesome for icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 </head>
 
 <body>
@@ -267,21 +256,18 @@ section {
 <section class="alt-section">
   <div class="container">
     <h2>Is This Familiar?</h2>
-    <div class="is-familiar-container">
-      <div class="is-familiar-box">
-        <i class="fas fa-clock"></i>
-        <h3>Missed Enquiries</h3>
-        <p>Messages left unanswered after hours.</p>
+    <div class="features">
+      <div class="familiar-box">
+        <i class="fa-solid fa-clock"></i>
+        <p>Do you often miss enquiries after hours?</p>
       </div>
-      <div class="is-familiar-box">
-        <i class="fas fa-person-walking"></i>
-        <h3>Lost Bookings</h3>
-        <p>Visitors leave without finding your booking link.</p>
+      <div class="familiar-box">
+        <i class="fa-solid fa-person-walking-arrow-right"></i>
+        <p>Do visitors leave without finding answers or your booking link?</p>
       </div>
-      <div class="is-familiar-box">
-        <i class="fas fa-repeat"></i>
-        <h3>Repeating Questions</h3>
-        <p>Answering the same queries repeatedly wastes time.</p>
+      <div class="familiar-box">
+        <i class="fa-solid fa-repeat"></i>
+        <p>Do you spend time repeatedly answering the same questions?</p>
       </div>
     </div>
   </div>
@@ -292,18 +278,22 @@ section {
     <h2>How ReceptionPoint Helps</h2>
     <div class="features">
       <div class="feature-box">
+        <i class="fa-solid fa-headset"></i>
         <h3>Always On</h3>
         <p>ReceptionPoint answers visitors 24/7 so you never miss an enquiry.</p>
       </div>
       <div class="feature-box">
+        <i class="fa-solid fa-link"></i>
         <h3>Instant Guidance</h3>
         <p>It provides visitors with your booking link immediately, saving time.</p>
       </div>
       <div class="feature-box">
+        <i class="fa-solid fa-bolt"></i>
         <h3>Smart Escalation</h3>
         <p>Complex enquiries are flagged and sent directly to your team for follow-up.</p>
       </div>
       <div class="feature-box">
+        <i class="fa-solid fa-cogs"></i>
         <h3>Fully Managed</h3>
         <p>We handle setup and ensure your virtual reception runs smoothly.</p>
       </div>
