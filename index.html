@@ -131,16 +131,12 @@ section {
 
 .chat-input-container button {
   padding: 8px 15px;
-  background-color: #2F6BFF;
-  color: white;
+  background-color: #ccc; /* greyed out to show uninteractive */
+  color: #666;
   border: none;
   border-radius: 15px;
   font-weight: bold;
-  cursor: pointer;
-}
-
-.chat-input-container button:hover {
-  background-color: #1c4ed8;
+  cursor: not-allowed;
 }
 
 /* Bubble wrapper */
@@ -199,7 +195,7 @@ section {
   transition: transform 0.3s, box-shadow 0.3s;
 }
 
-.feature-box:hover {
+.feature-box:hover, .pricing-box:hover {
   transform: translateY(-5px);
   box-shadow: 0 12px 25px rgba(0,0,0,0.15);
 }
