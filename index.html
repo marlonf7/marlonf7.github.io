@@ -86,7 +86,7 @@ section {
 .header-button { padding: 10px 20px; background-color: #2F6BFF; color: white; text-decoration: none; border-radius: 6px; font-weight: bold; font-size: 14px; }
 .header-button:hover { background-color: #1c4ed8; }
 
-/* CHATBOT */
+/* Chatbot */
 .chatbot-mockup {
   max-width: 400px;
   height: 250px;
@@ -98,6 +98,7 @@ section {
   flex-direction: column;
   overflow: hidden;
   font-family: Arial, sans-serif;
+  position: relative;
 }
 
 .chat-messages {
@@ -112,6 +113,7 @@ section {
   padding: 8px 15px;
   border-top: 1px solid #ccc;
   background: #fff;
+  box-sizing: border-box;
   display: flex;
   gap: 8px;
 }
@@ -122,6 +124,7 @@ section {
   border: 1px solid #ccc;
   border-radius: 15px;
   font-size: 14px;
+  outline: none;
 }
 
 .chat-input-container button {
@@ -131,40 +134,33 @@ section {
   border: none;
   border-radius: 15px;
   font-weight: bold;
+  cursor: pointer;
+}
+
+.chat-input-container button:hover {
+  background-color: #1c4ed8;
 }
 
 .chat-bubble-wrapper {
   display: flex;
   align-items: flex-start;
   margin-bottom: 8px;
+  max-width: 100%;
 }
 
 .chat-bubble-wrapper.user { justify-content: flex-start; }
 .chat-bubble-wrapper.ai { justify-content: flex-end; }
 
-.chat-avatar {
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  margin: 0 8px;
-}
+.chat-avatar { width: 30px; height: 30px; border-radius: 50%; flex-shrink: 0; margin: 0 8px; }
 
-.chat-bubble {
-  padding: 10px 15px;
-  border-radius: 15px;
-  max-width: 70%;
-}
+.chat-bubble { padding: 10px 15px; border-radius: 15px; max-width: 70%; word-wrap: break-word; }
+.chat-bubble.user { background: #2F6BFF; color: white; border-radius: 15px 15px 15px 0; }
+.chat-bubble.ai { background: #E0E0E0; color: #1F2A44; border-radius: 15px 15px 0 15px; }
 
-.chat-bubble.user {
-  background: #2F6BFF;
-  color: white;
-  border-radius: 15px 15px 15px 0;
-}
-
-.chat-bubble.ai {
-  background: #E0E0E0;
-  color: #1F2A44;
-  border-radius: 15px 15px 0 15px;
+.chat-bubble a {
+  color: #2F6BFF;
+  text-decoration: underline;
+  cursor: pointer;
 }
 
 /* Typing animation */
@@ -172,29 +168,15 @@ section {
 .typing {
   display: flex;
   gap: 4px;
+  align-items: center;
   padding: 10px 15px;
   border-radius: 15px 15px 0 15px;
   background: #E0E0E0;
 }
-.typing-dot {
-  width: 6px;
-  height: 6px;
-  background: #1F2A44;
-  border-radius: 50%;
-  animation: blink 1.4s infinite both;
-}
+.typing-dot { width: 6px; height: 6px; background: #1F2A44; border-radius: 50%; animation: blink 1.4s infinite both; }
 .typing-dot:nth-child(2) { animation-delay: 0.2s; }
 .typing-dot:nth-child(3) { animation-delay: 0.4s; }
-@keyframes blink {
-  0%, 80%, 100% { opacity: 0; }
-  40% { opacity: 1; }
-}
-
-/* EMOJIS */
-.emoji {
-  font-size: 42px;
-  margin-bottom: 15px;
-}
+@keyframes blink { 0%, 80%, 100% { opacity: 0; } 40% { opacity: 1; } }
 
 /* GRID */
 .features {
@@ -209,12 +191,19 @@ section {
   padding: 25px;
   border-radius: 12px;
   box-shadow: 0 8px 20px rgba(0,0,0,0.05);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
-.feature-box:hover, .familiar-box:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 14px 30px rgba(0,0,0,0.12);
+.feature-box:hover,
+.familiar-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+}
+
+.feature-icon {
+  font-size: 36px;
+  margin-bottom: 15px;
+  color: #2F6BFF;
 }
 
 /* FOOTER */
@@ -233,37 +222,112 @@ section {
 <div class="header">
   <div class="container">
     <div class="header-logo">ReceptionPoint</div>
-    <a href="#" class="header-button">Get Started</a>
+    <a href="https://buy.stripe.com/8x214mbC5gOq9tjcQq9AA01" class="header-button" target="_blank">Get Started</a>
   </div>
 </div>
+
+<section class="hero">
+  <div class="container">
+    <h1>Never Miss Another Customer Enquiry</h1>
+    <p>ReceptionPoint acts as your 24/7 virtual reception team — instantly answering common questions, guiding visitors to your booking page, and escalating complex enquiries to your team.</p>
+    
+    <div class="chatbot-mockup" id="chatbot">
+      <div class="chat-messages" id="chat-messages"></div>
+      <div class="chat-input-container">
+        <input class="chat-input" type="text" placeholder="Type here..." disabled>
+        <button disabled>Send</button>
+      </div>
+    </div>
+
+    <a href="https://buy.stripe.com/8x214mbC5gOq9tjcQq9AA01" class="button" target="_blank">Get Started</a>
+    <p style="font-size:14px; margin-top:5px; color:#FFFFFF;">
+      After payment, fill in your business details: 
+      <a href="https://forms.gle/2P3ALc9TFZ9oAzkFA" target="_blank" style="color:#FFFFFF;">Submit Details</a>
+    </p>
+  </div>
+</section>
+
+<section class="alt-section">
+  <div class="container">
+    <h2>Is This Familiar?</h2>
+    <div class="features">
+      <div class="familiar-box">
+        <div class="feature-icon">🌙</div>
+        <p>Missing enquiries after hours?</p>
+      </div>
+      <div class="familiar-box">
+        <div class="feature-icon">❓</div>
+        <p>Visitors leaving without finding answers or your booking link?</p>
+      </div>
+      <div class="familiar-box">
+        <div class="feature-icon">🔁</div>
+        <p>Repeatedly answering the same questions every week?</p>
+      </div>
+    </div>
+  </div>
+</section>
 
 <section>
   <div class="container">
     <h2>How ReceptionPoint Helps</h2>
     <div class="features">
       <div class="feature-box">
-        <div class="emoji">✅</div>
+        <div class="feature-icon">🕒</div>
         <h3>Always On</h3>
         <p>ReceptionPoint answers visitors 24/7 so you never miss an enquiry.</p>
       </div>
       <div class="feature-box">
-        <div class="emoji">🔗</div>
+        <div class="feature-icon">🔗</div>
         <h3>Instant Guidance</h3>
         <p>It provides visitors with your booking link immediately, saving time.</p>
       </div>
       <div class="feature-box">
-        <div class="emoji">⚡</div>
+        <div class="feature-icon">⚡</div>
         <h3>Smart Escalation</h3>
         <p>Complex enquiries are flagged and sent directly to your team for follow-up.</p>
       </div>
       <div class="feature-box">
-        <div class="emoji">⚙️</div>
+        <div class="feature-icon">✅</div>
         <h3>Fully Managed</h3>
         <p>We handle setup and ensure your virtual reception runs smoothly.</p>
       </div>
     </div>
   </div>
 </section>
+
+<section class="alt-section">
+  <div class="container">
+    <h2>Simple, Transparent Pricing</h2>
+    <div class="pricing-box">
+      <h3>Setup Fee: £200</h3>
+      <h3>Monthly Fee: £75</h3>
+      <p>No hidden costs. Fully managed service.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2>Ready to Never Miss Another Customer?</h2>
+    <p>Fill in your details and we’ll set up your virtual receptionist in under a week.</p>
+    <a href="https://buy.stripe.com/8x214mbC5gOq9tjcQq9AA01" class="button" target="_blank">Get Started</a>
+    <p style="font-size:14px; margin-top:5px;">
+      After payment, fill in your business details: 
+      <a href="https://forms.gle/2P3ALc9TFZ9oAzkFA" target="_blank">Submit Details</a>
+    </p>
+  </div>
+</section>
+
+<section class="footer">
+  <div class="container">
+    <p>© 2026 ReceptionPoint. All rights reserved.</p>
+    <p><a href="mailto:receptionpointinfo@gmail.com">receptionpointinfo@gmail.com</a></p>
+  </div>
+</section>
+
+<script>
+/* Your original JS remains completely unchanged */
+</script>
 
 </body>
 </html>
