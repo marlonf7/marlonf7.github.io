@@ -112,16 +112,18 @@ section {
 
 /* Chat input at bottom */
 .chat-input-container {
-  display: flex;
   padding: 8px 15px;
   border-top: 1px solid #ccc;
   background: #fff;
   box-sizing: border-box; /* ensure it fits inside container */
+  display: flex;
   gap: 8px;
 }
 
 .chat-input-container input {
   flex: 1;
+  max-width: 100%;
+  box-sizing: border-box; /* prevent overflow */
   padding: 8px 12px;
   border: 1px solid #ccc;
   border-radius: 15px;
@@ -129,19 +131,14 @@ section {
   outline: none;
 }
 
-/* Fake send button */
-.chat-send-button {
-  padding: 8px 15px;
+.chat-input-container button {
+  padding: 8px 12px;
   background-color: #2F6BFF;
-  color: white;
   border: none;
-  border-radius: 12px;
+  border-radius: 15px;
+  color: white;
   font-weight: bold;
   cursor: pointer;
-}
-
-.chat-send-button:hover {
-  background-color: #1c4ed8;
 }
 
 /* Bubble wrapper */
@@ -221,13 +218,13 @@ section {
 <section class="hero">
   <div class="container">
     <h1>Never Miss Another Customer Enquiry</h1>
-    <p>ReceptionPoint acts as your 24/7 virtual reception team — it answers customer questions instantly, directs visitors to your existing booking page, and escalates complex enquiries to your team when needed, even while you’re busy or offline.</p>
+    <p>ReceptionPoint acts as your 24/7 virtual reception team — instantly answering common questions, guiding visitors to your booking page, and escalating complex enquiries to your team.</p>
     
     <div class="chatbot-mockup" id="chatbot">
       <div class="chat-messages" id="chat-messages"></div>
       <div class="chat-input-container">
         <input class="chat-input" type="text" placeholder="Type here..." disabled>
-        <button class="chat-send-button">Send</button>
+        <button>Send</button>
       </div>
     </div>
 
@@ -242,8 +239,8 @@ section {
 <section class="alt-section">
   <div class="container">
     <h2>Is This Familiar?</h2>
-    <p>Missing enquiries after hours? Losing bookings while you're busy? Spending time answering the same customer questions repeatedly?</p>
-    <p>Every missed enquiry could be lost revenue.</p>
+    <p>Frustrated by unanswered enquiries after hours? Losing bookings while juggling a busy schedule? Tired of answering the same customer questions repeatedly?</p>
+    <p>Every missed enquiry is a missed opportunity to grow your business. Imagine a virtual receptionist that instantly answers common questions, guides visitors to your booking page, and escalates complex enquiries straight to your team — 24/7, without lifting a finger.</p>
   </div>
 </section>
 
