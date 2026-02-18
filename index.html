@@ -112,21 +112,36 @@ section {
 
 /* Chat input at bottom */
 .chat-input-container {
+  display: flex;
   padding: 8px 15px;
   border-top: 1px solid #ccc;
   background: #fff;
   box-sizing: border-box; /* ensure it fits inside container */
+  gap: 8px;
 }
 
 .chat-input-container input {
-  width: 100%;
-  max-width: 100%;
-  box-sizing: border-box; /* prevent overflow */
+  flex: 1;
   padding: 8px 12px;
   border: 1px solid #ccc;
   border-radius: 15px;
   font-size: 14px;
   outline: none;
+}
+
+/* Fake send button */
+.chat-send-button {
+  padding: 8px 15px;
+  background-color: #2F6BFF;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.chat-send-button:hover {
+  background-color: #1c4ed8;
 }
 
 /* Bubble wrapper */
@@ -212,6 +227,7 @@ section {
       <div class="chat-messages" id="chat-messages"></div>
       <div class="chat-input-container">
         <input class="chat-input" type="text" placeholder="Type here..." disabled>
+        <button class="chat-send-button">Send</button>
       </div>
     </div>
 
