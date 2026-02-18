@@ -118,7 +118,6 @@ section {
   box-sizing: border-box; /* ensure it fits inside container */
   display: flex;
   gap: 8px;
-  align-items: center;
 }
 
 .chat-input-container input {
@@ -130,15 +129,18 @@ section {
   outline: none;
 }
 
-/* Fake send button */
 .chat-input-container button {
   padding: 8px 15px;
   background-color: #2F6BFF;
   color: white;
   border: none;
-  border-radius: 12px;
+  border-radius: 15px;
   font-weight: bold;
   cursor: pointer;
+}
+
+.chat-input-container button:hover {
+  background-color: #1c4ed8;
 }
 
 /* Bubble wrapper */
@@ -239,8 +241,9 @@ section {
 <section class="alt-section">
   <div class="container">
     <h2>Is This Familiar?</h2>
-    <p>Do you often miss enquiries after hours? Lose bookings when you're busy? Or spend too much time answering the same questions repeatedly?</p>
-    <p>ReceptionPoint makes sure every visitor gets a quick response and is guided to the right action — so you never miss another opportunity.</p>
+    <p>Do you often miss enquiries after hours?</p>
+    <p>Do visitors leave without finding answers or your booking link?</p>
+    <p>Do you spend time repeatedly answering the same questions?</p>
   </div>
 </section>
 
@@ -250,19 +253,19 @@ section {
     <div class="features">
       <div class="feature-box">
         <h3>Always On</h3>
-        <p>Answers visitors 24/7 so you never miss an enquiry.</p>
+        <p>ReceptionPoint answers visitors 24/7 so you never miss an enquiry.</p>
       </div>
       <div class="feature-box">
-        <h3>Booking & Enquiries</h3>
-        <p>Handles appointments and common questions instantly.</p>
+        <h3>Instant Guidance</h3>
+        <p>It provides visitors with your booking link immediately, saving time.</p>
       </div>
       <div class="feature-box">
         <h3>Smart Escalation</h3>
-        <p>Complex enquiries sent directly to your email.</p>
+        <p>Complex enquiries are flagged and sent directly to your team for follow-up.</p>
       </div>
       <div class="feature-box">
         <h3>Fully Managed</h3>
-        <p>We set everything up for you in less than 7 days.</p>
+        <p>We handle setup and ensure your virtual reception runs smoothly.</p>
       </div>
     </div>
   </div>
