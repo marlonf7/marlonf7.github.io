@@ -116,6 +116,8 @@ section {
   border-top: 1px solid #ccc;
   background: #fff;
   box-sizing: border-box; /* ensure it fits inside container */
+  display: flex;
+  gap: 6px;
 }
 
 .chat-input-container input {
@@ -127,6 +129,18 @@ section {
   border-radius: 15px;
   font-size: 14px;
   outline: none;
+}
+
+/* Fake send button */
+.chat-input-container button {
+  padding: 8px 12px;
+  background-color: #2F6BFF;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
 }
 
 /* Bubble wrapper */
@@ -206,12 +220,13 @@ section {
 <section class="hero">
   <div class="container">
     <h1>Never Miss Another Customer Enquiry</h1>
-    <p>ReceptionPoint acts as your 24/7 virtual reception team — capturing bookings and enquiries even when you're busy or offline.</p>
+    <p>ReceptionPoint acts as your 24/7 virtual reception team — instantly answering common questions, guiding visitors to your booking page, and escalating complex enquiries to your team.</p>
     
     <div class="chatbot-mockup" id="chatbot">
       <div class="chat-messages" id="chat-messages"></div>
       <div class="chat-input-container">
         <input class="chat-input" type="text" placeholder="Type here..." disabled>
+        <button disabled>Send</button>
       </div>
     </div>
 
@@ -226,7 +241,7 @@ section {
 <section class="alt-section">
   <div class="container">
     <h2>Is This Familiar?</h2>
-    <p>Missing enquiries after hours or spending time answering the same questions?</p>
+    <p>Missing enquiries after hours? Losing bookings while you're busy? Spending time answering the same customer questions repeatedly?</p>
   </div>
 </section>
 
