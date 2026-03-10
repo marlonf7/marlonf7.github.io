@@ -1,218 +1,241 @@
 (function () {
-  const scriptTag = document.currentScript;
-  const clientId = scriptTag.getAttribute("data-client-id");
-  const apiBase = "https://receptionpoint-backend.vercel.app/api/chat";
 
-  if (!clientId) {
-    console.error("ReceptionPoint widget error: missing data-client-id");
-    return;
-  }
+const clientId = document.currentScript.getAttribute("data-client-id");
+const API_URL = "https://receptionpoint-backend.vercel.app/api/chat";
 
-  let sessionId = null;
+let sessionId = null;
 
-  // Styles
-  const style = document.createElement("style");
-  style.innerHTML = `
-    #rp-chat-button {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      border: none;
-      background: #111827;
-      color: white;
-      font-size: 24px;
-      cursor: pointer;
-      z-index: 999999;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.2);
-    }
+/* ---------- STYLES ---------- */
 
-    #rp-chat-window {
-      position: fixed;
-      bottom: 90px;
-      right: 20px;
-      width: 340px;
-      max-width: calc(100vw - 20px);
-      height: 500px;
-      background: white;
-      border-radius: 16px;
-      box-shadow: 0 12px 32px rgba(0,0,0,0.2);
-      display: none;
-      flex-direction: column;
-      overflow: hidden;
-      z-index: 999999;
-      font-family: Arial, sans-serif;
-    }
+const style = document.createElement("style");
+style.innerHTML = `
 
-    #rp-chat-header {
-      background: #111827;
-      color: white;
-      padding: 14px 16px;
-      font-weight: bold;
-      font-size: 15px;
-    }
+#rp-widget-button{
+position:fixed;
+bottom:20px;
+right:20px;
+width:60px;
+height:60px;
+border-radius:50%;
+background:#2F6BFF;
+color:white;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:26px;
+cursor:pointer;
+box-shadow:0 6px 18px rgba(0,0,0,0.2);
+z-index:9999;
+}
 
-    #rp-chat-messages {
-      flex: 1;
-      padding: 12px;
-      overflow-y: auto;
-      background: #f9fafb;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
+#rp-widget{
+position:fixed;
+bottom:90px;
+right:20px;
+width:320px;
+height:420px;
+background:white;
+border-radius:14px;
+box-shadow:0 10px 35px rgba(0,0,0,0.2);
+display:none;
+flex-direction:column;
+overflow:hidden;
+font-family:Arial, sans-serif;
+z-index:9999;
+}
 
-    .rp-msg {
-      max-width: 80%;
-      padding: 10px 12px;
-      border-radius: 12px;
-      line-height: 1.4;
-      font-size: 14px;
-      white-space: pre-wrap;
-      word-wrap: break-word;
-    }
+#rp-header{
+background:#2F6BFF;
+color:white;
+padding:12px;
+font-weight:bold;
+text-align:center;
+}
 
-    .rp-user {
-      align-self: flex-end;
-      background: #111827;
-      color: white;
-    }
+#rp-messages{
+flex:1;
+padding:10px;
+overflow-y:auto;
+background:#F4F6F9;
+display:flex;
+flex-direction:column;
+gap:8px;
+}
 
-    .rp-bot {
-      align-self: flex-start;
-      background: #e5e7eb;
-      color: #111827;
-    }
+.rp-msg{
+padding:8px 12px;
+border-radius:10px;
+max-width:75%;
+font-size:14px;
+line-height:1.4;
+}
 
-    #rp-chat-input-wrap {
-      display: flex;
-      border-top: 1px solid #e5e7eb;
-      background: white;
-    }
+.rp-user{
+background:#2F6BFF;
+color:white;
+align-self:flex-end;
+}
 
-    #rp-chat-input {
-      flex: 1;
-      border: none;
-      padding: 12px;
-      font-size: 14px;
-      outline: none;
-    }
+.rp-bot{
+background:#E6EAF2;
+color:#1F2A44;
+align-self:flex-start;
+}
 
-    #rp-chat-send {
-      border: none;
-      background: #111827;
-      color: white;
-      padding: 0 16px;
-      cursor: pointer;
-    }
+.rp-link{
+color:#2F6BFF;
+font-weight:600;
+text-decoration:underline;
+}
 
-    #rp-chat-footer {
-      font-size: 11px;
-      color: #6b7280;
-      text-align: center;
-      padding: 6px 10px;
-      background: white;
-      border-top: 1px solid #f3f4f6;
-    }
+#rp-input-area{
+display:flex;
+border-top:1px solid #eee;
+}
 
-    .rp-link {
-      color: inherit;
-      text-decoration: underline;
-    }
-  `;
-  document.head.appendChild(style);
+#rp-input{
+flex:1;
+border:none;
+padding:10px;
+font-size:14px;
+outline:none;
+}
 
-  // Elements
-  const button = document.createElement("button");
-  button.id = "rp-chat-button";
-  button.innerHTML = "💬";
+#rp-send{
+background:#2F6BFF;
+color:white;
+border:none;
+padding:0 16px;
+cursor:pointer;
+font-weight:bold;
+}
 
-  const windowEl = document.createElement("div");
-  windowEl.id = "rp-chat-window";
-  windowEl.innerHTML = `
-    <div id="rp-chat-header">Chat with us</div>
-    <div id="rp-chat-messages"></div>
-    <div id="rp-chat-input-wrap">
-      <input id="rp-chat-input" type="text" placeholder="Type your message..." />
-      <button id="rp-chat-send">Send</button>
-    </div>
-    <div id="rp-chat-footer">Powered by ReceptionPoint</div>
-  `;
+#rp-send:hover{
+background:#1c4ed8;
+}
 
-  document.body.appendChild(button);
-  document.body.appendChild(windowEl);
+`;
 
-  const messagesEl = document.getElementById("rp-chat-messages");
-  const inputEl = document.getElementById("rp-chat-input");
-  const sendEl = document.getElementById("rp-chat-send");
+document.head.appendChild(style);
 
-  function linkify(text) {
-    return text.replace(
-      /(https?:\/\/[^\s]+)/g,
-      '<a class="rp-link" href="$1" target="_blank" rel="noopener noreferrer">$1</a>'
-    );
-  }
+/* ---------- HTML ---------- */
 
-  function addMessage(text, sender) {
-    const msg = document.createElement("div");
-    msg.className = `rp-msg ${sender === "user" ? "rp-user" : "rp-bot"}`;
-    msg.innerHTML = linkify(text);
-    messagesEl.appendChild(msg);
-    messagesEl.scrollTop = messagesEl.scrollHeight;
-  }
+const button = document.createElement("div");
+button.id = "rp-widget-button";
+button.innerHTML = "💬";
 
-  async function sendMessage() {
-    const text = inputEl.value.trim();
-    if (!text) return;
+const widget = document.createElement("div");
+widget.id = "rp-widget";
 
-    addMessage(text, "user");
-    inputEl.value = "";
+widget.innerHTML = `
+<div id="rp-header">Chat with us</div>
+<div id="rp-messages"></div>
+<div id="rp-input-area">
+<input id="rp-input" placeholder="Type a message..." />
+<button id="rp-send">Send</button>
+</div>
+`;
 
-    try {
-      const response = await fetch(apiBase, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-          client_id: clientId,
-          message: text,
-          session_id: sessionId
-        })
-      });
+document.body.appendChild(button);
+document.body.appendChild(widget);
 
-      const data = await response.json();
+/* ---------- ELEMENTS ---------- */
 
-      if (!response.ok) {
-        addMessage(data.error || "Sorry, something went wrong.", "bot");
-        return;
-      }
+const messagesEl = document.getElementById("rp-messages");
+const inputEl = document.getElementById("rp-input");
+const sendBtn = document.getElementById("rp-send");
 
-      if (data.session_id) {
-        sessionId = data.session_id;
-      }
+/* ---------- LINKIFY ---------- */
 
-      addMessage(data.reply || "Sorry, I couldn't generate a reply.", "bot");
-    } catch (err) {
-      addMessage("Sorry, something went wrong. Please try again.", "bot");
-      console.error("ReceptionPoint widget error:", err);
-    }
-  }
+function linkify(text) {
+return text.replace(
+/(https?:\/\/[^\s]+)/g,
+'<a class="rp-link" href="$1" target="_blank" rel="noopener noreferrer">$1</a>'
+);
+}
 
-  button.addEventListener("click", function () {
-    windowEl.style.display =
-      windowEl.style.display === "flex" ? "none" : "flex";
-  });
+/* ---------- ADD MESSAGE ---------- */
 
-  sendEl.addEventListener("click", sendMessage);
+function addMessage(text, sender) {
 
-  inputEl.addEventListener("keydown", function (e) {
-    if (e.key === "Enter") {
-      sendMessage();
-    }
-  });
+const msg = document.createElement("div");
+msg.className = `rp-msg ${sender === "user" ? "rp-user" : "rp-bot"}`;
 
-  addMessage("Hi! How can I help you today?", "bot");
+if (typeof text === "string" && text.includes("<a ")) {
+msg.innerHTML = text;
+} else {
+msg.innerHTML = linkify(text);
+}
+
+messagesEl.appendChild(msg);
+messagesEl.scrollTop = messagesEl.scrollHeight;
+
+}
+
+/* ---------- SEND MESSAGE ---------- */
+
+async function sendMessage(){
+
+const text = inputEl.value.trim();
+if(!text) return;
+
+addMessage(text,"user");
+
+inputEl.value="";
+
+try{
+
+const res = await fetch(API_URL,{
+method:"POST",
+headers:{
+"Content-Type":"application/json"
+},
+body:JSON.stringify({
+client_id:clientId,
+message:text,
+session_id:sessionId
+})
+});
+
+const data = await res.json();
+
+if(data.session_id){
+sessionId = data.session_id;
+}
+
+addMessage(data.reply,"bot");
+
+}catch(err){
+
+addMessage("Sorry — something went wrong.","bot");
+
+}
+
+}
+
+/* ---------- EVENTS ---------- */
+
+sendBtn.onclick = sendMessage;
+
+inputEl.addEventListener("keypress",function(e){
+if(e.key==="Enter"){
+sendMessage();
+}
+});
+
+button.onclick = () => {
+
+widget.style.display =
+widget.style.display === "flex"
+? "none"
+: "flex";
+
+};
+
+/* ---------- WELCOME MESSAGE ---------- */
+
+setTimeout(()=>{
+addMessage("Hi! How can I help today?","bot");
+},500);
+
 })();
