@@ -1,7 +1,7 @@
 (function () {
   const scriptTag = document.currentScript;
   const clientId = scriptTag.getAttribute("data-client-id");
-  const apiBase = "https://YOUR-VERCEL-PROJECT.vercel.app/api/chat";
+  const apiBase = "https://receptionpoint-backend.vercel.app/api/chat";
 
   if (!clientId) {
     console.error("ReceptionPoint widget error: missing data-client-id");
