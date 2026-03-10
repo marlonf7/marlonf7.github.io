@@ -1,6 +1,8 @@
 (function () {
 
 const clientId = document.currentScript.getAttribute("data-client-id");
+const businessName = document.currentScript.getAttribute("data-business-name") || "us";
+
 const API_URL = "https://receptionpoint-backend.vercel.app/api/chat";
 
 let sessionId = null;
@@ -33,7 +35,7 @@ position:fixed;
 bottom:90px;
 right:20px;
 width:320px;
-height:440px;
+height:430px;
 background:white;
 border-radius:14px;
 box-shadow:0 10px 35px rgba(0,0,0,0.2);
@@ -50,6 +52,7 @@ color:white;
 padding:12px;
 font-weight:bold;
 text-align:center;
+font-size:15px;
 }
 
 #rp-messages{
@@ -68,30 +71,10 @@ align-items:flex-end;
 gap:6px;
 }
 
-.rp-user-row{
-justify-content:flex-end;
-}
-
-.rp-avatar{
-width:26px;
-height:26px;
-border-radius:50%;
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:14px;
-background:#E6EAF2;
-}
-
-.rp-user-avatar{
-background:#2F6BFF;
-color:white;
-}
-
 .rp-msg{
 padding:8px 12px;
 border-radius:10px;
-max-width:70%;
+max-width:75%;
 font-size:14px;
 line-height:1.4;
 word-wrap:break-word;
@@ -100,11 +83,24 @@ word-wrap:break-word;
 .rp-user{
 background:#2F6BFF;
 color:white;
+align-self:flex-end;
+margin-left:auto;
 }
 
 .rp-bot{
 background:#E6EAF2;
 color:#1F2A44;
+}
+
+.rp-avatar{
+width:24px;
+height:24px;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:13px;
+background:#E6EAF2;
 }
 
 .rp-link{
@@ -139,7 +135,7 @@ font-weight:bold;
 background:#1c4ed8;
 }
 
-/* typing animation */
+/* typing */
 
 .rp-typing{
 display:flex;
@@ -168,17 +164,17 @@ animation:rpblink 1.4s infinite;
 /* footer */
 
 #rp-footer{
-font-size:11px;
+font-size:9px;
 text-align:center;
-padding:6px;
+padding:4px;
 border-top:1px solid #eee;
 background:white;
+color:#888;
 }
 
 #rp-footer a{
 color:#2F6BFF;
 text-decoration:none;
-font-weight:500;
 }
 
 #rp-footer a:hover{
@@ -199,7 +195,8 @@ const widget = document.createElement("div");
 widget.id = "rp-widget";
 
 widget.innerHTML = `
-<div id="rp-header">Chat with us</div>
+<div id="rp-header">Chat with ${businessName}</div>
+
 <div id="rp-messages"></div>
 
 <div id="rp-input-area">
@@ -237,18 +234,6 @@ function addMessage(text,sender){
 const row = document.createElement("div");
 row.className = "rp-row";
 
-if(sender==="user") row.classList.add("rp-user-row");
-
-const avatar = document.createElement("div");
-avatar.className = "rp-avatar";
-
-if(sender==="user"){
-avatar.classList.add("rp-user-avatar");
-avatar.innerHTML="👤";
-}else{
-avatar.innerHTML="💬";
-}
-
 const msg = document.createElement("div");
 msg.className = `rp-msg ${sender==="user"?"rp-user":"rp-bot"}`;
 
@@ -256,11 +241,18 @@ if(text.includes("<a ")) msg.innerHTML=text;
 else msg.innerHTML=linkify(text);
 
 if(sender==="user"){
+
 row.appendChild(msg);
-row.appendChild(avatar);
+
 }else{
+
+const avatar = document.createElement("div");
+avatar.className = "rp-avatar";
+avatar.innerHTML="💬";
+
 row.appendChild(avatar);
 row.appendChild(msg);
+
 }
 
 messagesEl.appendChild(row);
