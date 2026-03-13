@@ -338,23 +338,38 @@ section {
   }
 
   .features {
-    display: flex;
-    gap: 16px;
-    overflow-x: auto;
-    overflow-y: hidden;
-    padding: 0 4px 10px;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-  }
-
-  .features::-webkit-scrollbar {
-    display: none;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+    margin-top: 30px;
   }
 
   .feature-box {
-    flex: 0 0 280px;
+    padding: 18px 14px;
+  }
+
+  .feature-box h3 {
+    font-size: 18px;
+    line-height: 1.25;
+    margin: 10px 0 8px;
+  }
+
+  .feature-box p {
+    font-size: 14px;
+    line-height: 1.45;
     margin: 0;
-    scroll-snap-align: start;
+  }
+
+  .feature-icon {
+    width: 52px;
+    height: 52px;
+    margin: 0 auto 14px auto;
+    border-radius: 14px;
+  }
+
+  .feature-icon svg {
+    width: 24px;
+    height: 24px;
   }
 
   .pricing-box {
