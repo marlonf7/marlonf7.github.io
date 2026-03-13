@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ReceptionPoint | Your 24/7 Virtual Reception Team</title>
+<title>ReceptionPoint | Your 24/7 AI Reception Team</title>
 
 <style>
 body {
@@ -415,8 +415,8 @@ section {
 
 <section class="hero">
   <div class="container">
-    <h1>Your 24/7 Virtual Reception Team</h1>
-    <p>ReceptionPoint acts as your virtual reception team — instantly answering customer questions, guiding visitors to your booking system, and escalating complex enquiries to your team.</p>
+    <h1>Your 24/7 AI Reception Team</h1>
+    <p>ReceptionPoint is an AI-powered virtual reception team — instantly answering customer questions, guiding visitors to your booking system, and escalating complex enquiries to your team.</p>
    
     <div class="chatbot-mockup" id="chatbot">
       <div class="chat-messages" id="chat-messages"></div>
@@ -514,8 +514,8 @@ section {
             <path d="M19.4 15a1.6 1.6 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.6 1.6 0 0 0-1.8-.3 1.6 1.6 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.2a1.6 1.6 0 0 0-1-1.5 1.6 1.6 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.6 1.6 0 0 0 .3-1.8 1.6 1.6 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.2a1.6 1.6 0 0 0 1.5-1 1.6 1.6 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.6 1.6 0 0 0 1.8.3h.1a1.6 1.6 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.2a1.6 1.6 0 0 0 1 1.5h.1a1.6 1.6 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.6 1.6 0 0 0-.3 1.8v.1a1.6 1.6 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.2a1.6 1.6 0 0 0-1.5 1z"></path>
           </svg>
         </div>
-        <h3>Fully Managed</h3>
-        <p>We handle setup and ensure your virtual reception runs smoothly.</p>
+        <h3>AI, Fully Managed</h3>
+        <p>We set up and manage your AI receptionist so it answers based on your business details, website, and booking process.</p>
       </div>
     </div>
   </div>
@@ -528,6 +528,7 @@ section {
       <h3>Setup Fee: £200</h3>
       <h3>Monthly Fee: £75</h3>
       <p>No hidden costs. Fully managed service.</p>
+      <p>Includes setup, AI configuration, and ongoing support.</p>
     </div>
   </div>
 </section>
@@ -535,7 +536,7 @@ section {
 <section>
   <div class="container">
     <h2>Ready to Never Miss Another Customer?</h2>
-    <p>Fill in your details and we’ll set up your virtual receptionist in under a week.</p>
+    <p>Fill in your details and we’ll set up your AI receptionist in under a week.</p>
     <a href="https://buy.stripe.com/8x214mbC5gOq9tjcQq9AA01" class="button" target="_blank">Get Started</a>
     <p style="font-size:14px; margin-top:5px;">
       After payment, fill in your business details:
@@ -627,10 +628,10 @@ function showMessage() {
 
 function appendMessage(msg) {
   const wrapper = document.createElement('div');
-  wrapper.className = `chat-bubble-wrapper ${msg.type}`;
+  wrapper.className = \`chat-bubble-wrapper \${msg.type}\`;
 
   const bubble = document.createElement('div');
-  bubble.className = `chat-bubble ${msg.type}`;
+  bubble.className = \`chat-bubble \${msg.type}\`;
   bubble.innerHTML = msg.text;
 
   if (msg.type === 'user') {
