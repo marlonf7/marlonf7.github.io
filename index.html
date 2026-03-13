@@ -159,27 +159,47 @@ section {
 /* Bubble wrapper */
 .chat-bubble-wrapper {
   display: flex;
-  align-items: flex-start;
+  align-items: flex-end;
+  gap: 8px;
   margin-bottom: 8px;
   max-width: 100%;
 }
 
-.chat-bubble-wrapper.user { justify-content: flex-start; }
-.chat-bubble-wrapper.ai { justify-content: flex-end; }
+.chat-bubble-wrapper.user {
+  justify-content: flex-end;
+}
 
-/* Avatar */
+.chat-bubble-wrapper.ai {
+  justify-content: flex-start;
+}
+
+/* Bot avatar only */
 .chat-avatar {
-  width: 30px;
-  height: 30px;
+  width: 28px;
+  height: 28px;
   border-radius: 50%;
   flex-shrink: 0;
-  margin: 0 8px;
+  background: #2F6BFF;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.chat-avatar svg {
+  width: 15px;
+  height: 15px;
+  stroke: currentColor;
+  stroke-width: 2;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
 /* Bubble styles */
 .chat-bubble {
-  padding: 10px 15px;
-  border-radius: 15px;
+  padding: 10px 14px;
+  border-radius: 12px;
   max-width: 70%;
   word-wrap: break-word;
 }
@@ -187,13 +207,11 @@ section {
 .chat-bubble.user {
   background: #2F6BFF;
   color: white;
-  border-radius: 15px 15px 15px 0;
 }
 
 .chat-bubble.ai {
-  background: #E0E0E0;
+  background: #E6EAF2;
   color: #1F2A44;
-  border-radius: 15px 15px 0 15px;
 }
 
 .chat-bubble a {
@@ -205,7 +223,9 @@ section {
 /* Typing animation */
 .typing-wrapper {
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
+  align-items: flex-end;
+  gap: 8px;
   margin-bottom: 8px;
 }
 
@@ -213,9 +233,9 @@ section {
   display: flex;
   gap: 4px;
   align-items: center;
-  padding: 10px 15px;
-  border-radius: 15px 15px 0 15px;
-  background: #E0E0E0;
+  padding: 10px 14px;
+  border-radius: 12px;
+  background: #E6EAF2;
 }
 
 .typing-dot {
@@ -543,14 +563,23 @@ const messages = [
   { type: 'ai', text: 'Thanks, John! I’ll notify our team now so they can reach out to you shortly.' }
 ];
 
-const avatars = {
-  ai: 'https://i.imgur.com/4AiXzf8.png',
-  user: 'https://i.imgur.com/8Km9tLL.png'
-};
-
 const chatMessages = document.getElementById('chat-messages');
 
 let index = 0;
+
+function createBotAvatar() {
+  const avatar = document.createElement('div');
+  avatar.className = 'chat-avatar';
+  avatar.innerHTML = `
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M8 10h8"></path>
+      <path d="M8 14h5"></path>
+      <path d="M12 3v3"></path>
+      <rect x="4" y="6" width="16" height="12" rx="6"></rect>
+    </svg>
+  `;
+  return avatar;
+}
 
 function scrollToBottom() {
   chatMessages.scrollTo({
@@ -567,13 +596,19 @@ function showMessage() {
   if (msg.type === 'ai') {
     const typingWrapper = document.createElement('div');
     typingWrapper.className = 'typing-wrapper';
+
+    const avatar = createBotAvatar();
+
     const typing = document.createElement('div');
     typing.className = 'typing';
+
     for (let i = 0; i < 3; i++) {
       const dot = document.createElement('div');
       dot.className = 'typing-dot';
       typing.appendChild(dot);
     }
+
+    typingWrapper.appendChild(avatar);
     typingWrapper.appendChild(typing);
     chatMessages.appendChild(typingWrapper);
     scrollToBottom();
@@ -594,20 +629,16 @@ function appendMessage(msg) {
   const wrapper = document.createElement('div');
   wrapper.className = `chat-bubble-wrapper ${msg.type}`;
 
-  const avatar = document.createElement('img');
-  avatar.src = avatars[msg.type];
-  avatar.className = 'chat-avatar';
-
   const bubble = document.createElement('div');
   bubble.className = `chat-bubble ${msg.type}`;
   bubble.innerHTML = msg.text;
 
   if (msg.type === 'user') {
-    wrapper.appendChild(avatar);
     wrapper.appendChild(bubble);
   } else {
-    wrapper.appendChild(bubble);
+    const avatar = createBotAvatar();
     wrapper.appendChild(avatar);
+    wrapper.appendChild(bubble);
   }
 
   chatMessages.appendChild(wrapper);
