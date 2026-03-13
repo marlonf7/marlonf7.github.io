@@ -136,10 +136,9 @@ section {
   border: none;
   border-radius: 15px;
   font-weight: bold;
-  cursor: not-allowed;  /* shows it's not clickable */
-  pointer-events: none; /* disables clicking */
+  cursor: not-allowed;
+  pointer-events: none;
 }
-
 
 /* Bubble wrapper */
 .chat-bubble-wrapper {
@@ -153,10 +152,21 @@ section {
 .chat-bubble-wrapper.ai { justify-content: flex-end; }
 
 /* Avatar */
-.chat-avatar { width: 30px; height: 30px; border-radius: 50%; flex-shrink: 0; margin: 0 8px; }
+.chat-avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin: 0 8px;
+}
 
 /* Bubble styles */
-.chat-bubble { padding: 10px 15px; border-radius: 15px; max-width: 70%; word-wrap: break-word; }
+.chat-bubble {
+  padding: 10px 15px;
+  border-radius: 15px;
+  max-width: 70%;
+  word-wrap: break-word;
+}
 .chat-bubble.user { background: #2F6BFF; color: white; border-radius: 15px 15px 15px 0; }
 .chat-bubble.ai { background: #E0E0E0; color: #1F2A44; border-radius: 15px 15px 0 15px; }
 
@@ -203,9 +213,26 @@ section {
 }
 
 .feature-icon {
-  font-size: 36px;
-  margin-bottom: 15px;
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 18px auto;
+  border-radius: 18px;
+  background: linear-gradient(180deg, #F4F8FF 0%, #E8F0FF 100%);
   color: #2F6BFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: inset 0 0 0 1px rgba(47, 107, 255, 0.08);
+}
+
+.feature-icon svg {
+  width: 30px;
+  height: 30px;
+  stroke: currentColor;
+  stroke-width: 2;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
 /* FOOTER */
@@ -231,7 +258,7 @@ section {
   <div class="container">
     <h1>Your 24/7 Virtual Reception Team</h1>
     <p>ReceptionPoint acts as your virtual reception team — instantly answering customer questions, guiding visitors to your booking system, and escalating complex enquiries to your team.</p>
-    
+   
     <div class="chatbot-mockup" id="chatbot">
       <div class="chat-messages" id="chat-messages"></div>
       <div class="chat-input-container">
@@ -242,7 +269,7 @@ section {
 
     <a href="https://buy.stripe.com/8x214mbC5gOq9tjcQq9AA01" class="button" target="_blank">Get Started</a>
     <p style="font-size:14px; margin-top:5px; color:#FFFFFF;">
-      After payment, fill in your business details: 
+      After payment, fill in your business details:
       <a href="https://docs.google.com/forms/d/e/1FAIpQLScCQykZxBMRkQylLXwAOteXUrPqP3NIgbOjKMZH7P6BIeYcsA/viewform?usp=header" target="_blank" style="color:#FFFFFF;">Submit Details</a>
     </p>
   </div>
@@ -253,17 +280,35 @@ section {
     <h2>Is This Familiar?</h2>
     <div class="features">
       <div class="feature-box">
-        <div class="feature-icon">⏰</div>
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="12" r="8"></circle>
+            <path d="M12 8v4l2.5 2.5"></path>
+          </svg>
+        </div>
         <h3>Missed Enquiries</h3>
         <p>Do you often miss enquiries after hours?</p>
       </div>
       <div class="feature-box">
-        <div class="feature-icon">🏃‍♂️</div>
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M7 17L17 7"></path>
+            <path d="M9 7h8v8"></path>
+            <path d="M5 19h10"></path>
+          </svg>
+        </div>
         <h3>Visitors Leave</h3>
         <p>Do visitors leave without finding answers or your booking link?</p>
       </div>
       <div class="feature-box">
-        <div class="feature-icon">🔄</div>
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M3 12a9 9 0 0 1 15.3-6.3"></path>
+            <path d="M21 12a9 9 0 0 1-15.3 6.3"></path>
+            <path d="M18.3 2.7v4.5h-4.5"></path>
+            <path d="M5.7 21.3v-4.5h4.5"></path>
+          </svg>
+        </div>
         <h3>Repeating Tasks</h3>
         <p>Do you spend time repeatedly answering the same questions?</p>
       </div>
@@ -276,22 +321,40 @@ section {
     <h2>How ReceptionPoint Helps</h2>
     <div class="features">
       <div class="feature-box">
-        <div class="feature-icon">✅</div>
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M20 7L9 18l-5-5"></path>
+          </svg>
+        </div>
         <h3>Always On</h3>
         <p>ReceptionPoint answers visitors 24/7 so you never miss an enquiry.</p>
       </div>
       <div class="feature-box">
-        <div class="feature-icon">🔗</div>
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M10 13a5 5 0 0 1 0-7l1.5-1.5a5 5 0 0 1 7 7L17 13"></path>
+            <path d="M14 11a5 5 0 0 1 0 7L12.5 19.5a5 5 0 0 1-7-7L7 11"></path>
+          </svg>
+        </div>
         <h3>Instant Guidance</h3>
         <p>It provides visitors with your booking link immediately, saving time.</p>
       </div>
       <div class="feature-box">
-        <div class="feature-icon">⚡</div>
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M13 2L4 14h6l-1 8 9-12h-6l1-8z"></path>
+          </svg>
+        </div>
         <h3>Smart Escalation</h3>
         <p>Complex enquiries are flagged and sent directly to your team for follow-up.</p>
       </div>
       <div class="feature-box">
-        <div class="feature-icon">🛠️</div>
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="12" r="3"></circle>
+            <path d="M19.4 15a1.6 1.6 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.6 1.6 0 0 0-1.8-.3 1.6 1.6 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.2a1.6 1.6 0 0 0-1-1.5 1.6 1.6 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.6 1.6 0 0 0 .3-1.8 1.6 1.6 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.2a1.6 1.6 0 0 0 1.5-1 1.6 1.6 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.6 1.6 0 0 0 1.8.3h.1a1.6 1.6 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.2a1.6 1.6 0 0 0 1 1.5h.1a1.6 1.6 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.6 1.6 0 0 0-.3 1.8v.1a1.6 1.6 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.2a1.6 1.6 0 0 0-1.5 1z"></path>
+          </svg>
+        </div>
         <h3>Fully Managed</h3>
         <p>We handle setup and ensure your virtual reception runs smoothly.</p>
       </div>
@@ -316,7 +379,7 @@ section {
     <p>Fill in your details and we’ll set up your virtual receptionist in under a week.</p>
     <a href="https://buy.stripe.com/8x214mbC5gOq9tjcQq9AA01" class="button" target="_blank">Get Started</a>
     <p style="font-size:14px; margin-top:5px;">
-      After payment, fill in your business details: 
+      After payment, fill in your business details:
       <a href="https://docs.google.com/forms/d/e/1FAIpQLScCQykZxBMRkQylLXwAOteXUrPqP3NIgbOjKMZH7P6BIeYcsA/viewform?usp=header" target="_blank">Submit Details</a>
     </p>
   </div>
@@ -414,12 +477,12 @@ function appendMessage(msg) {
 
 showMessage();
 </script>
-  
+
 <script
 src="https://receptionpoint.co.uk/widget.js"
 data-client-id="8de3f935-7fd5-42d6-bb21-55534ff82c7e"
 data-business-name="ReceptionPoint">
 </script>
-  
+
 </body>
 </html>
