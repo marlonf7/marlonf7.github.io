@@ -102,7 +102,7 @@ section {
   background-color: #1c4ed8;
 }
 
-/* Chatbot container */
+/* DEMO CHAT */
 .chatbot-mockup {
   max-width: 400px;
   height: 250px;
@@ -117,7 +117,6 @@ section {
   position: relative;
 }
 
-/* Scrollable messages area */
 .chat-messages {
   flex: 1;
   overflow-y: auto;
@@ -126,7 +125,6 @@ section {
   flex-direction: column;
 }
 
-/* Chat input at bottom */
 .chat-input-container {
   padding: 8px 15px;
   border-top: 1px solid #ccc;
@@ -156,7 +154,6 @@ section {
   pointer-events: none;
 }
 
-/* Bubble wrapper */
 .chat-bubble-wrapper {
   display: flex;
   align-items: flex-end;
@@ -173,7 +170,6 @@ section {
   justify-content: flex-start;
 }
 
-/* Bot avatar only */
 .chat-avatar {
   width: 28px;
   height: 28px;
@@ -196,7 +192,6 @@ section {
   stroke-linejoin: round;
 }
 
-/* Bubble styles */
 .chat-bubble {
   padding: 10px 14px;
   border-radius: 12px;
@@ -220,7 +215,6 @@ section {
   cursor: pointer;
 }
 
-/* Typing animation */
 .typing-wrapper {
   display: flex;
   justify-content: flex-start;
@@ -565,7 +559,6 @@ const messages = [
 ];
 
 const chatMessages = document.getElementById('chat-messages');
-
 let index = 0;
 
 function createBotAvatar() {
@@ -615,7 +608,9 @@ function showMessage() {
     scrollToBottom();
 
     setTimeout(() => {
-      chatMessages.removeChild(typingWrapper);
+      if (typingWrapper.parentNode) {
+        typingWrapper.parentNode.removeChild(typingWrapper);
+      }
       appendMessage(msg);
     }, 1200);
   } else {
@@ -628,10 +623,10 @@ function showMessage() {
 
 function appendMessage(msg) {
   const wrapper = document.createElement('div');
-  wrapper.className = \`chat-bubble-wrapper \${msg.type}\`;
+  wrapper.className = `chat-bubble-wrapper ${msg.type}`;
 
   const bubble = document.createElement('div');
-  bubble.className = \`chat-bubble \${msg.type}\`;
+  bubble.className = `chat-bubble ${msg.type}`;
   bubble.innerHTML = msg.text;
 
   if (msg.type === 'user') {
