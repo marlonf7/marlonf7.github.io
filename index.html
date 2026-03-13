@@ -372,6 +372,12 @@ section {
     height: 24px;
   }
 
+  .familiar-features .feature-box:last-child {
+    grid-column: 1 / -1;
+    max-width: 260px;
+    margin: 0 auto;
+  }
+
   .pricing-box {
     margin-top: 30px;
   }
@@ -411,7 +417,7 @@ section {
 <section class="alt-section">
   <div class="container">
     <h2>Is This Familiar?</h2>
-    <div class="features">
+    <div class="features familiar-features">
       <div class="feature-box">
         <div class="feature-icon">
           <svg viewBox="0 0 24 24" aria-hidden="true">
