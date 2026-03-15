@@ -1,654 +1,682 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ReceptionPoint | Your 24/7 AI Reception Team</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ReceptionPoint | Your 24/7 AI Reception Team</title>
 
-<style>
-body {
-  margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  line-height: 1.6;
-  background-color: #F4F6F9;
-  color: #1F2A44;
-  padding-top: 80px;
-  padding-bottom: 40px;
-}
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.6;
+      background-color: #F4F6F9;
+      color: #1F2A44;
+      padding-top: 80px;
+      padding-bottom: 40px;
+    }
 
-section {
-  padding: 80px 20px;
-  text-align: center;
-  background-color: #F4F6F9;
-}
+    section {
+      padding: 80px 20px;
+      text-align: center;
+      background-color: #F4F6F9;
+    }
 
-.alt-section {
-  background-color: white;
-}
+    .alt-section {
+      background-color: white;
+    }
 
-.container {
-  max-width: 1000px;
-  margin: auto;
-}
+    .container {
+      max-width: 1000px;
+      margin: auto;
+    }
 
-/* HERO */
-.hero {
-  background: linear-gradient(135deg, #3E7BFA, #1F2A44);
-  color: white;
-  padding: 60px 20px 40px 20px;
-  min-height: 50vh;
-}
+    /* HERO */
+    .hero {
+      background: linear-gradient(135deg, #3E7BFA, #1F2A44);
+      color: white;
+      padding: 60px 20px 40px 20px;
+      min-height: 50vh;
+    }
 
-.hero h1 {
-  font-size: 42px;
-  margin-bottom: 20px;
-}
+    .hero h1 {
+      font-size: 42px;
+      margin-bottom: 20px;
+    }
 
-.hero p {
-  font-size: 20px;
-  margin-bottom: 40px;
-}
+    .hero p {
+      font-size: 20px;
+      margin-bottom: 40px;
+    }
 
-.button {
-  display: inline-block;
-  padding: 15px 35px;
-  background-color: #2F6BFF;
-  color: white;
-  text-decoration: none;
-  border-radius: 8px;
-  font-weight: bold;
-}
+    .button {
+      display: inline-block;
+      padding: 15px 35px;
+      background-color: #2F6BFF;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+    }
 
-.button:hover {
-  background-color: #1c4ed8;
-}
+    .button:hover {
+      background-color: #1c4ed8;
+    }
 
-/* HEADER */
-.header {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  background: white;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-  z-index: 1000;
-}
+    /* HEADER */
+    .header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: white;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+      z-index: 1000;
+    }
 
-.header .container {
-  max-width: 1000px;
-  margin: auto;
-  padding: 15px 40px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
+    .header .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 15px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
 
-.header-logo {
-  font-weight: bold;
-  font-size: 20px;
-  color: #1F2A44;
-}
+    .header-logo {
+      font-weight: bold;
+      font-size: 20px;
+      color: #1F2A44;
+    }
 
-.header-button {
-  padding: 10px 20px;
-  background-color: #2F6BFF;
-  color: white;
-  text-decoration: none;
-  border-radius: 6px;
-  font-weight: bold;
-  font-size: 14px;
-}
+    .header-nav {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
 
-.header-button:hover {
-  background-color: #1c4ed8;
-}
+    .header-link {
+      color: #1F2A44;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 14px;
+    }
 
-/* DEMO CHAT */
-.chatbot-mockup {
-  max-width: 400px;
-  height: 250px;
-  margin: 40px auto;
-  background: white;
-  border-radius: 15px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-  font-family: Arial, sans-serif;
-  position: relative;
-}
+    .header-link:hover {
+      text-decoration: underline;
+    }
 
-.chat-messages {
-  flex: 1;
-  overflow-y: auto;
-  padding: 15px;
-  display: flex;
-  flex-direction: column;
-}
+    .header-button {
+      padding: 10px 20px;
+      background-color: #2F6BFF;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: bold;
+      font-size: 14px;
+    }
 
-.chat-input-container {
-  padding: 8px 15px;
-  border-top: 1px solid #ccc;
-  background: #fff;
-  box-sizing: border-box;
-  display: flex;
-  gap: 8px;
-}
+    .header-button:hover {
+      background-color: #1c4ed8;
+    }
 
-.chat-input-container input {
-  flex: 1;
-  padding: 8px 12px;
-  border: 1px solid #ccc;
-  border-radius: 15px;
-  font-size: 14px;
-  outline: none;
-}
+    /* DEMO CHAT */
+    .chatbot-mockup {
+      max-width: 400px;
+      height: 250px;
+      margin: 40px auto;
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      font-family: Arial, sans-serif;
+      position: relative;
+    }
 
-.chat-input-container button {
-  padding: 8px 15px;
-  background-color: #2F6BFF;
-  color: white;
-  border: none;
-  border-radius: 15px;
-  font-weight: bold;
-  cursor: not-allowed;
-  pointer-events: none;
-}
+    .chat-messages {
+      flex: 1;
+      overflow-y: auto;
+      padding: 15px;
+      display: flex;
+      flex-direction: column;
+    }
 
-.chat-bubble-wrapper {
-  display: flex;
-  align-items: flex-end;
-  gap: 8px;
-  margin-bottom: 8px;
-  max-width: 100%;
-}
+    .chat-input-container {
+      padding: 8px 15px;
+      border-top: 1px solid #ccc;
+      background: #fff;
+      box-sizing: border-box;
+      display: flex;
+      gap: 8px;
+    }
 
-.chat-bubble-wrapper.user {
-  justify-content: flex-end;
-}
+    .chat-input-container input {
+      flex: 1;
+      padding: 8px 12px;
+      border: 1px solid #ccc;
+      border-radius: 15px;
+      font-size: 14px;
+      outline: none;
+    }
 
-.chat-bubble-wrapper.ai {
-  justify-content: flex-start;
-}
+    .chat-input-container button {
+      padding: 8px 15px;
+      background-color: #2F6BFF;
+      color: white;
+      border: none;
+      border-radius: 15px;
+      font-weight: bold;
+      cursor: not-allowed;
+      pointer-events: none;
+    }
 
-.chat-avatar {
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
-  flex-shrink: 0;
-  background: #2F6BFF;
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+    .chat-bubble-wrapper {
+      display: flex;
+      align-items: flex-end;
+      gap: 8px;
+      margin-bottom: 8px;
+      max-width: 100%;
+    }
 
-.chat-avatar svg {
-  width: 15px;
-  height: 15px;
-  stroke: currentColor;
-  stroke-width: 2;
-  fill: none;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
+    .chat-bubble-wrapper.user {
+      justify-content: flex-end;
+    }
 
-.chat-bubble {
-  padding: 10px 14px;
-  border-radius: 12px;
-  max-width: 70%;
-  word-wrap: break-word;
-}
+    .chat-bubble-wrapper.ai {
+      justify-content: flex-start;
+    }
 
-.chat-bubble.user {
-  background: #2F6BFF;
-  color: white;
-}
+    .chat-avatar {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      background: #2F6BFF;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
 
-.chat-bubble.ai {
-  background: #E6EAF2;
-  color: #1F2A44;
-}
+    .chat-avatar svg {
+      width: 15px;
+      height: 15px;
+      stroke: currentColor;
+      stroke-width: 2;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
 
-.chat-bubble a {
-  color: #2F6BFF;
-  text-decoration: underline;
-  cursor: pointer;
-}
+    .chat-bubble {
+      padding: 10px 14px;
+      border-radius: 12px;
+      max-width: 70%;
+      word-wrap: break-word;
+    }
 
-.typing-wrapper {
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-end;
-  gap: 8px;
-  margin-bottom: 8px;
-}
+    .chat-bubble.user {
+      background: #2F6BFF;
+      color: white;
+    }
 
-.typing {
-  display: flex;
-  gap: 4px;
-  align-items: center;
-  padding: 10px 14px;
-  border-radius: 12px;
-  background: #E6EAF2;
-}
+    .chat-bubble.ai {
+      background: #E6EAF2;
+      color: #1F2A44;
+    }
 
-.typing-dot {
-  width: 6px;
-  height: 6px;
-  background: #1F2A44;
-  border-radius: 50%;
-  animation: blink 1.4s infinite both;
-}
+    .chat-bubble a {
+      color: #2F6BFF;
+      text-decoration: underline;
+      cursor: pointer;
+    }
 
-.typing-dot:nth-child(2) { animation-delay: 0.2s; }
-.typing-dot:nth-child(3) { animation-delay: 0.4s; }
+    .typing-wrapper {
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-end;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
 
-@keyframes blink {
-  0%, 80%, 100% { opacity: 0; }
-  40% { opacity: 1; }
-}
+    .typing {
+      display: flex;
+      gap: 4px;
+      align-items: center;
+      padding: 10px 14px;
+      border-radius: 12px;
+      background: #E6EAF2;
+    }
 
-/* FEATURES & PRICING */
-.features {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 30px;
-  margin-top: 40px;
-}
+    .typing-dot {
+      width: 6px;
+      height: 6px;
+      background: #1F2A44;
+      border-radius: 50%;
+      animation: blink 1.4s infinite both;
+    }
 
-.feature-box,
-.pricing-box {
-  background: #F4F6F9;
-  padding: 25px;
-  border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.05);
-  transition: transform 0.3s, box-shadow 0.3s;
-}
+    .typing-dot:nth-child(2) { animation-delay: 0.2s; }
+    .typing-dot:nth-child(3) { animation-delay: 0.4s; }
 
-.feature-box:hover,
-.pricing-box:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 25px rgba(0,0,0,0.15);
-}
+    @keyframes blink {
+      0%, 80%, 100% { opacity: 0; }
+      40% { opacity: 1; }
+    }
 
-.feature-icon {
-  width: 64px;
-  height: 64px;
-  margin: 0 auto 18px auto;
-  border-radius: 18px;
-  background: linear-gradient(180deg, #F4F8FF 0%, #E8F0FF 100%);
-  color: #2F6BFF;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: inset 0 0 0 1px rgba(47, 107, 255, 0.08);
-}
+    /* FEATURES & PRICING */
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
 
-.feature-icon svg {
-  width: 30px;
-  height: 30px;
-  stroke: currentColor;
-  stroke-width: 2;
-  fill: none;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
+    .feature-box,
+    .pricing-box {
+      background: #F4F6F9;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
 
-/* FOOTER */
-.footer {
-  background-color: #1F2A44;
-  color: white;
-  padding: 40px 20px;
-  font-size: 14px;
-}
+    .feature-box:hover,
+    .pricing-box:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+    }
 
-.footer a {
-  color: white;
-  text-decoration: underline;
-}
+    .feature-icon {
+      width: 64px;
+      height: 64px;
+      margin: 0 auto 18px auto;
+      border-radius: 18px;
+      background: linear-gradient(180deg, #F4F8FF 0%, #E8F0FF 100%);
+      color: #2F6BFF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: inset 0 0 0 1px rgba(47, 107, 255, 0.08);
+    }
 
-/* MOBILE */
-@media (max-width: 768px) {
-  body {
-    padding-top: 72px;
-  }
+    .feature-icon svg {
+      width: 30px;
+      height: 30px;
+      stroke: currentColor;
+      stroke-width: 2;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
 
-  section {
-    padding: 60px 16px;
-  }
+    /* FOOTER */
+    .footer {
+      background-color: #1F2A44;
+      color: white;
+      padding: 40px 20px;
+      font-size: 14px;
+    }
 
-  .hero {
-    padding: 40px 16px 30px 16px;
-    min-height: auto;
-  }
+    .footer a {
+      color: white;
+      text-decoration: underline;
+    }
 
-  .hero h1 {
-    font-size: 32px;
-    line-height: 1.15;
-  }
+    /* MOBILE */
+    @media (max-width: 768px) {
+      body {
+        padding-top: 72px;
+      }
 
-  .hero p {
-    font-size: 18px;
-    margin-bottom: 28px;
-  }
+      section {
+        padding: 60px 16px;
+      }
 
-  .header .container {
-    padding: 14px 16px;
-  }
+      .hero {
+        padding: 40px 16px 30px 16px;
+        min-height: auto;
+      }
 
-  .header-logo {
-    font-size: 18px;
-  }
+      .hero h1 {
+        font-size: 32px;
+        line-height: 1.15;
+      }
 
-  .header-button {
-    padding: 9px 14px;
-    font-size: 13px;
-  }
+      .hero p {
+        font-size: 18px;
+        margin-bottom: 28px;
+      }
 
-  .chatbot-mockup {
-    max-width: 100%;
-    height: 250px;
-    margin: 30px auto;
-  }
+      .header .container {
+        padding: 14px 16px;
+      }
 
-  .features {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 14px;
-    margin-top: 30px;
-  }
+      .header-logo {
+        font-size: 18px;
+      }
 
-  .feature-box {
-    padding: 18px 14px;
-  }
+      .header-button {
+        padding: 9px 14px;
+        font-size: 13px;
+      }
 
-  .feature-box h3 {
-    font-size: 18px;
-    line-height: 1.25;
-    margin: 10px 0 8px;
-  }
+      .header-link {
+        font-size: 13px;
+      }
 
-  .feature-box p {
-    font-size: 14px;
-    line-height: 1.45;
-    margin: 0;
-  }
+      .chatbot-mockup {
+        max-width: 100%;
+        height: 250px;
+        margin: 30px auto;
+      }
 
-  .feature-icon {
-    width: 52px;
-    height: 52px;
-    margin: 0 auto 14px auto;
-    border-radius: 14px;
-  }
+      .features {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+        margin-top: 30px;
+      }
 
-  .feature-icon svg {
-    width: 24px;
-    height: 24px;
-  }
+      .feature-box {
+        padding: 18px 14px;
+      }
 
-  .familiar-features .feature-box:last-child {
-    grid-column: 1 / -1;
-    max-width: 260px;
-    margin: 0 auto;
-  }
+      .feature-box h3 {
+        font-size: 18px;
+        line-height: 1.25;
+        margin: 10px 0 8px;
+      }
 
-  .pricing-box {
-    margin-top: 30px;
-  }
-}
-</style>
+      .feature-box p {
+        font-size: 14px;
+        line-height: 1.45;
+        margin: 0;
+      }
+
+      .feature-icon {
+        width: 52px;
+        height: 52px;
+        margin: 0 auto 14px auto;
+        border-radius: 14px;
+      }
+
+      .feature-icon svg {
+        width: 24px;
+        height: 24px;
+      }
+
+      .familiar-features .feature-box:last-child {
+        grid-column: 1 / -1;
+        max-width: 260px;
+        margin: 0 auto;
+      }
+
+      .pricing-box {
+        margin-top: 30px;
+      }
+    }
+  </style>
 </head>
 
 <body>
-<div class="header">
-  <div class="container">
-    <div class="header-logo">ReceptionPoint</div>
-    <a href="https://buy.stripe.com/8x214mbC5gOq9tjcQq9AA01" class="header-button" target="_blank">Get Started</a>
-  </div>
-</div>
-
-<section class="hero">
-  <div class="container">
-    <h1>Your 24/7 AI Reception Team</h1>
-    <p>ReceptionPoint is an AI-powered virtual reception team — instantly answering customer questions, guiding visitors to your booking system, and escalating complex enquiries to your team.</p>
-   
-    <div class="chatbot-mockup" id="chatbot">
-      <div class="chat-messages" id="chat-messages"></div>
-      <div class="chat-input-container">
-        <input class="chat-input" type="text" placeholder="Type here..." disabled>
-        <button disabled>Send</button>
-      </div>
-    </div>
-
-    <a href="https://buy.stripe.com/8x214mbC5gOq9tjcQq9AA01" class="button" target="_blank">Get Started</a>
-    <p style="font-size:14px; margin-top:5px; color:#FFFFFF;">
-      After payment, fill in your business details:
-      <a href="https://docs.google.com/forms/d/e/1FAIpQLScCQykZxBMRkQylLXwAOteXUrPqP3NIgbOjKMZH7P6BIeYcsA/viewform?usp=header" target="_blank" style="color:#FFFFFF;">Submit Details</a>
-    </p>
-  </div>
-</section>
-
-<section class="alt-section">
-  <div class="container">
-    <h2>Is This Familiar?</h2>
-    <div class="features familiar-features">
-      <div class="feature-box">
-        <div class="feature-icon">
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <circle cx="12" cy="12" r="8"></circle>
-            <path d="M12 8v4l2.5 2.5"></path>
-          </svg>
-        </div>
-        <h3>Missed Enquiries</h3>
-        <p>Do you often miss enquiries after hours?</p>
-      </div>
-      <div class="feature-box">
-        <div class="feature-icon">
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M7 17L17 7"></path>
-            <path d="M9 7h8v8"></path>
-            <path d="M5 19h10"></path>
-          </svg>
-        </div>
-        <h3>Visitors Leave</h3>
-        <p>Do visitors leave without finding answers or your booking link?</p>
-      </div>
-      <div class="feature-box">
-        <div class="feature-icon">
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M3 12a9 9 0 0 1 15.3-6.3"></path>
-            <path d="M21 12a9 9 0 0 1-15.3 6.3"></path>
-            <path d="M18.3 2.7v4.5h-4.5"></path>
-            <path d="M5.7 21.3v-4.5h4.5"></path>
-          </svg>
-        </div>
-        <h3>Repeating Tasks</h3>
-        <p>Do you spend time repeatedly answering the same questions?</p>
+  <div class="header">
+    <div class="container">
+      <div class="header-logo">ReceptionPoint</div>
+      <div class="header-nav">
+        <a href="how-it-works.html" class="header-link">How It Works</a>
+        <a href="https://buy.stripe.com/8x214mbC5gOq9tjcQq9AA01" class="header-button" target="_blank">Get Started</a>
       </div>
     </div>
   </div>
-</section>
 
-<section>
-  <div class="container">
-    <h2>How ReceptionPoint Helps</h2>
-    <div class="features">
-      <div class="feature-box">
-        <div class="feature-icon">
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M20 7L9 18l-5-5"></path>
-          </svg>
+  <section class="hero">
+    <div class="container">
+      <h1>Your 24/7 AI Reception Team</h1>
+      <p>ReceptionPoint is an AI-powered virtual reception team — instantly answering customer questions, guiding visitors to your booking system, and escalating complex enquiries to your team.</p>
+
+      <div class="chatbot-mockup" id="chatbot">
+        <div class="chat-messages" id="chat-messages"></div>
+        <div class="chat-input-container">
+          <input class="chat-input" type="text" placeholder="Type here..." disabled>
+          <button disabled>Send</button>
         </div>
-        <h3>Always On</h3>
-        <p>ReceptionPoint answers visitors 24/7 so you never miss an enquiry.</p>
       </div>
-      <div class="feature-box">
-        <div class="feature-icon">
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M10 13a5 5 0 0 1 0-7l1.5-1.5a5 5 0 0 1 7 7L17 13"></path>
-            <path d="M14 11a5 5 0 0 1 0 7L12.5 19.5a5 5 0 0 1-7-7L7 11"></path>
-          </svg>
+
+      <a href="https://buy.stripe.com/8x214mbC5gOq9tjcQq9AA01" class="button" target="_blank">Get Started</a>
+      <p style="font-size:14px; margin-top:12px; color:#FFFFFF;">
+        Want to see what happens after you sign up?
+        <a href="how-it-works.html" style="color:#FFFFFF;">See how it works</a>
+      </p>
+      <p style="font-size:14px; margin-top:5px; color:#FFFFFF;">
+        After payment, fill in your business details:
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLScCQykZxBMRkQylLXwAOteXUrPqP3NIgbOjKMZH7P6BIeYcsA/viewform?usp=header" target="_blank" style="color:#FFFFFF;">Submit Details</a>
+      </p>
+    </div>
+  </section>
+
+  <section class="alt-section">
+    <div class="container">
+      <h2>Is This Familiar?</h2>
+      <div class="features familiar-features">
+        <div class="feature-box">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="12" cy="12" r="8"></circle>
+              <path d="M12 8v4l2.5 2.5"></path>
+            </svg>
+          </div>
+          <h3>Missed Enquiries</h3>
+          <p>Do you often miss enquiries after hours?</p>
         </div>
-        <h3>Instant Guidance</h3>
-        <p>It provides visitors with your booking link immediately, saving time.</p>
-      </div>
-      <div class="feature-box">
-        <div class="feature-icon">
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M13 2L4 14h6l-1 8 9-12h-6l1-8z"></path>
-          </svg>
+        <div class="feature-box">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M7 17L17 7"></path>
+              <path d="M9 7h8v8"></path>
+              <path d="M5 19h10"></path>
+            </svg>
+          </div>
+          <h3>Visitors Leave</h3>
+          <p>Do visitors leave without finding answers or your booking link?</p>
         </div>
-        <h3>Smart Escalation</h3>
-        <p>Complex enquiries are flagged and sent directly to your team for follow-up.</p>
-      </div>
-      <div class="feature-box">
-        <div class="feature-icon">
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <circle cx="12" cy="12" r="3"></circle>
-            <path d="M19.4 15a1.6 1.6 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.6 1.6 0 0 0-1.8-.3 1.6 1.6 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.2a1.6 1.6 0 0 0-1-1.5 1.6 1.6 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.6 1.6 0 0 0 .3-1.8 1.6 1.6 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.2a1.6 1.6 0 0 0 1.5-1 1.6 1.6 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.6 1.6 0 0 0 1.8.3h.1a1.6 1.6 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.2a1.6 1.6 0 0 0 1 1.5h.1a1.6 1.6 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.6 1.6 0 0 0-.3 1.8v.1a1.6 1.6 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.2a1.6 1.6 0 0 0-1.5 1z"></path>
-          </svg>
+        <div class="feature-box">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M3 12a9 9 0 0 1 15.3-6.3"></path>
+              <path d="M21 12a9 9 0 0 1-15.3 6.3"></path>
+              <path d="M18.3 2.7v4.5h-4.5"></path>
+              <path d="M5.7 21.3v-4.5h4.5"></path>
+            </svg>
+          </div>
+          <h3>Repeating Tasks</h3>
+          <p>Do you spend time repeatedly answering the same questions?</p>
         </div>
-        <h3>AI, Fully Managed</h3>
-        <p>We set up and manage your AI receptionist so it answers based on your business details, website, and booking process.</p>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="alt-section">
-  <div class="container">
-    <h2>Simple, Transparent Pricing</h2>
-    <div class="pricing-box">
-      <h3>Setup Fee: £200</h3>
-      <h3>Monthly Fee: £75</h3>
-      <p>No hidden costs. Fully managed service.</p>
-      <p>Includes setup, AI configuration, and ongoing support.</p>
+  <section>
+    <div class="container">
+      <h2>How ReceptionPoint Helps</h2>
+      <div class="features">
+        <div class="feature-box">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M20 7L9 18l-5-5"></path>
+            </svg>
+          </div>
+          <h3>Always On</h3>
+          <p>ReceptionPoint answers visitors 24/7 so you never miss an enquiry.</p>
+        </div>
+        <div class="feature-box">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M10 13a5 5 0 0 1 0-7l1.5-1.5a5 5 0 0 1 7 7L17 13"></path>
+              <path d="M14 11a5 5 0 0 1 0 7L12.5 19.5a5 5 0 0 1-7-7L7 11"></path>
+            </svg>
+          </div>
+          <h3>Instant Guidance</h3>
+          <p>It provides visitors with your booking link immediately, saving time.</p>
+        </div>
+        <div class="feature-box">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M13 2L4 14h6l-1 8 9-12h-6l1-8z"></path>
+            </svg>
+          </div>
+          <h3>Smart Escalation</h3>
+          <p>Complex enquiries are flagged and sent directly to your team for follow-up.</p>
+        </div>
+        <div class="feature-box">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="12" cy="12" r="3"></circle>
+              <path d="M19.4 15a1.6 1.6 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.6 1.6 0 0 0-1.8-.3 1.6 1.6 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.2a1.6 1.6 0 0 0-1-1.5 1.6 1.6 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.6 1.6 0 0 0 .3-1.8 1.6 1.6 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.2a1.6 1.6 0 0 0 1.5-1 1.6 1.6 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.6 1.6 0 0 0 1.8.3h.1a1.6 1.6 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.2a1.6 1.6 0 0 0 1 1.5h.1a1.6 1.6 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.6 1.6 0 0 0-.3 1.8v.1a1.6 1.6 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.2a1.6 1.6 0 0 0-1.5 1z"></path>
+            </svg>
+          </div>
+          <h3>AI, Fully Managed</h3>
+          <p>We set up and manage your AI receptionist so it answers based on your business details, website, and booking process.</p>
+        </div>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section>
-  <div class="container">
-    <h2>Ready to Never Miss Another Customer?</h2>
-    <p>Fill in your details and we’ll set up your AI receptionist in under a week.</p>
-    <a href="https://buy.stripe.com/8x214mbC5gOq9tjcQq9AA01" class="button" target="_blank">Get Started</a>
-    <p style="font-size:14px; margin-top:5px;">
-      After payment, fill in your business details:
-      <a href="https://docs.google.com/forms/d/e/1FAIpQLScCQykZxBMRkQylLXwAOteXUrPqP3NIgbOjKMZH7P6BIeYcsA/viewform?usp=header" target="_blank">Submit Details</a>
-    </p>
-  </div>
-</section>
+  <section class="alt-section">
+    <div class="container">
+      <h2>Simple, Transparent Pricing</h2>
+      <div class="pricing-box">
+        <h3>Setup Fee: £200</h3>
+        <h3>Monthly Fee: £75</h3>
+        <p>No hidden costs. Fully managed service.</p>
+        <p>Includes setup, AI configuration, and ongoing support.</p>
+      </div>
+    </div>
+  </section>
 
-<section class="footer">
-  <div class="container">
-    <p>© 2026 ReceptionPoint. All rights reserved.</p>
-    <p><a href="mailto:receptionpointinfo@gmail.com">receptionpointinfo@gmail.com</a></p>
-  </div>
-</section>
+  <section>
+    <div class="container">
+      <h2>Ready to Never Miss Another Customer?</h2>
+      <p>Fill in your details and we’ll set up your AI receptionist in under a week.</p>
+      <a href="https://buy.stripe.com/8x214mbC5gOq9tjcQq9AA01" class="button" target="_blank">Get Started</a>
+      <p style="font-size:14px; margin-top:5px;">
+        After payment, fill in your business details:
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLScCQykZxBMRkQylLXwAOteXUrPqP3NIgbOjKMZH7P6BIeYcsA/viewform?usp=header" target="_blank">Submit Details</a>
+      </p>
+    </div>
+  </section>
 
-<script>
-const messages = [
-  { type: 'user', text: 'What times are you open?' },
-  { type: 'ai', text: 'Hi! We’re open Monday to Friday, 9am to 6pm. If you like, I can direct you to the booking page — would you like me to do that?' },
-  { type: 'user', text: 'Yes, please.' },
-  { type: 'ai', text: 'Great! You can <a class="chat-link">book here</a>.' },
-  { type: 'user', text: 'I might need something a bit different than the usual session.' },
-  { type: 'ai', text: 'No problem! Could you give me your name and email or phone number so our team can contact you?' },
-  { type: 'user', text: 'Sure, my name is John and my email is john@email.com.' },
-  { type: 'ai', text: 'Thanks, John! I’ll notify our team now so they can reach out to you shortly.' }
-];
+  <section class="footer">
+    <div class="container">
+      <p>© 2026 ReceptionPoint. All rights reserved.</p>
+      <p><a href="mailto:receptionpointinfo@gmail.com">receptionpointinfo@gmail.com</a></p>
+    </div>
+  </section>
 
-const chatMessages = document.getElementById('chat-messages');
-let index = 0;
+  <script>
+    const messages = [
+      { type: 'user', text: 'What times are you open?' },
+      { type: 'ai', text: 'Hi! We’re open Monday to Friday, 9am to 6pm. If you like, I can direct you to the booking page — would you like me to do that?' },
+      { type: 'user', text: 'Yes, please.' },
+      { type: 'ai', text: 'Great! You can <a class="chat-link">book here</a>.' },
+      { type: 'user', text: 'I might need something a bit different than the usual session.' },
+      { type: 'ai', text: 'No problem! Could you give me your name and email or phone number so our team can contact you?' },
+      { type: 'user', text: 'Sure, my name is John and my email is john@email.com.' },
+      { type: 'ai', text: 'Thanks, John! I’ll notify our team now so they can reach out to you shortly.' }
+    ];
 
-function createBotAvatar() {
-  const avatar = document.createElement('div');
-  avatar.className = 'chat-avatar';
-  avatar.innerHTML = `
-    <svg viewBox="0 0 24 24" aria-hidden="true">
-      <path d="M8 10h8"></path>
-      <path d="M8 14h5"></path>
-      <path d="M12 3v3"></path>
-      <rect x="4" y="6" width="16" height="12" rx="6"></rect>
-    </svg>
-  `;
-  return avatar;
-}
+    const chatMessages = document.getElementById('chat-messages');
+    let index = 0;
 
-function scrollToBottom() {
-  chatMessages.scrollTo({
-    top: chatMessages.scrollHeight,
-    behavior: 'smooth'
-  });
-}
-
-function showMessage() {
-  if (index >= messages.length) return;
-
-  const msg = messages[index];
-
-  if (msg.type === 'ai') {
-    const typingWrapper = document.createElement('div');
-    typingWrapper.className = 'typing-wrapper';
-
-    const avatar = createBotAvatar();
-
-    const typing = document.createElement('div');
-    typing.className = 'typing';
-
-    for (let i = 0; i < 3; i++) {
-      const dot = document.createElement('div');
-      dot.className = 'typing-dot';
-      typing.appendChild(dot);
+    function createBotAvatar() {
+      const avatar = document.createElement('div');
+      avatar.className = 'chat-avatar';
+      avatar.innerHTML = `
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M8 10h8"></path>
+          <path d="M8 14h5"></path>
+          <path d="M12 3v3"></path>
+          <rect x="4" y="6" width="16" height="12" rx="6"></rect>
+        </svg>
+      `;
+      return avatar;
     }
 
-    typingWrapper.appendChild(avatar);
-    typingWrapper.appendChild(typing);
-    chatMessages.appendChild(typingWrapper);
-    scrollToBottom();
+    function scrollToBottom() {
+      chatMessages.scrollTo({
+        top: chatMessages.scrollHeight,
+        behavior: 'smooth'
+      });
+    }
 
-    setTimeout(() => {
-      if (typingWrapper.parentNode) {
-        typingWrapper.parentNode.removeChild(typingWrapper);
+    function showMessage() {
+      if (index >= messages.length) return;
+
+      const msg = messages[index];
+
+      if (msg.type === 'ai') {
+        const typingWrapper = document.createElement('div');
+        typingWrapper.className = 'typing-wrapper';
+
+        const avatar = createBotAvatar();
+
+        const typing = document.createElement('div');
+        typing.className = 'typing';
+
+        for (let i = 0; i < 3; i++) {
+          const dot = document.createElement('div');
+          dot.className = 'typing-dot';
+          typing.appendChild(dot);
+        }
+
+        typingWrapper.appendChild(avatar);
+        typingWrapper.appendChild(typing);
+        chatMessages.appendChild(typingWrapper);
+        scrollToBottom();
+
+        setTimeout(() => {
+          if (typingWrapper.parentNode) {
+            typingWrapper.parentNode.removeChild(typingWrapper);
+          }
+          appendMessage(msg);
+        }, 1200);
+      } else {
+        appendMessage(msg);
       }
-      appendMessage(msg);
-    }, 1200);
-  } else {
-    appendMessage(msg);
-  }
 
-  index++;
-  setTimeout(showMessage, 2000);
-}
+      index++;
+      setTimeout(showMessage, 2000);
+    }
 
-function appendMessage(msg) {
-  const wrapper = document.createElement('div');
-  wrapper.className = `chat-bubble-wrapper ${msg.type}`;
+    function appendMessage(msg) {
+      const wrapper = document.createElement('div');
+      wrapper.className = `chat-bubble-wrapper ${msg.type}`;
 
-  const bubble = document.createElement('div');
-  bubble.className = `chat-bubble ${msg.type}`;
-  bubble.innerHTML = msg.text;
+      const bubble = document.createElement('div');
+      bubble.className = `chat-bubble ${msg.type}`;
+      bubble.innerHTML = msg.text;
 
-  if (msg.type === 'user') {
-    wrapper.appendChild(bubble);
-  } else {
-    const avatar = createBotAvatar();
-    wrapper.appendChild(avatar);
-    wrapper.appendChild(bubble);
-  }
+      if (msg.type === 'user') {
+        wrapper.appendChild(bubble);
+      } else {
+        const avatar = createBotAvatar();
+        wrapper.appendChild(avatar);
+        wrapper.appendChild(bubble);
+      }
 
-  chatMessages.appendChild(wrapper);
-  scrollToBottom();
-}
+      chatMessages.appendChild(wrapper);
+      scrollToBottom();
+    }
 
-showMessage();
-</script>
+    showMessage();
+  </script>
 
-<script
-src="https://receptionpoint.co.uk/widget.js"
-data-client-id="8de3f935-7fd5-42d6-bb21-55534ff82c7e"
-data-business-name="ReceptionPoint">
-</script>
-
+  <script
+    src="https://receptionpoint.co.uk/widget.js"
+    data-client-id="8de3f935-7fd5-42d6-bb21-55534ff82c7e"
+    data-business-name="ReceptionPoint">
+  </script>
 </body>
 </html>
+
