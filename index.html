@@ -78,38 +78,25 @@
       margin: auto;
       padding: 15px 40px;
       display: flex;
-      justify-content: space-between;
       align-items: center;
+      justify-content: space-between;
       position: relative;
+      gap: 16px;
+    }
+
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+      flex: 1;
     }
 
     .header-logo {
       font-weight: bold;
       font-size: 20px;
       color: #1F2A44;
-      z-index: 1001;
-    }
-
-    .header-nav {
-      display: flex;
-      gap: 14px;
-      align-items: center;
-    }
-
-    .header-secondary-button {
-      padding: 10px 20px;
-      border: 1px solid #2F6BFF;
-      color: #2F6BFF;
-      text-decoration: none;
-      border-radius: 6px;
-      font-weight: bold;
-      font-size: 14px;
-      background: white;
-      transition: all 0.2s ease;
-    }
-
-    .header-secondary-button:hover {
-      background: #F4F8FF;
+      white-space: nowrap;
     }
 
     .header-button {
@@ -120,6 +107,7 @@
       border-radius: 6px;
       font-weight: bold;
       font-size: 14px;
+      flex-shrink: 0;
     }
 
     .header-button:hover {
@@ -127,7 +115,7 @@
     }
 
     .menu-toggle {
-      display: none;
+      display: flex;
       background: none;
       border: none;
       padding: 0;
@@ -137,7 +125,7 @@
       flex-direction: column;
       justify-content: center;
       gap: 5px;
-      z-index: 1001;
+      flex-shrink: 0;
     }
 
     .menu-toggle span {
@@ -146,7 +134,43 @@
       height: 2px;
       background: #1F2A44;
       border-radius: 2px;
-      margin-left: auto;
+    }
+
+    .header-nav {
+      display: none;
+      position: absolute;
+      top: calc(100% + 8px);
+      left: 40px;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 10px;
+      background: white;
+      padding: 12px;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+      min-width: 190px;
+    }
+
+    .header-nav.open {
+      display: flex;
+    }
+
+    .header-secondary-button {
+      padding: 10px 12px;
+      border: 1px solid #2F6BFF;
+      color: #2F6BFF;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: bold;
+      font-size: 14px;
+      background: white;
+      transition: all 0.2s ease;
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    .header-secondary-button:hover {
+      background: #F4F8FF;
     }
 
     /* DEMO CHAT */
@@ -384,42 +408,29 @@
         gap: 12px;
       }
 
-      .header-logo {
-        font-size: 20px;
+      .header-left {
+        gap: 10px;
         flex: 1;
         min-width: 0;
-        text-align: left;
       }
 
-      .menu-toggle {
-        display: flex;
+      .header-logo {
+        font-size: 20px;
+      }
+
+      .header-button {
+        padding: 9px 12px;
+        font-size: 12px;
       }
 
       .header-nav {
-        display: none;
-        position: absolute;
-        top: calc(100% + 8px);
-        right: 16px;
-        flex-direction: column;
-        align-items: stretch;
-        gap: 10px;
-        background: white;
-        padding: 12px;
-        border-radius: 12px;
-        box-shadow: 0 10px 25px rgba(0,0,0,0.12);
-        min-width: 190px;
+        left: 16px;
+        min-width: 180px;
       }
 
-      .header-nav.open {
-        display: flex;
-      }
-
-      .header-secondary-button,
-      .header-button {
-        padding: 10px 12px;
+      .header-secondary-button {
         font-size: 13px;
-        text-align: center;
-        white-space: nowrap;
+        padding: 10px 12px;
       }
 
       .chatbot-mockup {
@@ -479,17 +490,22 @@
 <body>
   <div class="header">
     <div class="container">
-      <div class="header-logo">ReceptionPoint</div>
+      <div class="header-left">
+        <button class="menu-toggle" id="menu-toggle" aria-label="Open menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
 
-      <button class="menu-toggle" id="menu-toggle" aria-label="Open menu" aria-expanded="false">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
+        <div class="header-logo">ReceptionPoint</div>
+      </div>
+
+      <a href="https://buy.stripe.com/8x214mbC5gOq9tjcQq9AA01" class="header-button" target="_blank">Get Started</a>
 
       <div class="header-nav" id="header-nav">
+        <a href="index.html" class="header-secondary-button">Home</a>
         <a href="how-it-works.html" class="header-secondary-button">How It Works</a>
-        <a href="https://buy.stripe.com/8x214mbC5gOq9tjcQq9AA01" class="header-button" target="_blank">Get Started</a>
+        <a href="contact.html" class="header-secondary-button">Contact Us</a>
       </div>
     </div>
   </div>
@@ -510,7 +526,7 @@
       <a href="https://buy.stripe.com/8x214mbC5gOq9tjcQq9AA01" class="button" target="_blank">Get Started</a>
       <p style="font-size:14px; margin-top:12px; color:#FFFFFF;">
         Want to see what happens after you sign up?
-        <a href="how-it-works.html" style="color:#FFFFFF;">See how it works</a>
+        <a href="how-it-works.html" style="color:#FFFFFF;">How it works</a>
       </p>
       <p style="font-size:14px; margin-top:5px; color:#FFFFFF;">
         After payment, fill in your business details:
