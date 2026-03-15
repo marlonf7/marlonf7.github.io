@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ReceptionPoint | How It Works</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.6;
+      background-color: #F4F6F9;
+      color: #1F2A44;
+      padding-top: 80px;
+      padding-bottom: 40px;
+    }
+
+    section {
+      padding: 80px 20px;
+      text-align: center;
+      background-color: #F4F6F9;
+    }
+
+    .alt-section {
+      background-color: white;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #3E7BFA, #1F2A44);
+      color: white;
+      padding: 60px 20px 40px 20px;
+      min-height: 40vh;
+      display: flex;
+      align-items: center;
+    }
+
+    .hero h1 {
+      font-size: 42px;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 20px;
+      margin-bottom: 30px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 15px 35px;
+      background-color: #2F6BFF;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+    }
+
+    .button:hover {
+      background-color: #1c4ed8;
+    }
+
+    .header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: white;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+      z-index: 1000;
+    }
+
+    .header .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 15px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .header-logo {
+      font-weight: bold;
+      font-size: 20px;
+      color: #1F2A44;
+      text-decoration: none;
+    }
+
+    .header-nav {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .header-link {
+      color: #1F2A44;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    .header-link:hover {
+      text-decoration: underline;
+    }
+
+    .header-button {
+      padding: 10px 20px;
+      background-color: #2F6BFF;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    .header-button:hover {
+      background-color: #1c4ed8;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .feature-box,
+    .pricing-box {
+      background: #F4F6F9;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .feature-box:hover,
+    .pricing-box:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+    }
+
+    .feature-icon {
+      width: 64px;
+      height: 64px;
+      margin: 0 auto 18px auto;
+      border-radius: 18px;
+      background: linear-gradient(180deg, #F4F8FF 0%, #E8F0FF 100%);
+      color: #2F6BFF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: inset 0 0 0 1px rgba(47, 107, 255, 0.08);
+      font-size: 22px;
+      font-weight: bold;
+    }
+
+    .footer {
+      background-color: #1F2A44;
+      color: white;
+      padding: 40px 20px;
+      font-size: 14px;
+    }
+
+    .footer a {
+      color: white;
+      text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding-top: 72px;
+      }
+
+      section {
+        padding: 60px 16px;
+      }
+
+      .hero {
+        padding: 40px 16px 30px 16px;
+        min-height: auto;
+      }
+
+      .hero h1 {
+        font-size: 32px;
+        line-height: 1.15;
+      }
+
+      .hero p {
+        font-size: 18px;
+        margin-bottom: 28px;
+      }
+
+      .header .container {
+        padding: 14px 16px;
+      }
+
+      .header-logo {
+        font-size: 18px;
+      }
+
+      .header-button {
+        padding: 9px 14px;
+        font-size: 13px;
+      }
+
+      .header-link {
+        font-size: 13px;
+      }
+
+      .features {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+        margin-top: 30px;
+      }
+
+      .feature-box {
+        padding: 18px 14px;
+      }
+
+      .feature-box h3 {
+        font-size: 18px;
+        line-height: 1.25;
+        margin: 10px 0 8px;
+      }
+
+      .feature-box p {
+        font-size: 14px;
+        line-height: 1.45;
+        margin: 0;
+      }
+
+      .feature-icon {
+        width: 52px;
+        height: 52px;
+        margin: 0 auto 14px auto;
+        border-radius: 14px;
+        font-size: 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="header">
+    <div class="container">
+      <a href="index.html" class="header-logo">ReceptionPoint</a>
+      <div class="header-nav">
+        <a href="how-it-works.html" class="header-link">How It Works</a>
+        <a href="https://buy.stripe.com/8x214mbC5gOq9tjcQq9AA01" class="header-button" target="_blank">Get Started</a>
+      </div>
+    </div>
+  </div>
+
+  <section class="hero">
+    <div class="container">
+      <h1>How ReceptionPoint Works</h1>
+      <p>From payment to launch, we handle the setup for you.</p>
+      <a href="https://buy.stripe.com/8x214mbC5gOq9tjcQq9AA01" class="button" target="_blank">Get Started</a>
+    </div>
+  </section>
+
+  <section class="alt-section">
+    <div class="container">
+      <h2>Get Set Up in 5 Simple Steps</h2>
+      <div class="features">
+        <div class="feature-box">
+          <div class="feature-icon">1</div>
+          <h3>Choose Your Plan</h3>
+          <p>Pay the setup fee and first month to get started.</p>
+        </div>
+        <div class="feature-box">
+          <div class="feature-icon">2</div>
+          <h3>Submit Your Details</h3>
+          <p>Fill in a short form with your website, services, FAQs, booking link, opening hours, and contact details.</p>
+        </div>
+        <div class="feature-box">
+          <div class="feature-icon">3</div>
+          <h3>We Build It</h3>
+          <p>We configure your AI receptionist around your business so it can answer common questions and guide visitors properly.</p>
+        </div>
+        <div class="feature-box">
+          <div class="feature-icon">4</div>
+          <h3>We Install It</h3>
+          <p>Your AI receptionist goes live on your website and starts helping visitors straight away.</p>
+        </div>
+        <div class="feature-box">
+          <div class="feature-icon">5</div>
+          <h3>We Manage It</h3>
+          <p>We provide ongoing support and keep everything running smoothly.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <h2>What We Need From You</h2>
+      <div class="features">
+        <div class="feature-box">
+          <h3>Your Website</h3>
+          <p>We use your website and business information to tailor your AI receptionist.</p>
+        </div>
+        <div class="feature-box">
+          <h3>Your Booking Link</h3>
+          <p>So visitors can be guided straight to the right place when they’re ready to book.</p>
+        </div>
+        <div class="feature-box">
+          <h3>Your FAQs</h3>
+          <p>Common questions like services, pricing, opening hours, and location help the chatbot respond accurately.</p>
+        </div>
+        <div class="feature-box">
+          <h3>Your Contact Details</h3>
+          <p>So complex enquiries can be passed over to your team when needed.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="alt-section">
+    <div class="container">
+      <h2>What You Get</h2>
+      <div class="features">
+        <div class="feature-box">
+          <h3>24/7 Website Chatbot</h3>
+          <p>A branded AI receptionist on your website answering visitors around the clock.</p>
+        </div>
+        <div class="feature-box">
+          <h3>Instant Booking Guidance</h3>
+          <p>Visitors are guided to your booking page quickly instead of leaving the site.</p>
+        </div>
+        <div class="feature-box">
+          <h3>Lead Capture</h3>
+          <p>Complex enquiries are captured and passed to your team for follow-up.</p>
+        </div>
+        <div class="feature-box">
+          <h3>Fully Managed Setup</h3>
+          <p>We handle the setup, configuration, and ongoing support for you.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <h2>Ready to Get Started?</h2>
+      <p>Set up your AI receptionist today and start converting more website visitors into bookings and enquiries.</p>
+      <a href="https://buy.stripe.com/8x214mbC5gOq9tjcQq9AA01" class="button" target="_blank">Get Started</a>
+      <p style="font-size:14px; margin-top:10px;">
+        Already paid?
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLScCQykZxBMRkQylLXwAOteXUrPqP3NIgbOjKMZH7P6BIeYcsA/viewform?usp=header" target="_blank">Submit Your Details</a>
+      </p>
+    </div>
+  </section>
+
+  <section class="footer">
+    <div class="container">
+      <p>© 2026 ReceptionPoint. All rights reserved.</p>
+      <p><a href="mailto:receptionpointinfo@gmail.com">receptionpointinfo@gmail.com</a></p>
+    </div>
+  </section>
+</body>
+</html>
