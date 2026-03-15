@@ -80,12 +80,14 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      position: relative;
     }
 
     .header-logo {
       font-weight: bold;
       font-size: 20px;
       color: #1F2A44;
+      z-index: 1001;
     }
 
     .header-nav {
@@ -122,6 +124,29 @@
 
     .header-button:hover {
       background-color: #1c4ed8;
+    }
+
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      padding: 0;
+      width: 32px;
+      height: 32px;
+      cursor: pointer;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      z-index: 1001;
+    }
+
+    .menu-toggle span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: #1F2A44;
+      border-radius: 2px;
+      margin-left: auto;
     }
 
     /* DEMO CHAT */
@@ -356,20 +381,45 @@
 
       .header .container {
         padding: 14px 16px;
+        gap: 12px;
       }
 
       .header-logo {
-        font-size: 18px;
+        font-size: 20px;
+        flex: 1;
+        min-width: 0;
+        text-align: left;
+      }
+
+      .menu-toggle {
+        display: flex;
       }
 
       .header-nav {
-        gap: 8px;
+        display: none;
+        position: absolute;
+        top: calc(100% + 8px);
+        right: 16px;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+        background: white;
+        padding: 12px;
+        border-radius: 12px;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+        min-width: 190px;
+      }
+
+      .header-nav.open {
+        display: flex;
       }
 
       .header-secondary-button,
       .header-button {
-        padding: 9px 12px;
-        font-size: 12px;
+        padding: 10px 12px;
+        font-size: 13px;
+        text-align: center;
+        white-space: nowrap;
       }
 
       .chatbot-mockup {
@@ -430,8 +480,15 @@
   <div class="header">
     <div class="container">
       <div class="header-logo">ReceptionPoint</div>
-      <div class="header-nav">
-        <a href="how-it-works.html" class="header-secondary-button">See How It Works</a>
+
+      <button class="menu-toggle" id="menu-toggle" aria-label="Open menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <div class="header-nav" id="header-nav">
+        <a href="how-it-works.html" class="header-secondary-button">How It Works</a>
         <a href="https://buy.stripe.com/8x214mbC5gOq9tjcQq9AA01" class="header-button" target="_blank">Get Started</a>
       </div>
     </div>
@@ -676,6 +733,23 @@
     }
 
     showMessage();
+
+    const menuToggle = document.getElementById('menu-toggle');
+    const headerNav = document.getElementById('header-nav');
+
+    if (menuToggle && headerNav) {
+      menuToggle.addEventListener('click', function () {
+        const isOpen = headerNav.classList.toggle('open');
+        menuToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      });
+
+      document.addEventListener('click', function (e) {
+        if (!menuToggle.contains(e.target) && !headerNav.contains(e.target)) {
+          headerNav.classList.remove('open');
+          menuToggle.setAttribute('aria-expanded', 'false');
+        }
+      });
+    }
   </script>
 
   <script
@@ -685,4 +759,3 @@
   </script>
 </body>
 </html>
-
