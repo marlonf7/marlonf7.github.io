@@ -31,6 +31,7 @@
       margin: auto;
     }
 
+    /* HERO */
     .hero {
       background: linear-gradient(135deg, #3E7BFA, #1F2A44);
       color: white;
@@ -64,6 +65,7 @@
       background-color: #1c4ed8;
     }
 
+    /* HEADER */
     .header {
       position: fixed;
       top: 0;
@@ -78,32 +80,25 @@
       margin: auto;
       padding: 15px 40px;
       display: flex;
-      justify-content: space-between;
       align-items: center;
+      justify-content: space-between;
+      position: relative;
+      gap: 16px;
+    }
+
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+      flex: 1;
     }
 
     .header-logo {
       font-weight: bold;
       font-size: 20px;
       color: #1F2A44;
-      text-decoration: none;
-    }
-
-    .header-nav {
-      display: flex;
-      gap: 10px;
-      align-items: center;
-    }
-
-    .header-link {
-      color: #1F2A44;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 14px;
-    }
-
-    .header-link:hover {
-      text-decoration: underline;
+      white-space: nowrap;
     }
 
     .header-button {
@@ -114,17 +109,91 @@
       border-radius: 6px;
       font-weight: bold;
       font-size: 14px;
+      flex-shrink: 0;
     }
 
     .header-button:hover {
       background-color: #1c4ed8;
     }
 
+    .menu-toggle {
+      display: flex;
+      background: none;
+      border: none;
+      padding: 0;
+      width: 32px;
+      height: 32px;
+      cursor: pointer;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      flex-shrink: 0;
+    }
+
+    .menu-toggle span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: #1F2A44;
+      border-radius: 2px;
+    }
+
+    .header-nav {
+      display: none;
+      position: absolute;
+      top: calc(100% + 8px);
+      left: 40px;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 8px;
+      background: #1F2A44;
+      padding: 12px;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.18);
+      min-width: 190px;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .header-nav.open {
+      display: flex;
+    }
+
+    .header-secondary-button {
+      padding: 10px 12px;
+      background-color: #2F6BFF;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: bold;
+      font-size: 14px;
+      border: none;
+      transition: all 0.2s ease;
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    .header-secondary-button:hover {
+      background-color: #1c4ed8;
+    }
+
+    /* CONTENT */
     .features {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 30px;
       margin-top: 40px;
+    }
+
+    .setup-steps {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+    }
+
+    .setup-steps .feature-box {
+      flex: 0 1 calc((100% - 60px) / 3);
+      max-width: calc((100% - 60px) / 3);
     }
 
     .feature-box,
@@ -134,6 +203,7 @@
       border-radius: 12px;
       box-shadow: 0 8px 20px rgba(0,0,0,0.05);
       transition: transform 0.3s, box-shadow 0.3s;
+      box-sizing: border-box;
     }
 
     .feature-box:hover,
@@ -157,6 +227,7 @@
       font-weight: bold;
     }
 
+    /* FOOTER */
     .footer {
       background-color: #1F2A44;
       color: white;
@@ -169,6 +240,7 @@
       text-decoration: underline;
     }
 
+    /* MOBILE */
     @media (max-width: 768px) {
       body {
         padding-top: 72px;
@@ -195,19 +267,32 @@
 
       .header .container {
         padding: 14px 16px;
+        gap: 12px;
+      }
+
+      .header-left {
+        gap: 10px;
+        flex: 1;
+        min-width: 0;
       }
 
       .header-logo {
-        font-size: 18px;
+        font-size: 20px;
       }
 
       .header-button {
-        padding: 9px 14px;
-        font-size: 13px;
+        padding: 9px 12px;
+        font-size: 12px;
       }
 
-      .header-link {
+      .header-nav {
+        left: 16px;
+        min-width: 180px;
+      }
+
+      .header-secondary-button {
         font-size: 13px;
+        padding: 10px 12px;
       }
 
       .features {
@@ -215,6 +300,20 @@
         grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 14px;
         margin-top: 30px;
+      }
+
+      .setup-steps {
+        gap: 14px;
+      }
+
+      .setup-steps .feature-box {
+        flex: 0 1 calc((100% - 14px) / 2);
+        max-width: calc((100% - 14px) / 2);
+      }
+
+      .setup-steps .feature-box:last-child {
+        flex-basis: calc((100% - 14px) / 2);
+        max-width: calc((100% - 14px) / 2);
       }
 
       .feature-box {
@@ -247,10 +346,22 @@
 <body>
   <div class="header">
     <div class="container">
-      <a href="index.html" class="header-logo">ReceptionPoint</a>
-      <div class="header-nav">
-        <a href="how-it-works.html" class="header-link">How It Works</a>
-        <a href="https://buy.stripe.com/8x214mbC5gOq9tjcQq9AA01" class="header-button" target="_blank">Get Started</a>
+      <div class="header-left">
+        <button class="menu-toggle" id="menu-toggle" aria-label="Open menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <div class="header-logo">ReceptionPoint</div>
+      </div>
+
+      <a href="https://buy.stripe.com/8x214mbC5gOq9tjcQq9AA01" class="header-button" target="_blank">Get Started</a>
+
+      <div class="header-nav" id="header-nav">
+        <a href="index.html" class="header-secondary-button">Home</a>
+        <a href="how-it-works.html" class="header-secondary-button">How It Works</a>
+        <a href="contact.html" class="header-secondary-button">Contact Us</a>
       </div>
     </div>
   </div>
@@ -266,7 +377,7 @@
   <section class="alt-section">
     <div class="container">
       <h2>Get Set Up in 5 Simple Steps</h2>
-      <div class="features">
+      <div class="features setup-steps">
         <div class="feature-box">
           <div class="feature-icon">1</div>
           <h3>Choose Your Plan</h3>
@@ -362,5 +473,24 @@
       <p><a href="mailto:receptionpointinfo@gmail.com">receptionpointinfo@gmail.com</a></p>
     </div>
   </section>
+
+  <script>
+    const menuToggle = document.getElementById('menu-toggle');
+    const headerNav = document.getElementById('header-nav');
+
+    if (menuToggle && headerNav) {
+      menuToggle.addEventListener('click', function () {
+        const isOpen = headerNav.classList.toggle('open');
+        menuToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      });
+
+      document.addEventListener('click', function (e) {
+        if (!menuToggle.contains(e.target) && !headerNav.contains(e.target)) {
+          headerNav.classList.remove('open');
+          menuToggle.setAttribute('aria-expanded', 'false');
+        }
+      });
+    }
+  </script>
 </body>
 </html>
