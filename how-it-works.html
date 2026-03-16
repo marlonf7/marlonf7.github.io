@@ -303,17 +303,45 @@
       }
 
       .setup-steps {
-        gap: 14px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
       }
 
       .setup-steps .feature-box {
-        flex: 0 1 calc((100% - 14px) / 2);
-        max-width: calc((100% - 14px) / 2);
+        flex: none;
+        width: 100%;
+        max-width: 100%;
+        display: flex;
+        align-items: flex-start;
+        text-align: left;
+        gap: 12px;
+        padding: 14px 12px;
       }
 
-      .setup-steps .feature-box:last-child {
-        flex-basis: calc((100% - 14px) / 2);
-        max-width: calc((100% - 14px) / 2);
+      .setup-steps .feature-box > div:last-child {
+        flex: 1;
+      }
+
+      .setup-steps .feature-icon {
+        width: 40px;
+        height: 40px;
+        min-width: 40px;
+        margin: 0;
+        border-radius: 10px;
+        font-size: 16px;
+      }
+
+      .setup-steps .feature-box h3 {
+        font-size: 16px;
+        line-height: 1.2;
+        margin: 0 0 4px;
+      }
+
+      .setup-steps .feature-box p {
+        font-size: 13px;
+        line-height: 1.35;
+        margin: 0;
       }
 
       .feature-box {
@@ -380,28 +408,38 @@
       <div class="features setup-steps">
         <div class="feature-box">
           <div class="feature-icon">1</div>
-          <h3>Choose Your Plan</h3>
-          <p>Pay the setup fee and first month to get started.</p>
+          <div>
+            <h3>Choose Your Plan</h3>
+            <p>Pay the setup fee and first month to get started.</p>
+          </div>
         </div>
         <div class="feature-box">
           <div class="feature-icon">2</div>
-          <h3>Submit Your Details</h3>
-          <p>Fill in a short form with your website, services, FAQs, booking link, opening hours, and contact details.</p>
+          <div>
+            <h3>Submit Your Details</h3>
+            <p>Fill in a short form with your website, services, FAQs, booking link, opening hours, and contact details.</p>
+          </div>
         </div>
         <div class="feature-box">
           <div class="feature-icon">3</div>
-          <h3>We Build It</h3>
-          <p>We configure your AI receptionist around your business so it can answer common questions and guide visitors properly.</p>
+          <div>
+            <h3>We Build It</h3>
+            <p>We configure your AI receptionist around your business so it can answer common questions and guide visitors properly.</p>
+          </div>
         </div>
         <div class="feature-box">
           <div class="feature-icon">4</div>
-          <h3>We Install It</h3>
-          <p>Your AI receptionist goes live on your website and starts helping visitors straight away.</p>
+          <div>
+            <h3>We Install It</h3>
+            <p>Your AI receptionist goes live on your website and starts helping visitors straight away.</p>
+          </div>
         </div>
         <div class="feature-box">
           <div class="feature-icon">5</div>
-          <h3>We Manage It</h3>
-          <p>We provide ongoing support and keep everything running smoothly.</p>
+          <div>
+            <h3>We Manage It</h3>
+            <p>We provide ongoing support and keep everything running smoothly.</p>
+          </div>
         </div>
       </div>
     </div>
