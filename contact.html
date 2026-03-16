@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ReceptionPoint | Contact Us</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.6;
+      background-color: #F4F6F9;
+      color: #1F2A44;
+      padding-top: 80px;
+      padding-bottom: 40px;
+    }
+
+    section {
+      padding: 80px 20px;
+      text-align: center;
+      background-color: #F4F6F9;
+    }
+
+    .alt-section {
+      background-color: white;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    /* HERO */
+    .hero {
+      background: linear-gradient(135deg, #3E7BFA, #1F2A44);
+      color: white;
+      padding: 60px 20px 40px 20px;
+      min-height: 40vh;
+      display: flex;
+      align-items: center;
+    }
+
+    .hero h1 {
+      font-size: 42px;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 20px;
+      margin-bottom: 30px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 15px 35px;
+      background-color: #2F6BFF;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+    }
+
+    .button:hover {
+      background-color: #1c4ed8;
+    }
+
+    .button-secondary {
+      display: inline-block;
+      padding: 15px 35px;
+      background: white;
+      color: #2F6BFF;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+      border: 1px solid rgba(47, 107, 255, 0.15);
+    }
+
+    .button-secondary:hover {
+      background: #F4F8FF;
+    }
+
+    /* HEADER */
+    .header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: white;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+      z-index: 1000;
+    }
+
+    .header .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 15px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
+      gap: 16px;
+    }
+
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+      flex: 1;
+    }
+
+    .header-logo {
+      font-weight: bold;
+      font-size: 20px;
+      color: #1F2A44;
+      white-space: nowrap;
+    }
+
+    .header-button {
+      padding: 10px 20px;
+      background-color: #2F6BFF;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: bold;
+      font-size: 14px;
+      flex-shrink: 0;
+    }
+
+    .header-button:hover {
+      background-color: #1c4ed8;
+    }
+
+    .menu-toggle {
+      display: flex;
+      background: none;
+      border: none;
+      padding: 0;
+      width: 32px;
+      height: 32px;
+      cursor: pointer;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      flex-shrink: 0;
+    }
+
+    .menu-toggle span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: #1F2A44;
+      border-radius: 2px;
+    }
+
+    .header-nav {
+      display: none;
+      position: absolute;
+      top: calc(100% + 8px);
+      left: 40px;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 8px;
+      background: #1F2A44;
+      padding: 12px;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.18);
+      min-width: 190px;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .header-nav.open {
+      display: flex;
+    }
+
+    .header-secondary-button {
+      padding: 10px 12px;
+      background-color: #2F6BFF;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: bold;
+      font-size: 14px;
+      border: none;
+      transition: all 0.2s ease;
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    .header-secondary-button:hover {
+      background-color: #1c4ed8;
+    }
+
+    /* CONTENT */
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .feature-box,
+    .contact-box {
+      background: #F4F6F9;
+      padding: 28px 24px;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+      transition: transform 0.3s, box-shadow 0.3s;
+      box-sizing: border-box;
+    }
+
+    .feature-box:hover,
+    .contact-box:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+    }
+
+    .feature-icon {
+      width: 64px;
+      height: 64px;
+      margin: 0 auto 18px auto;
+      border-radius: 18px;
+      background: linear-gradient(180deg, #F4F8FF 0%, #E8F0FF 100%);
+      color: #2F6BFF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: inset 0 0 0 1px rgba(47, 107, 255, 0.08);
+    }
+
+    .feature-icon svg {
+      width: 30px;
+      height: 30px;
+      stroke: currentColor;
+      stroke-width: 2;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .contact-link {
+      color: #2F6BFF;
+      text-decoration: none;
+      font-weight: bold;
+      word-break: break-word;
+    }
+
+    .contact-link:hover {
+      text-decoration: underline;
+    }
+
+    .contact-actions {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 28px;
+    }
+
+    /* FOOTER */
+    .footer {
+      background-color: #1F2A44;
+      color: white;
+      padding: 40px 20px;
+      font-size: 14px;
+    }
+
+    .footer a {
+      color: white;
+      text-decoration: underline;
+    }
+
+    /* MOBILE */
+    @media (max-width: 768px) {
+      body {
+        padding-top: 72px;
+      }
+
+      section {
+        padding: 60px 16px;
+      }
+
+      .hero {
+        padding: 40px 16px 30px 16px;
+        min-height: auto;
+      }
+
+      .hero h1 {
+        font-size: 32px;
+        line-height: 1.15;
+      }
+
+      .hero p {
+        font-size: 18px;
+        margin-bottom: 28px;
+      }
+
+      .header .container {
+        padding: 14px 16px;
+        gap: 12px;
+      }
+
+      .header-left {
+        gap: 10px;
+        flex: 1;
+        min-width: 0;
+      }
+
+      .header-logo {
+        font-size: 20px;
+      }
+
+      .header-button {
+        padding: 9px 12px;
+        font-size: 12px;
+      }
+
+      .header-nav {
+        left: 16px;
+        min-width: 180px;
+      }
+
+      .header-secondary-button {
+        font-size: 13px;
+        padding: 10px 12px;
+      }
+
+      .features {
+        grid-template-columns: 1fr;
+        gap: 14px;
+        margin-top: 30px;
+      }
+
+      .feature-box,
+      .contact-box {
+        padding: 20px 16px;
+      }
+
+      .feature-box h3,
+      .contact-box h3 {
+        font-size: 18px;
+        line-height: 1.25;
+        margin: 10px 0 8px;
+      }
+
+      .feature-box p,
+      .contact-box p {
+        font-size: 14px;
+        line-height: 1.45;
+        margin: 0;
+      }
+
+      .feature-icon {
+        width: 52px;
+        height: 52px;
+        margin: 0 auto 14px auto;
+        border-radius: 14px;
+      }
+
+      .feature-icon svg {
+        width: 24px;
+        height: 24px;
+      }
+
+      .contact-actions {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .contact-actions .button,
+      .contact-actions .button-secondary {
+        width: 100%;
+        max-width: 320px;
+        box-sizing: border-box;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="header">
+    <div class="container">
+      <div class="header-left">
+        <button class="menu-toggle" id="menu-toggle" aria-label="Open menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <div class="header-logo">ReceptionPoint</div>
+      </div>
+
+      <a href="https://buy.stripe.com/8x214mbC5gOq9tjcQq9AA01" class="header-button" target="_blank">Get Started</a>
+
+      <div class="header-nav" id="header-nav">
+        <a href="index.html" class="header-secondary-button">Home</a>
+        <a href="how-it-works.html" class="header-secondary-button">How It Works</a>
+        <a href="contact.html" class="header-secondary-button">Contact Us</a>
+      </div>
+    </div>
+  </div>
+
+  <section class="hero">
+    <div class="container">
+      <h1>Contact Us</h1>
+      <p>Get in touch if you have questions about ReceptionPoint, setup, support, or partnerships.</p>
+      <div class="contact-actions">
+        <a href="tel:07784529862" class="button">Call Us</a>
+        <a href="mailto:receptionpointinfo@gmail.com" class="button-secondary">Email Us</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="alt-section">
+    <div class="container">
+      <h2>How to Reach Us</h2>
+      <div class="features">
+        <div class="contact-box">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.08 4.18 2 2 0 0 1 4.06 2h3a2 2 0 0 1 2 1.72c.12.9.33 1.78.63 2.62a2 2 0 0 1-.45 2.11L8 9.94a16 16 0 0 0 6 6l1.49-1.24a2 2 0 0 1 2.11-.45c.84.3 1.72.51 2.62.63A2 2 0 0 1 22 16.92z"></path>
+            </svg>
+          </div>
+          <h3>Phone</h3>
+          <p><a class="contact-link" href="tel:07784529862">07784 529862</a></p>
+          <p style="margin-top:10px;">Call us for sales enquiries, setup questions, or support.</p>
+        </div>
+
+        <div class="contact-box">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M4 4h16a2 2 0 0 1 2 2v.2l-10 6.25L2 6.2V6a2 2 0 0 1 2-2z"></path>
+              <path d="M22 8v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8"></path>
+            </svg>
+          </div>
+          <h3>Email</h3>
+          <p><a class="contact-link" href="mailto:receptionpointinfo@gmail.com">receptionpointinfo@gmail.com</a></p>
+          <p style="margin-top:10px;">Send us a message and we’ll get back to you as soon as possible.</p>
+        </div>
+
+        <div class="contact-box">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+            </svg>
+          </div>
+          <h3>What We Can Help With</h3>
+          <p>Questions about setup, pricing, onboarding, support, or how ReceptionPoint could work for your business.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <h2>Ready to Get Started?</h2>
+      <p>Set up your AI receptionist today and start converting more website visitors into bookings and enquiries.</p>
+      <div class="contact-actions">
+        <a href="https://buy.stripe.com/8x214mbC5gOq9tjcQq9AA01" class="button" target="_blank">Get Started</a>
+        <a href="how-it-works.html" class="button-secondary">How It Works</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="footer">
+    <div class="container">
+      <p>© 2026 ReceptionPoint. All rights reserved.</p>
+      <p><a href="mailto:receptionpointinfo@gmail.com">receptionpointinfo@gmail.com</a></p>
+    </div>
+  </section>
+
+  <script>
+    const menuToggle = document.getElementById('menu-toggle');
+    const headerNav = document.getElementById('header-nav');
+
+    if (menuToggle && headerNav) {
+      menuToggle.addEventListener('click', function () {
+        const isOpen = headerNav.classList.toggle('open');
+        menuToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      });
+
+      document.addEventListener('click', function (e) {
+        if (!menuToggle.contains(e.target) && !headerNav.contains(e.target)) {
+          headerNav.classList.remove('open');
+          menuToggle.setAttribute('aria-expanded', 'false');
+        }
+      });
+    }
+  </script>
+</body>
+</html>
