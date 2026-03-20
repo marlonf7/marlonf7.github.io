@@ -307,7 +307,21 @@
       display: grid;
       grid-template-columns: minmax(0, 1.1fr) minmax(300px, 0.9fr);
       gap: 16px;
-      align-items: stretch;
+      align-items: end;
+    }
+
+    .hero-demo {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .hero-demo-heading {
+      margin: 0;
+      font-size: 20px;
+      line-height: 1.15;
+      color: #24477e;
+      text-align: left;
     }
 
     .hero-side-card {
@@ -320,6 +334,8 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
+      min-height: 280px;
+      height: 280px;
     }
 
     .hero-side-card h3 {
@@ -338,7 +354,7 @@
     .mini-list {
       display: grid;
       gap: 10px;
-      margin-bottom: 16px;
+      margin-bottom: 0;
     }
 
     .mini-item {
@@ -716,6 +732,11 @@
         grid-template-columns: 1fr;
       }
 
+      .hero-side-card {
+        height: auto;
+        min-height: 0;
+      }
+
       .helps-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
@@ -787,6 +808,11 @@
         line-height: 1.55;
       }
 
+      .hero-demo-heading {
+        text-align: center;
+        font-size: 18px;
+      }
+
       .hero-grid {
         gap: 14px;
       }
@@ -811,6 +837,8 @@
       .hero-side-card {
         padding: 18px 16px;
         text-align: center;
+        height: auto;
+        min-height: 0;
       }
 
       .hero-side-card h3 {
@@ -945,21 +973,25 @@
         </div>
 
         <div class="hero-grid">
-          <div class="chatbot-mockup" id="chatbot">
-            <div class="mockup-topbar">
-              <strong>ReceptionPoint Live Chat</strong>
-              <div class="mockup-dots">
-                <span></span>
-                <span></span>
-                <span></span>
+          <div class="hero-demo">
+            <h3 class="hero-demo-heading">See How It Works in Action</h3>
+
+            <div class="chatbot-mockup" id="chatbot">
+              <div class="mockup-topbar">
+                <strong>ReceptionPoint Live Chat</strong>
+                <div class="mockup-dots">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
               </div>
-            </div>
 
-            <div class="chat-messages" id="chat-messages"></div>
+              <div class="chat-messages" id="chat-messages"></div>
 
-            <div class="chat-input-container">
-              <input class="chat-input" type="text" placeholder="Type here..." disabled>
-              <button disabled>Send</button>
+              <div class="chat-input-container">
+                <input class="chat-input" type="text" placeholder="Type here..." disabled>
+                <button disabled>Send</button>
+              </div>
             </div>
           </div>
 
@@ -981,8 +1013,6 @@
                 <div>Captures leads for complex enquiries</div>
               </div>
             </div>
-
-            <a href="https://buy.stripe.com/8x214mbC5gOq9tjcQq9AA01" class="button" target="_blank">Get Started Now</a>
           </div>
         </div>
 
@@ -1287,4 +1317,3 @@
   </script>
 </body>
 </html>
-
