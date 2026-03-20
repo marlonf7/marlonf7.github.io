@@ -6,61 +6,108 @@
   <title>ReceptionPoint | Your 24/7 AI Reception Team</title>
 
   <style>
+    :root {
+      --bg: #f3f6fb;
+      --surface: #ffffff;
+      --surface-soft: #f7f9fd;
+      --text: #1F2A44;
+      --muted: #61718f;
+      --primary: #2F6BFF;
+      --primary-dark: #1c4ed8;
+      --border: rgba(31, 42, 68, 0.08);
+      --shadow: 0 14px 34px rgba(16, 39, 73, 0.08);
+      --shadow-strong: 0 20px 48px rgba(16, 39, 73, 0.12);
+      --radius-xl: 28px;
+      --radius-lg: 20px;
+      --radius-md: 14px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
       font-family: Arial, Helvetica, sans-serif;
       line-height: 1.6;
-      background-color: #F4F6F9;
-      color: #1F2A44;
-      padding-top: 80px;
+      background:
+        radial-gradient(circle at top left, rgba(47,107,255,0.08), transparent 28%),
+        radial-gradient(circle at top right, rgba(28,78,216,0.06), transparent 24%),
+        var(--bg);
+      color: var(--text);
+      padding-top: 86px;
       padding-bottom: 40px;
     }
 
     section {
       padding: 80px 20px;
-      text-align: center;
-      background-color: #F4F6F9;
-    }
-
-    .alt-section {
-      background-color: white;
     }
 
     .container {
-      max-width: 1000px;
+      max-width: 1120px;
       margin: auto;
     }
 
-    /* HERO */
-    .hero {
-      background: linear-gradient(135deg, #3E7BFA, #1F2A44);
-      color: white;
-      padding: 60px 20px 40px 20px;
-      min-height: 50vh;
+    .section-heading {
+      text-align: center;
+      max-width: 760px;
+      margin: 0 auto 18px;
     }
 
-    .hero h1 {
-      font-size: 42px;
-      margin-bottom: 20px;
+    .section-heading h2 {
+      margin: 0 0 10px;
+      font-size: 36px;
+      line-height: 1.12;
+      letter-spacing: -0.02em;
     }
 
-    .hero p {
-      font-size: 20px;
-      margin-bottom: 40px;
+    .section-heading p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 17px;
     }
 
     .button {
-      display: inline-block;
-      padding: 15px 35px;
-      background-color: #2F6BFF;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 15px 34px;
+      background: var(--primary);
       color: white;
       text-decoration: none;
-      border-radius: 8px;
+      border-radius: 999px;
       font-weight: bold;
+      box-shadow: 0 12px 24px rgba(47, 107, 255, 0.22);
+      transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
     }
 
     .button:hover {
-      background-color: #1c4ed8;
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 16px 28px rgba(47, 107, 255, 0.28);
+    }
+
+    .button-secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 15px 34px;
+      background: white;
+      color: var(--primary);
+      text-decoration: none;
+      border-radius: 999px;
+      font-weight: bold;
+      border: 1px solid rgba(47, 107, 255, 0.16);
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+
+    .button-secondary:hover {
+      background: #f4f8ff;
+      transform: translateY(-2px);
     }
 
     /* HEADER */
@@ -68,15 +115,16 @@
       position: fixed;
       top: 0;
       width: 100%;
-      background: white;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
       z-index: 1000;
+      backdrop-filter: blur(14px);
+      background: rgba(255,255,255,0.88);
+      border-bottom: 1px solid rgba(31,42,68,0.06);
     }
 
     .header .container {
-      max-width: 1000px;
+      max-width: 1120px;
       margin: auto;
-      padding: 15px 40px;
+      padding: 16px 28px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -93,100 +141,323 @@
     }
 
     .header-logo {
-      font-weight: bold;
-      font-size: 20px;
-      color: #1F2A44;
+      font-weight: 800;
+      font-size: 22px;
+      letter-spacing: -0.02em;
+      color: var(--text);
       white-space: nowrap;
     }
 
     .header-button {
-      padding: 10px 20px;
-      background-color: #2F6BFF;
+      padding: 11px 18px;
+      background: var(--primary);
       color: white;
       text-decoration: none;
-      border-radius: 6px;
+      border-radius: 999px;
       font-weight: bold;
       font-size: 14px;
       flex-shrink: 0;
+      box-shadow: 0 10px 24px rgba(47, 107, 255, 0.18);
+      transition: background 0.2s ease, transform 0.2s ease;
     }
 
     .header-button:hover {
-      background-color: #1c4ed8;
+      background: var(--primary-dark);
+      transform: translateY(-1px);
     }
 
     .menu-toggle {
       display: flex;
-      background: none;
-      border: none;
+      background: white;
+      border: 1px solid rgba(31,42,68,0.08);
       padding: 0;
-      width: 32px;
-      height: 32px;
+      width: 40px;
+      height: 40px;
       cursor: pointer;
+      border-radius: 12px;
       flex-direction: column;
       justify-content: center;
+      align-items: center;
       gap: 5px;
       flex-shrink: 0;
+      box-shadow: 0 8px 18px rgba(16, 39, 73, 0.06);
     }
 
     .menu-toggle span {
       display: block;
-      width: 22px;
+      width: 18px;
       height: 2px;
-      background: #1F2A44;
+      background: var(--text);
       border-radius: 2px;
     }
 
     .header-nav {
-      display: none;
-      position: absolute;
-      top: calc(100% + 8px);
-      left: 40px;
+      display: flex;
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100vh;
+      width: min(300px, 82vw);
       flex-direction: column;
       align-items: stretch;
-      gap: 8px;
+      gap: 10px;
       background: #1F2A44;
-      padding: 12px;
-      border-radius: 12px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.18);
-      min-width: 190px;
-      border: 1px solid rgba(255,255,255,0.08);
+      padding: 88px 18px 24px;
+      box-shadow: 20px 0 40px rgba(0,0,0,0.22);
+      border-right: 1px solid rgba(255,255,255,0.08);
+      border-radius: 0 18px 18px 0;
+      transform: translateX(-105%);
+      transition: transform 0.28s ease;
+      z-index: 1004;
     }
 
     .header-nav.open {
-      display: flex;
+      transform: translateX(0);
     }
 
     .header-secondary-button {
-      padding: 10px 12px;
-      background-color: #2F6BFF;
+      padding: 12px 14px;
+      background: var(--primary);
       color: white;
       text-decoration: none;
-      border-radius: 6px;
+      border-radius: 12px;
       font-weight: bold;
       font-size: 14px;
-      border: none;
-      transition: all 0.2s ease;
       text-align: center;
-      white-space: nowrap;
+      transition: background 0.2s ease, transform 0.2s ease;
     }
 
     .header-secondary-button:hover {
-      background-color: #1c4ed8;
+      background: var(--primary-dark);
+      transform: translateY(-1px);
+    }
+
+    .menu-close {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      width: 38px;
+      height: 38px;
+      border: none;
+      border-radius: 10px;
+      background: rgba(255,255,255,0.08);
+      color: white;
+      font-size: 26px;
+      line-height: 1;
+      cursor: pointer;
+    }
+
+    .menu-close:hover {
+      background: rgba(255,255,255,0.14);
+    }
+
+    .menu-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.42);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease;
+      z-index: 1003;
+    }
+
+    .menu-overlay.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    body.menu-open {
+      overflow: hidden;
+    }
+
+    /* HERO */
+    .hero {
+      padding-top: 36px;
+      padding-bottom: 56px;
+    }
+
+    .hero-shell {
+      background: linear-gradient(180deg, rgba(255,255,255,0.92), rgba(255,255,255,0.96));
+      border: 1px solid rgba(31,42,68,0.06);
+      border-radius: var(--radius-xl);
+      padding: 54px 48px 32px;
+      box-shadow: var(--shadow-strong);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .hero-shell::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at top left, rgba(47,107,255,0.08), transparent 28%),
+        radial-gradient(circle at right 20%, rgba(47,107,255,0.07), transparent 24%);
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-copy {
+      text-align: center;
+      max-width: 760px;
+      margin: 0 auto 28px;
+    }
+
+    .hero-copy h1 {
+      margin: 0 0 14px;
+      font-size: 54px;
+      line-height: 1.02;
+      letter-spacing: -0.03em;
+      color: #24477e;
+    }
+
+    .hero-copy p {
+      margin: 0;
+      font-size: 19px;
+      line-height: 1.7;
+      color: var(--muted);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(300px, 0.8fr);
+      gap: 22px;
+      align-items: stretch;
+      margin-top: 30px;
+    }
+
+    .hero-visual {
+      background: linear-gradient(135deg, #edf3fd, #f9fbff);
+      border: 1px solid rgba(31,42,68,0.06);
+      border-radius: 24px;
+      padding: 18px;
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.4);
+    }
+
+    .hero-side-card {
+      background: white;
+      border: 1px solid rgba(31,42,68,0.08);
+      border-radius: 22px;
+      padding: 28px 24px;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: left;
+    }
+
+    .hero-side-card h3 {
+      margin: 0 0 10px;
+      font-size: 28px;
+      line-height: 1.12;
+      color: #24477e;
+    }
+
+    .hero-side-card p {
+      margin: 0 0 20px;
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    .mini-list {
+      display: grid;
+      gap: 12px;
+      margin-bottom: 22px;
+    }
+
+    .mini-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: bold;
+      color: var(--text);
+      background: var(--surface-soft);
+      border: 1px solid rgba(31,42,68,0.05);
+      border-radius: 14px;
+      padding: 12px 14px;
+    }
+
+    .mini-dot {
+      width: 36px;
+      height: 36px;
+      min-width: 36px;
+      border-radius: 50%;
+      background: rgba(47,107,255,0.12);
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      justify-content: center;
+      margin-top: 26px;
+    }
+
+    .hero-links {
+      text-align: center;
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .hero-links a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .hero-links a:hover {
+      text-decoration: underline;
     }
 
     /* DEMO CHAT */
     .chatbot-mockup {
-      max-width: 400px;
-      height: 250px;
-      margin: 40px auto;
+      height: 100%;
+      min-height: 360px;
       background: white;
-      border-radius: 15px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      border-radius: 20px;
+      border: 1px solid rgba(31,42,68,0.08);
+      box-shadow: 0 16px 32px rgba(18, 38, 63, 0.08);
       display: flex;
       flex-direction: column;
       overflow: hidden;
       font-family: Arial, sans-serif;
       position: relative;
+    }
+
+    .mockup-topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 16px;
+      border-bottom: 1px solid rgba(31,42,68,0.06);
+      background: linear-gradient(180deg, #f8fbff, #f3f7fd);
+    }
+
+    .mockup-topbar strong {
+      font-size: 14px;
+      color: #24477e;
+    }
+
+    .mockup-dots {
+      display: flex;
+      gap: 6px;
+    }
+
+    .mockup-dots span {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #c2d2ec;
     }
 
     .chat-messages {
@@ -195,11 +466,12 @@
       padding: 15px;
       display: flex;
       flex-direction: column;
+      background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
     }
 
     .chat-input-container {
-      padding: 8px 15px;
-      border-top: 1px solid #ccc;
+      padding: 10px 14px;
+      border-top: 1px solid rgba(31,42,68,0.08);
       background: #fff;
       box-sizing: border-box;
       display: flex;
@@ -208,29 +480,31 @@
 
     .chat-input-container input {
       flex: 1;
-      padding: 8px 12px;
-      border: 1px solid #ccc;
-      border-radius: 15px;
+      padding: 10px 12px;
+      border: 1px solid #d6deec;
+      border-radius: 999px;
       font-size: 14px;
       outline: none;
+      background: #f8fbff;
     }
 
     .chat-input-container button {
-      padding: 8px 15px;
-      background-color: #2F6BFF;
+      padding: 10px 15px;
+      background-color: var(--primary);
       color: white;
       border: none;
-      border-radius: 15px;
+      border-radius: 999px;
       font-weight: bold;
       cursor: not-allowed;
       pointer-events: none;
+      box-shadow: 0 10px 20px rgba(47,107,255,0.16);
     }
 
     .chat-bubble-wrapper {
       display: flex;
       align-items: flex-end;
       gap: 8px;
-      margin-bottom: 8px;
+      margin-bottom: 10px;
       max-width: 100%;
     }
 
@@ -243,20 +517,21 @@
     }
 
     .chat-avatar {
-      width: 28px;
-      height: 28px;
+      width: 30px;
+      height: 30px;
       border-radius: 50%;
       flex-shrink: 0;
-      background: #2F6BFF;
+      background: var(--primary);
       color: white;
       display: flex;
       align-items: center;
       justify-content: center;
+      box-shadow: 0 8px 18px rgba(47,107,255,0.16);
     }
 
     .chat-avatar svg {
-      width: 15px;
-      height: 15px;
+      width: 16px;
+      height: 16px;
       stroke: currentColor;
       stroke-width: 2;
       fill: none;
@@ -265,26 +540,30 @@
     }
 
     .chat-bubble {
-      padding: 10px 14px;
-      border-radius: 12px;
-      max-width: 70%;
+      padding: 11px 14px;
+      border-radius: 14px;
+      max-width: 74%;
       word-wrap: break-word;
+      font-size: 14px;
+      line-height: 1.45;
+      box-shadow: 0 8px 16px rgba(18, 38, 63, 0.05);
     }
 
     .chat-bubble.user {
-      background: #2F6BFF;
+      background: var(--primary);
       color: white;
     }
 
     .chat-bubble.ai {
-      background: #E6EAF2;
-      color: #1F2A44;
+      background: #eef4ff;
+      color: var(--text);
     }
 
     .chat-bubble a {
-      color: #2F6BFF;
+      color: var(--primary);
       text-decoration: underline;
       cursor: pointer;
+      font-weight: bold;
     }
 
     .typing-wrapper {
@@ -292,22 +571,23 @@
       justify-content: flex-start;
       align-items: flex-end;
       gap: 8px;
-      margin-bottom: 8px;
+      margin-bottom: 10px;
     }
 
     .typing {
       display: flex;
       gap: 4px;
       align-items: center;
-      padding: 10px 14px;
-      border-radius: 12px;
-      background: #E6EAF2;
+      padding: 11px 14px;
+      border-radius: 14px;
+      background: #eef4ff;
+      box-shadow: 0 8px 16px rgba(18, 38, 63, 0.05);
     }
 
     .typing-dot {
       width: 6px;
       height: 6px;
-      background: #1F2A44;
+      background: var(--text);
       border-radius: 50%;
       animation: blink 1.4s infinite both;
     }
@@ -320,45 +600,54 @@
       40% { opacity: 1; }
     }
 
-    /* FEATURES & PRICING */
+    /* CONTENT SECTIONS */
+    .section-card {
+      background: rgba(255,255,255,0.85);
+      border: 1px solid rgba(31,42,68,0.06);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow);
+      padding: 38px 32px;
+    }
+
     .features {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 30px;
-      margin-top: 40px;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+      margin-top: 34px;
     }
 
     .feature-box,
     .pricing-box {
-      background: #F4F6F9;
-      padding: 25px;
-      border-radius: 12px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.05);
-      transition: transform 0.3s, box-shadow 0.3s;
+      background: white;
+      padding: 28px 22px;
+      border-radius: 20px;
+      box-shadow: 0 12px 28px rgba(18, 38, 63, 0.07);
+      border: 1px solid rgba(31,42,68,0.06);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
 
     .feature-box:hover,
     .pricing-box:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+      transform: translateY(-4px);
+      box-shadow: 0 16px 32px rgba(18, 38, 63, 0.10);
     }
 
     .feature-icon {
-      width: 64px;
-      height: 64px;
-      margin: 0 auto 18px auto;
+      width: 62px;
+      height: 62px;
+      margin: 0 auto 16px;
       border-radius: 18px;
-      background: linear-gradient(180deg, #F4F8FF 0%, #E8F0FF 100%);
-      color: #2F6BFF;
+      background: linear-gradient(180deg, #f4f8ff 0%, #e8f0ff 100%);
+      color: var(--primary);
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: inset 0 0 0 1px rgba(47, 107, 255, 0.08);
+      box-shadow: inset 0 0 0 1px rgba(47,107,255,0.08);
     }
 
     .feature-icon svg {
-      width: 30px;
-      height: 30px;
+      width: 28px;
+      height: 28px;
       stroke: currentColor;
       stroke-width: 2;
       fill: none;
@@ -366,42 +655,122 @@
       stroke-linejoin: round;
     }
 
-    /* FOOTER */
+    .feature-box h3,
+    .pricing-box h3 {
+      margin: 0 0 8px;
+      font-size: 24px;
+      line-height: 1.15;
+      color: #24477e;
+    }
+
+    .feature-box p,
+    .pricing-box p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .familiar-features .feature-box:last-child {
+      grid-column: 2 / 3;
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 260px));
+      justify-content: center;
+      gap: 18px;
+      margin-top: 32px;
+    }
+
+    .pricing-box h3 span {
+      display: block;
+      margin-top: 6px;
+      font-size: 38px;
+      color: var(--primary);
+      letter-spacing: -0.03em;
+    }
+
+    .cta-panel {
+      background: linear-gradient(180deg, rgba(255,255,255,0.94), rgba(255,255,255,0.98));
+      border: 1px solid rgba(31,42,68,0.06);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-strong);
+      text-align: center;
+      padding: 46px 30px;
+    }
+
+    .cta-panel h2 {
+      margin: 0 0 12px;
+      font-size: 38px;
+      line-height: 1.08;
+      color: #24477e;
+    }
+
+    .cta-panel p {
+      max-width: 680px;
+      margin: 0 auto 24px;
+      color: var(--muted);
+      font-size: 17px;
+    }
+
     .footer {
-      background-color: #1F2A44;
-      color: white;
-      padding: 40px 20px;
+      background: transparent;
+      color: var(--text);
+      padding: 28px 20px 0;
       font-size: 14px;
+      text-align: center;
+    }
+
+    .footer-inner {
+      border-top: 1px solid rgba(31,42,68,0.08);
+      padding-top: 24px;
     }
 
     .footer a {
-      color: white;
+      color: var(--text);
       text-decoration: underline;
     }
 
     /* MOBILE */
+    @media (max-width: 992px) {
+      .hero-shell {
+        padding: 40px 28px 26px;
+      }
+
+      .hero-copy h1 {
+        font-size: 44px;
+      }
+
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-side-card {
+        text-align: center;
+      }
+
+      .mini-item {
+        text-align: left;
+      }
+
+      .features {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .familiar-features .feature-box:last-child {
+        grid-column: 1 / -1;
+        max-width: 340px;
+        margin: 0 auto;
+      }
+    }
+
     @media (max-width: 768px) {
       body {
-        padding-top: 72px;
+        padding-top: 74px;
       }
 
       section {
-        padding: 60px 16px;
-      }
-
-      .hero {
-        padding: 40px 16px 30px 16px;
-        min-height: auto;
-      }
-
-      .hero h1 {
-        font-size: 32px;
-        line-height: 1.15;
-      }
-
-      .hero p {
-        font-size: 18px;
-        margin-bottom: 28px;
+        padding: 58px 16px;
       }
 
       .header .container {
@@ -411,8 +780,6 @@
 
       .header-left {
         gap: 10px;
-        flex: 1;
-        min-width: 0;
       }
 
       .header-logo {
@@ -420,54 +787,110 @@
       }
 
       .header-button {
-        padding: 9px 12px;
+        padding: 10px 13px;
         font-size: 12px;
       }
 
       .header-nav {
-        left: 16px;
-        min-width: 180px;
+        width: min(280px, 82vw);
+        padding: 84px 16px 20px;
       }
 
       .header-secondary-button {
         font-size: 13px;
-        padding: 10px 12px;
+        padding: 11px 12px;
+      }
+
+      .hero {
+        padding-top: 28px;
+        padding-bottom: 42px;
+      }
+
+      .hero-shell {
+        padding: 30px 18px 22px;
+        border-radius: 24px;
+      }
+
+      .hero-copy {
+        margin-bottom: 20px;
+      }
+
+      .hero-copy h1 {
+        font-size: 34px;
+        line-height: 1.06;
+      }
+
+      .hero-copy p {
+        font-size: 17px;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .hero-actions .button,
+      .hero-actions .button-secondary {
+        width: 100%;
+        max-width: 320px;
+      }
+
+      .hero-links {
+        font-size: 13px;
       }
 
       .chatbot-mockup {
-        max-width: 100%;
-        height: 250px;
-        margin: 30px auto;
+        min-height: 305px;
+      }
+
+      .hero-side-card {
+        padding: 22px 18px;
+      }
+
+      .hero-side-card h3 {
+        font-size: 24px;
+      }
+
+      .section-heading h2 {
+        font-size: 30px;
+      }
+
+      .section-heading p {
+        font-size: 16px;
+      }
+
+      .section-card {
+        padding: 28px 18px;
+        border-radius: 24px;
       }
 
       .features {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-columns: 1fr;
         gap: 14px;
-        margin-top: 30px;
+        margin-top: 28px;
       }
 
-      .feature-box {
-        padding: 18px 14px;
+      .feature-box,
+      .pricing-box {
+        padding: 22px 18px;
       }
 
-      .feature-box h3 {
-        font-size: 18px;
-        line-height: 1.25;
-        margin: 10px 0 8px;
+      .feature-box h3,
+      .pricing-box h3 {
+        font-size: 22px;
       }
 
-      .feature-box p {
+      .feature-box p,
+      .pricing-box p {
         font-size: 14px;
         line-height: 1.45;
-        margin: 0;
       }
 
       .feature-icon {
-        width: 52px;
-        height: 52px;
-        margin: 0 auto 14px auto;
+        width: 54px;
+        height: 54px;
         border-radius: 14px;
+        margin-bottom: 14px;
       }
 
       .feature-icon svg {
@@ -475,14 +898,26 @@
         height: 24px;
       }
 
-      .familiar-features .feature-box:last-child {
-        grid-column: 1 / -1;
-        max-width: 260px;
-        margin: 0 auto;
+      .pricing-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
       }
 
-      .pricing-box {
-        margin-top: 30px;
+      .pricing-box h3 span {
+        font-size: 34px;
+      }
+
+      .cta-panel {
+        padding: 34px 18px;
+        border-radius: 24px;
+      }
+
+      .cta-panel h2 {
+        font-size: 31px;
+      }
+
+      .cta-panel p {
+        font-size: 16px;
       }
     }
   </style>
@@ -504,74 +939,127 @@
       <a href="https://buy.stripe.com/8x214mbC5gOq9tjcQq9AA01" class="header-button" target="_blank">Get Started</a>
 
       <div class="header-nav" id="header-nav">
+        <button class="menu-close" id="menu-close" aria-label="Close menu">&times;</button>
         <a href="index.html" class="header-secondary-button">Home</a>
         <a href="how-it-works.html" class="header-secondary-button">How It Works</a>
         <a href="contact.html" class="header-secondary-button">Contact Us</a>
       </div>
+
+      <div class="menu-overlay" id="menu-overlay"></div>
     </div>
   </div>
 
   <section class="hero">
     <div class="container">
-      <h1>Your 24/7 AI Reception Team</h1>
-      <p>ReceptionPoint is an AI-powered virtual reception team — instantly answering customer questions, guiding visitors to your booking system, and escalating complex enquiries to your team.</p>
+      <div class="hero-shell">
+        <div class="hero-inner">
+          <div class="hero-copy">
+            <h1>Your 24/7 AI Reception Team</h1>
+            <p>ReceptionPoint is an AI-powered virtual reception team — instantly answering customer questions, guiding visitors to your booking system, and escalating complex enquiries to your team.</p>
+          </div>
 
-      <div class="chatbot-mockup" id="chatbot">
-        <div class="chat-messages" id="chat-messages"></div>
-        <div class="chat-input-container">
-          <input class="chat-input" type="text" placeholder="Type here..." disabled>
-          <button disabled>Send</button>
+          <div class="hero-grid">
+            <div class="hero-visual">
+              <div class="chatbot-mockup" id="chatbot">
+                <div class="mockup-topbar">
+                  <strong>ReceptionPoint Live Chat</strong>
+                  <div class="mockup-dots">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                  </div>
+                </div>
+
+                <div class="chat-messages" id="chat-messages"></div>
+
+                <div class="chat-input-container">
+                  <input class="chat-input" type="text" placeholder="Type here..." disabled>
+                  <button disabled>Send</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="hero-side-card">
+              <h3>Get Your AI Receptionist Today</h3>
+              <p>Save time, reduce drop-off, and give website visitors an instant next step.</p>
+
+              <div class="mini-list">
+                <div class="mini-item">
+                  <div class="mini-dot">24</div>
+                  <div>24/7 answers for your visitors</div>
+                </div>
+                <div class="mini-item">
+                  <div class="mini-dot">→</div>
+                  <div>Guides people to your booking page</div>
+                </div>
+                <div class="mini-item">
+                  <div class="mini-dot">✓</div>
+                  <div>Captures leads for complex enquiries</div>
+                </div>
+              </div>
+
+              <a href="https://buy.stripe.com/8x214mbC5gOq9tjcQq9AA01" class="button" target="_blank">Get Started Now</a>
+            </div>
+          </div>
+
+          <div class="hero-actions">
+            <a href="https://buy.stripe.com/8x214mbC5gOq9tjcQq9AA01" class="button" target="_blank">Get Started</a>
+            <a href="how-it-works.html" class="button-secondary">How It Works</a>
+          </div>
+
+          <div class="hero-links">
+            After payment, fill in your business details:
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLScCQykZxBMRkQylLXwAOteXUrPqP3NIgbOjKMZH7P6BIeYcsA/viewform?usp=header" target="_blank">Submit Details</a>
+          </div>
         </div>
       </div>
-
-      <a href="https://buy.stripe.com/8x214mbC5gOq9tjcQq9AA01" class="button" target="_blank">Get Started</a>
-      <p style="font-size:14px; margin-top:12px; color:#FFFFFF;">
-        Want to see what happens after you sign up?
-        <a href="how-it-works.html" style="color:#FFFFFF;">How it works</a>
-      </p>
-      <p style="font-size:14px; margin-top:5px; color:#FFFFFF;">
-        After payment, fill in your business details:
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLScCQykZxBMRkQylLXwAOteXUrPqP3NIgbOjKMZH7P6BIeYcsA/viewform?usp=header" target="_blank" style="color:#FFFFFF;">Submit Details</a>
-      </p>
     </div>
   </section>
 
-  <section class="alt-section">
+  <section>
     <div class="container">
-      <h2>Is This Familiar?</h2>
-      <div class="features familiar-features">
-        <div class="feature-box">
-          <div class="feature-icon">
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <circle cx="12" cy="12" r="8"></circle>
-              <path d="M12 8v4l2.5 2.5"></path>
-            </svg>
-          </div>
-          <h3>Missed Enquiries</h3>
-          <p>Do you often miss enquiries after hours?</p>
+      <div class="section-card">
+        <div class="section-heading">
+          <h2>Is This Familiar?</h2>
+          <p>These are the friction points ReceptionPoint is designed to solve.</p>
         </div>
-        <div class="feature-box">
-          <div class="feature-icon">
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M7 17L17 7"></path>
-              <path d="M9 7h8v8"></path>
-              <path d="M5 19h10"></path>
-            </svg>
+
+        <div class="features familiar-features">
+          <div class="feature-box">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="12" cy="12" r="8"></circle>
+                <path d="M12 8v4l2.5 2.5"></path>
+              </svg>
+            </div>
+            <h3>Missed Enquiries</h3>
+            <p>Do you often miss enquiries after hours?</p>
           </div>
-          <h3>Visitors Leave</h3>
-          <p>Do visitors leave without finding answers or your booking link?</p>
-        </div>
-        <div class="feature-box">
-          <div class="feature-icon">
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M3 12a9 9 0 0 1 15.3-6.3"></path>
-              <path d="M21 12a9 9 0 0 1-15.3 6.3"></path>
-              <path d="M18.3 2.7v4.5h-4.5"></path>
-              <path d="M5.7 21.3v-4.5h4.5"></path>
-            </svg>
+
+          <div class="feature-box">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M7 17L17 7"></path>
+                <path d="M9 7h8v8"></path>
+                <path d="M5 19h10"></path>
+              </svg>
+            </div>
+            <h3>Visitors Leave</h3>
+            <p>Do visitors leave without finding answers or your booking link?</p>
           </div>
-          <h3>Repeating Tasks</h3>
-          <p>Do you spend time repeatedly answering the same questions?</p>
+
+          <div class="feature-box">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M3 12a9 9 0 0 1 15.3-6.3"></path>
+                <path d="M21 12a9 9 0 0 1-15.3 6.3"></path>
+                <path d="M18.3 2.7v4.5h-4.5"></path>
+                <path d="M5.7 21.3v-4.5h4.5"></path>
+              </svg>
+            </div>
+            <h3>Repeating Tasks</h3>
+            <p>Do you spend time repeatedly answering the same questions?</p>
+          </div>
         </div>
       </div>
     </div>
@@ -579,76 +1067,101 @@
 
   <section>
     <div class="container">
-      <h2>How ReceptionPoint Helps</h2>
-      <div class="features">
-        <div class="feature-box">
-          <div class="feature-icon">
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M20 7L9 18l-5-5"></path>
-            </svg>
-          </div>
-          <h3>Always On</h3>
-          <p>ReceptionPoint answers visitors 24/7 so you never miss an enquiry.</p>
+      <div class="section-card">
+        <div class="section-heading">
+          <h2>How ReceptionPoint Helps</h2>
+          <p>A fully managed AI receptionist that keeps your website working harder for your business.</p>
         </div>
-        <div class="feature-box">
-          <div class="feature-icon">
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M10 13a5 5 0 0 1 0-7l1.5-1.5a5 5 0 0 1 7 7L17 13"></path>
-              <path d="M14 11a5 5 0 0 1 0 7L12.5 19.5a5 5 0 0 1-7-7L7 11"></path>
-            </svg>
-          </div>
-          <h3>Instant Guidance</h3>
-          <p>It provides visitors with your booking link immediately, saving time.</p>
-        </div>
-        <div class="feature-box">
-          <div class="feature-icon">
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M13 2L4 14h6l-1 8 9-12h-6l1-8z"></path>
-            </svg>
-          </div>
-          <h3>Smart Escalation</h3>
-          <p>Complex enquiries are flagged and sent directly to your team for follow-up.</p>
-        </div>
-        <div class="feature-box">
-          <div class="feature-icon">
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <circle cx="12" cy="12" r="3"></circle>
-              <path d="M19.4 15a1.6 1.6 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.6 1.6 0 0 0-1.8-.3 1.6 1.6 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.2a1.6 1.6 0 0 0-1-1.5 1.6 1.6 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.6 1.6 0 0 0 .3-1.8 1.6 1.6 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.2a1.6 1.6 0 0 0 1.5-1 1.6 1.6 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.6 1.6 0 0 0 1.8.3h.1a1.6 1.6 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.2a1.6 1.6 0 0 0 1 1.5h.1a1.6 1.6 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.6 1.6 0 0 0-.3 1.8v.1a1.6 1.6 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.2a1.6 1.6 0 0 0-1.5 1z"></path>
-            </svg>
-          </div>
-          <h3>AI, Fully Managed</h3>
-          <p>We set up and manage your AI receptionist so it answers based on your business details, website, and booking process.</p>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <section class="alt-section">
-    <div class="container">
-      <h2>Simple, Transparent Pricing</h2>
-      <div class="pricing-box">
-        <h3>Setup Fee: £200</h3>
-        <h3>Monthly Fee: £75</h3>
-        <p>No hidden costs. Fully managed service.</p>
-        <p>Includes setup, AI configuration, and ongoing support.</p>
+        <div class="features">
+          <div class="feature-box">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M20 7L9 18l-5-5"></path>
+              </svg>
+            </div>
+            <h3>Always On</h3>
+            <p>ReceptionPoint answers visitors 24/7 so you never miss an enquiry.</p>
+          </div>
+
+          <div class="feature-box">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M10 13a5 5 0 0 1 0-7l1.5-1.5a5 5 0 0 1 7 7L17 13"></path>
+                <path d="M14 11a5 5 0 0 1 0 7L12.5 19.5a5 5 0 0 1-7-7L7 11"></path>
+              </svg>
+            </div>
+            <h3>Instant Guidance</h3>
+            <p>It provides visitors with your booking link immediately, saving time.</p>
+          </div>
+
+          <div class="feature-box">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M13 2L4 14h6l-1 8 9-12h-6l1-8z"></path>
+              </svg>
+            </div>
+            <h3>Smart Escalation</h3>
+            <p>Complex enquiries are flagged and sent directly to your team for follow-up.</p>
+          </div>
+
+          <div class="feature-box">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="12" cy="12" r="3"></circle>
+                <path d="M19.4 15a1.6 1.6 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.6 1.6 0 0 0-1.8-.3 1.6 1.6 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.2a1.6 1.6 0 0 0-1-1.5 1.6 1.6 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.6 1.6 0 0 0 .3-1.8 1.6 1.6 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.2a1.6 1.6 0 0 0 1.5-1 1.6 1.6 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.6 1.6 0 0 0 1.8.3h.1a1.6 1.6 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.2a1.6 1.6 0 0 0 1 1.5h.1a1.6 1.6 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.6 1.6 0 0 0-.3 1.8v.1a1.6 1.6 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.2a1.6 1.6 0 0 0-1.5 1z"></path>
+              </svg>
+            </div>
+            <h3>AI, Fully Managed</h3>
+            <p>We set up and manage your AI receptionist so it answers based on your business details, website, and booking process.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
   <section>
     <div class="container">
-      <h2>Ready to Never Miss Another Customer?</h2>
-      <p>Fill in your details and we’ll set up your AI receptionist in under a week.</p>
-      <a href="https://buy.stripe.com/8x214mbC5gOq9tjcQq9AA01" class="button" target="_blank">Get Started</a>
-      <p style="font-size:14px; margin-top:5px;">
-        After payment, fill in your business details:
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLScCQykZxBMRkQylLXwAOteXUrPqP3NIgbOjKMZH7P6BIeYcsA/viewform?usp=header" target="_blank">Submit Details</a>
-      </p>
+      <div class="section-card">
+        <div class="section-heading">
+          <h2>Simple, Transparent Pricing</h2>
+          <p>No hidden costs. Fully managed service.</p>
+        </div>
+
+        <div class="pricing-grid">
+          <div class="pricing-box">
+            <h3>Setup Fee <span>£200</span></h3>
+            <p>One-time setup.</p>
+          </div>
+
+          <div class="pricing-box">
+            <h3>Monthly <span>£75</span></h3>
+            <p>Includes setup, AI configuration, and ongoing support.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="cta-panel">
+        <h2>Ready to Never Miss Another Customer?</h2>
+        <p>Fill in your details and we’ll set up your AI receptionist in under a week.</p>
+        <div class="hero-actions" style="margin-top:0;">
+          <a href="https://buy.stripe.com/8x214mbC5gOq9tjcQq9AA01" class="button" target="_blank">Get Started</a>
+          <a href="contact.html" class="button-secondary">Contact Us</a>
+        </div>
+        <div class="hero-links" style="margin-top:16px;">
+          After payment, fill in your business details:
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLScCQykZxBMRkQylLXwAOteXUrPqP3NIgbOjKMZH7P6BIeYcsA/viewform?usp=header" target="_blank">Submit Details</a>
+        </div>
+      </div>
     </div>
   </section>
 
   <section class="footer">
-    <div class="container">
+    <div class="container footer-inner">
       <p>© 2026 ReceptionPoint. All rights reserved.</p>
       <p><a href="mailto:receptionpointinfo@gmail.com">receptionpointinfo@gmail.com</a></p>
     </div>
@@ -753,17 +1266,33 @@
 
     const menuToggle = document.getElementById('menu-toggle');
     const headerNav = document.getElementById('header-nav');
+    const menuOverlay = document.getElementById('menu-overlay');
+    const menuClose = document.getElementById('menu-close');
 
-    if (menuToggle && headerNav) {
+    function setMenuState(isOpen) {
+      headerNav.classList.toggle('open', isOpen);
+      menuOverlay.classList.toggle('open', isOpen);
+      document.body.classList.toggle('menu-open', isOpen);
+      menuToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    }
+
+    if (menuToggle && headerNav && menuOverlay && menuClose) {
       menuToggle.addEventListener('click', function () {
-        const isOpen = headerNav.classList.toggle('open');
-        menuToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        const isOpen = !headerNav.classList.contains('open');
+        setMenuState(isOpen);
       });
 
-      document.addEventListener('click', function (e) {
-        if (!menuToggle.contains(e.target) && !headerNav.contains(e.target)) {
-          headerNav.classList.remove('open');
-          menuToggle.setAttribute('aria-expanded', 'false');
+      menuClose.addEventListener('click', function () {
+        setMenuState(false);
+      });
+
+      menuOverlay.addEventListener('click', function () {
+        setMenuState(false);
+      });
+
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') {
+          setMenuState(false);
         }
       });
     }
