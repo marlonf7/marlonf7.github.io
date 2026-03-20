@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f3f6fb">
   <title>ReceptionPoint | Your 24/7 AI Reception Team</title>
 
   <style>
@@ -28,16 +29,14 @@
 
     html {
       scroll-behavior: smooth;
+      background: var(--bg);
     }
 
     body {
       margin: 0;
       font-family: Arial, Helvetica, sans-serif;
       line-height: 1.5;
-      background:
-        radial-gradient(circle at top left, rgba(47,107,255,0.08), transparent 28%),
-        radial-gradient(circle at top right, rgba(28,78,216,0.06), transparent 24%),
-        var(--bg);
+      background: var(--bg);
       color: var(--text);
       padding-top: 82px;
       padding-bottom: 28px;
@@ -117,7 +116,7 @@
       width: 100%;
       z-index: 1000;
       backdrop-filter: blur(14px);
-      background: rgba(255,255,255,0.88);
+      background: rgba(255,255,255,0.92);
       border-bottom: 1px solid rgba(31,42,68,0.06);
     }
 
@@ -139,11 +138,11 @@
     }
 
     .header-logo {
-      font-weight: 800;
-      font-size: 22px;
-      letter-spacing: -0.02em;
+      font-weight: bold;
+      font-size: 20px;
       color: var(--text);
       white-space: nowrap;
+      letter-spacing: normal;
     }
 
     .header-button {
@@ -198,12 +197,11 @@
       width: min(300px, 82vw);
       flex-direction: column;
       align-items: stretch;
-      gap: 10px;
-      background: #1F2A44;
-      padding: 88px 18px 24px;
-      box-shadow: 20px 0 40px rgba(0,0,0,0.22);
-      border-right: 1px solid rgba(255,255,255,0.08);
-      border-radius: 0 18px 18px 0;
+      gap: 4px;
+      background: #ffffff;
+      padding: 88px 22px 24px;
+      box-shadow: 20px 0 40px rgba(0,0,0,0.14);
+      border-right: 1px solid rgba(31,42,68,0.08);
       transform: translateX(-105%);
       transition: transform 0.28s ease;
       z-index: 1004;
@@ -214,20 +212,22 @@
     }
 
     .header-secondary-button {
-      padding: 12px 14px;
-      background: var(--primary);
-      color: white;
+      padding: 12px 0;
+      background: transparent;
+      color: var(--text);
       text-decoration: none;
-      border-radius: 12px;
-      font-weight: bold;
-      font-size: 14px;
-      text-align: center;
-      transition: background 0.2s ease, transform 0.2s ease;
+      font-weight: 600;
+      font-size: 15px;
+      text-align: left;
+      border: none;
+      border-radius: 0;
+      border-bottom: 1px solid rgba(31,42,68,0.08);
+      transition: color 0.2s ease, padding-left 0.2s ease;
     }
 
     .header-secondary-button:hover {
-      background: var(--primary-dark);
-      transform: translateY(-1px);
+      color: var(--primary);
+      padding-left: 4px;
     }
 
     .menu-close {
@@ -236,23 +236,23 @@
       right: 18px;
       width: 38px;
       height: 38px;
-      border: none;
+      border: 1px solid rgba(31,42,68,0.08);
       border-radius: 10px;
-      background: rgba(255,255,255,0.08);
-      color: white;
+      background: #f8fbff;
+      color: var(--text);
       font-size: 26px;
       line-height: 1;
       cursor: pointer;
     }
 
     .menu-close:hover {
-      background: rgba(255,255,255,0.14);
+      background: #eef4ff;
     }
 
     .menu-overlay {
       position: fixed;
       inset: 0;
-      background: rgba(15, 23, 42, 0.42);
+      background: rgba(15, 23, 42, 0.24);
       opacity: 0;
       pointer-events: none;
       transition: opacity 0.25s ease;
@@ -275,85 +275,39 @@
     }
 
     .hero-shell {
-      background: linear-gradient(180deg, rgba(255,255,255,0.92), rgba(255,255,255,0.97));
+      background: linear-gradient(180deg, rgba(255,255,255,0.96), rgba(255,255,255,0.98));
       border: 1px solid rgba(31,42,68,0.06);
       border-radius: var(--radius-xl);
-      padding: 34px 34px 22px;
+      padding: 30px 30px 22px;
       box-shadow: var(--shadow-strong);
-      overflow: hidden;
-      position: relative;
     }
 
-    .hero-shell::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(circle at top left, rgba(47,107,255,0.08), transparent 28%),
-        radial-gradient(circle at right 20%, rgba(47,107,255,0.07), transparent 24%);
-      pointer-events: none;
+    .hero-top {
+      text-align: center;
+      max-width: 920px;
+      margin: 0 auto 22px;
     }
 
-    .hero-inner {
-      position: relative;
-      z-index: 1;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1.12fr) minmax(300px, 0.88fr);
-      gap: 18px;
-      align-items: stretch;
-    }
-
-    .hero-copy {
-      text-align: left;
-      padding-right: 6px;
-    }
-
-    .hero-copy h1 {
-      margin: 0 0 12px;
+    .hero-top h1 {
+      margin: 0 0 10px;
       font-size: 48px;
       line-height: 1.02;
       letter-spacing: -0.03em;
       color: #24477e;
-      max-width: 720px;
     }
 
-    .hero-copy > p {
-      margin: 0 0 18px;
+    .hero-top p {
+      margin: 0;
       font-size: 18px;
-      line-height: 1.65;
+      line-height: 1.6;
       color: var(--muted);
-      max-width: 670px;
     }
 
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-bottom: 12px;
-    }
-
-    .hero-links {
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    .hero-links a {
-      color: var(--primary);
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    .hero-links a:hover {
-      text-decoration: underline;
-    }
-
-    .hero-side {
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(300px, 0.9fr);
+      gap: 16px;
+      align-items: stretch;
     }
 
     .hero-side-card {
@@ -363,6 +317,9 @@
       padding: 22px 20px;
       box-shadow: var(--shadow);
       text-align: left;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
 
     .hero-side-card h3 {
@@ -409,6 +366,31 @@
       justify-content: center;
       font-weight: bold;
       font-size: 13px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+      margin-top: 16px;
+      margin-bottom: 10px;
+    }
+
+    .hero-links {
+      text-align: center;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .hero-links a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .hero-links a:hover {
+      text-decoration: underline;
     }
 
     /* DEMO CHAT */
@@ -465,7 +447,6 @@
       padding: 9px 12px;
       border-top: 1px solid rgba(31,42,68,0.08);
       background: #fff;
-      box-sizing: border-box;
       display: flex;
       gap: 8px;
     }
@@ -779,7 +760,7 @@
 
       .header-secondary-button {
         font-size: 13px;
-        padding: 11px 12px;
+        padding: 11px 0;
       }
 
       .hero {
@@ -792,24 +773,22 @@
         border-radius: 20px;
       }
 
-      .hero-grid {
-        gap: 14px;
+      .hero-top {
+        margin-bottom: 16px;
       }
 
-      .hero-copy {
-        text-align: center;
-        padding-right: 0;
-      }
-
-      .hero-copy h1 {
+      .hero-top h1 {
         font-size: 31px;
         line-height: 1.06;
       }
 
-      .hero-copy > p {
+      .hero-top p {
         font-size: 16px;
         line-height: 1.55;
-        margin-bottom: 14px;
+      }
+
+      .hero-grid {
+        gap: 14px;
       }
 
       .hero-actions {
@@ -826,7 +805,6 @@
       }
 
       .hero-links {
-        text-align: center;
         font-size: 13px;
       }
 
@@ -961,65 +939,61 @@
   <section class="hero">
     <div class="container">
       <div class="hero-shell">
-        <div class="hero-inner">
-          <div class="hero-grid">
-            <div class="hero-copy">
-              <h1>Your 24/7 AI Reception Team</h1>
-              <p>ReceptionPoint is an AI-powered virtual reception team — instantly answering customer questions, guiding visitors to your booking system, and escalating complex enquiries to your team.</p>
+        <div class="hero-top">
+          <h1>Your 24/7 AI Reception Team</h1>
+          <p>ReceptionPoint is an AI-powered virtual reception team — instantly answering customer questions, guiding visitors to your booking system, and escalating complex enquiries to your team.</p>
+        </div>
 
-              <div class="hero-actions">
-                <a href="https://buy.stripe.com/8x214mbC5gOq9tjcQq9AA01" class="button" target="_blank">Get Started</a>
-                <a href="how-it-works.html" class="button-secondary">How It Works</a>
-              </div>
-
-              <div class="hero-links">
-                After payment, fill in your business details:
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLScCQykZxBMRkQylLXwAOteXUrPqP3NIgbOjKMZH7P6BIeYcsA/viewform?usp=header" target="_blank">Submit Details</a>
+        <div class="hero-grid">
+          <div class="chatbot-mockup" id="chatbot">
+            <div class="mockup-topbar">
+              <strong>ReceptionPoint Live Chat</strong>
+              <div class="mockup-dots">
+                <span></span>
+                <span></span>
+                <span></span>
               </div>
             </div>
 
-            <div class="hero-side">
-              <div class="chatbot-mockup" id="chatbot">
-                <div class="mockup-topbar">
-                  <strong>ReceptionPoint Live Chat</strong>
-                  <div class="mockup-dots">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                  </div>
-                </div>
+            <div class="chat-messages" id="chat-messages"></div>
 
-                <div class="chat-messages" id="chat-messages"></div>
-
-                <div class="chat-input-container">
-                  <input class="chat-input" type="text" placeholder="Type here..." disabled>
-                  <button disabled>Send</button>
-                </div>
-              </div>
-
-              <div class="hero-side-card">
-                <h3>Get Your AI Receptionist Today</h3>
-                <p>Save time, reduce drop-off, and give website visitors an instant next step.</p>
-
-                <div class="mini-list">
-                  <div class="mini-item">
-                    <div class="mini-dot">24</div>
-                    <div>24/7 answers for your visitors</div>
-                  </div>
-                  <div class="mini-item">
-                    <div class="mini-dot">→</div>
-                    <div>Guides people to your booking page</div>
-                  </div>
-                  <div class="mini-item">
-                    <div class="mini-dot">✓</div>
-                    <div>Captures leads for complex enquiries</div>
-                  </div>
-                </div>
-
-                <a href="https://buy.stripe.com/8x214mbC5gOq9tjcQq9AA01" class="button" target="_blank">Get Started Now</a>
-              </div>
+            <div class="chat-input-container">
+              <input class="chat-input" type="text" placeholder="Type here..." disabled>
+              <button disabled>Send</button>
             </div>
           </div>
+
+          <div class="hero-side-card">
+            <h3>Get Your AI Receptionist Today</h3>
+            <p>Save time, reduce drop-off, and give website visitors an instant next step.</p>
+
+            <div class="mini-list">
+              <div class="mini-item">
+                <div class="mini-dot">24</div>
+                <div>24/7 answers for your visitors</div>
+              </div>
+              <div class="mini-item">
+                <div class="mini-dot">→</div>
+                <div>Guides people to your booking page</div>
+              </div>
+              <div class="mini-item">
+                <div class="mini-dot">✓</div>
+                <div>Captures leads for complex enquiries</div>
+              </div>
+            </div>
+
+            <a href="https://buy.stripe.com/8x214mbC5gOq9tjcQq9AA01" class="button" target="_blank">Get Started Now</a>
+          </div>
+        </div>
+
+        <div class="hero-actions">
+          <a href="https://buy.stripe.com/8x214mbC5gOq9tjcQq9AA01" class="button" target="_blank">Get Started</a>
+          <a href="how-it-works.html" class="button-secondary">How It Works</a>
+        </div>
+
+        <div class="hero-links">
+          After payment, fill in your business details:
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLScCQykZxBMRkQylLXwAOteXUrPqP3NIgbOjKMZH7P6BIeYcsA/viewform?usp=header" target="_blank">Submit Details</a>
         </div>
       </div>
     </div>
@@ -1030,6 +1004,7 @@
       <div class="section-card">
         <div class="section-heading">
           <h2>Is This Familiar?</h2>
+          <p>These are the friction points ReceptionPoint is designed to solve.</p>
         </div>
 
         <div class="features familiar-grid">
@@ -1078,6 +1053,7 @@
       <div class="section-card">
         <div class="section-heading">
           <h2>How ReceptionPoint Helps</h2>
+          <p>A fully managed AI receptionist that keeps your website working harder for your business.</p>
         </div>
 
         <div class="features helps-grid">
@@ -1132,6 +1108,7 @@
       <div class="section-card">
         <div class="section-heading">
           <h2>Simple, Transparent Pricing</h2>
+          <p>No hidden costs. Fully managed service.</p>
         </div>
 
         <div class="pricing-grid">
@@ -1310,3 +1287,4 @@
   </script>
 </body>
 </html>
+
