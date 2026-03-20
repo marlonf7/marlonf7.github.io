@@ -15,11 +15,11 @@
       --primary: #2F6BFF;
       --primary-dark: #1c4ed8;
       --border: rgba(31, 42, 68, 0.08);
-      --shadow: 0 14px 34px rgba(16, 39, 73, 0.08);
-      --shadow-strong: 0 20px 48px rgba(16, 39, 73, 0.12);
-      --radius-xl: 28px;
-      --radius-lg: 20px;
-      --radius-md: 14px;
+      --shadow: 0 12px 28px rgba(16, 39, 73, 0.08);
+      --shadow-strong: 0 18px 40px rgba(16, 39, 73, 0.10);
+      --radius-xl: 24px;
+      --radius-lg: 18px;
+      --radius-md: 12px;
     }
 
     * {
@@ -33,49 +33,49 @@
     body {
       margin: 0;
       font-family: Arial, Helvetica, sans-serif;
-      line-height: 1.6;
+      line-height: 1.5;
       background:
         radial-gradient(circle at top left, rgba(47,107,255,0.08), transparent 28%),
         radial-gradient(circle at top right, rgba(28,78,216,0.06), transparent 24%),
         var(--bg);
       color: var(--text);
-      padding-top: 86px;
-      padding-bottom: 40px;
+      padding-top: 82px;
+      padding-bottom: 28px;
     }
 
     section {
-      padding: 80px 20px;
+      padding: 46px 0;
     }
 
     .container {
-      max-width: 1120px;
+      width: min(1380px, calc(100% - 40px));
       margin: auto;
     }
 
     .section-heading {
       text-align: center;
       max-width: 760px;
-      margin: 0 auto 18px;
+      margin: 0 auto 14px;
     }
 
     .section-heading h2 {
-      margin: 0 0 10px;
-      font-size: 36px;
-      line-height: 1.12;
+      margin: 0 0 8px;
+      font-size: 32px;
+      line-height: 1.1;
       letter-spacing: -0.02em;
     }
 
     .section-heading p {
       margin: 0;
       color: var(--muted);
-      font-size: 17px;
+      font-size: 16px;
     }
 
     .button {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      padding: 15px 34px;
+      padding: 14px 30px;
       background: var(--primary);
       color: white;
       text-decoration: none;
@@ -95,7 +95,7 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      padding: 15px 34px;
+      padding: 14px 30px;
       background: white;
       color: var(--primary);
       text-decoration: none;
@@ -122,9 +122,7 @@
     }
 
     .header .container {
-      max-width: 1120px;
-      margin: auto;
-      padding: 16px 28px;
+      padding: 14px 24px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -272,15 +270,15 @@
 
     /* HERO */
     .hero {
-      padding-top: 36px;
-      padding-bottom: 56px;
+      padding-top: 28px;
+      padding-bottom: 34px;
     }
 
     .hero-shell {
-      background: linear-gradient(180deg, rgba(255,255,255,0.92), rgba(255,255,255,0.96));
+      background: linear-gradient(180deg, rgba(255,255,255,0.92), rgba(255,255,255,0.97));
       border: 1px solid rgba(31,42,68,0.06);
       border-radius: var(--radius-xl);
-      padding: 54px 48px 32px;
+      padding: 34px 34px 22px;
       box-shadow: var(--shadow-strong);
       overflow: hidden;
       position: relative;
@@ -301,110 +299,43 @@
       z-index: 1;
     }
 
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.12fr) minmax(300px, 0.88fr);
+      gap: 18px;
+      align-items: stretch;
+    }
+
     .hero-copy {
-      text-align: center;
-      max-width: 760px;
-      margin: 0 auto 28px;
+      text-align: left;
+      padding-right: 6px;
     }
 
     .hero-copy h1 {
-      margin: 0 0 14px;
-      font-size: 54px;
+      margin: 0 0 12px;
+      font-size: 48px;
       line-height: 1.02;
       letter-spacing: -0.03em;
       color: #24477e;
+      max-width: 720px;
     }
 
-    .hero-copy p {
-      margin: 0;
-      font-size: 19px;
-      line-height: 1.7;
+    .hero-copy > p {
+      margin: 0 0 18px;
+      font-size: 18px;
+      line-height: 1.65;
       color: var(--muted);
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1.2fr) minmax(300px, 0.8fr);
-      gap: 22px;
-      align-items: stretch;
-      margin-top: 30px;
-    }
-
-    .hero-visual {
-      background: linear-gradient(135deg, #edf3fd, #f9fbff);
-      border: 1px solid rgba(31,42,68,0.06);
-      border-radius: 24px;
-      padding: 18px;
-      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.4);
-    }
-
-    .hero-side-card {
-      background: white;
-      border: 1px solid rgba(31,42,68,0.08);
-      border-radius: 22px;
-      padding: 28px 24px;
-      box-shadow: var(--shadow);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      text-align: left;
-    }
-
-    .hero-side-card h3 {
-      margin: 0 0 10px;
-      font-size: 28px;
-      line-height: 1.12;
-      color: #24477e;
-    }
-
-    .hero-side-card p {
-      margin: 0 0 20px;
-      color: var(--muted);
-      font-size: 16px;
-    }
-
-    .mini-list {
-      display: grid;
-      gap: 12px;
-      margin-bottom: 22px;
-    }
-
-    .mini-item {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      font-weight: bold;
-      color: var(--text);
-      background: var(--surface-soft);
-      border: 1px solid rgba(31,42,68,0.05);
-      border-radius: 14px;
-      padding: 12px 14px;
-    }
-
-    .mini-dot {
-      width: 36px;
-      height: 36px;
-      min-width: 36px;
-      border-radius: 50%;
-      background: rgba(47,107,255,0.12);
-      color: var(--primary);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: bold;
+      max-width: 670px;
     }
 
     .hero-actions {
       display: flex;
       flex-wrap: wrap;
-      gap: 14px;
-      justify-content: center;
-      margin-top: 26px;
+      gap: 12px;
+      margin-bottom: 12px;
     }
 
     .hero-links {
-      text-align: center;
-      margin-top: 18px;
       color: var(--muted);
       font-size: 14px;
     }
@@ -419,12 +350,72 @@
       text-decoration: underline;
     }
 
+    .hero-side {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .hero-side-card {
+      background: white;
+      border: 1px solid rgba(31,42,68,0.08);
+      border-radius: 20px;
+      padding: 22px 20px;
+      box-shadow: var(--shadow);
+      text-align: left;
+    }
+
+    .hero-side-card h3 {
+      margin: 0 0 8px;
+      font-size: 26px;
+      line-height: 1.12;
+      color: #24477e;
+    }
+
+    .hero-side-card p {
+      margin: 0 0 14px;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .mini-list {
+      display: grid;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+    .mini-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: bold;
+      color: var(--text);
+      background: var(--surface-soft);
+      border: 1px solid rgba(31,42,68,0.05);
+      border-radius: 12px;
+      padding: 10px 12px;
+      font-size: 14px;
+    }
+
+    .mini-dot {
+      width: 32px;
+      height: 32px;
+      min-width: 32px;
+      border-radius: 50%;
+      background: rgba(47,107,255,0.12);
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 13px;
+    }
+
     /* DEMO CHAT */
     .chatbot-mockup {
-      height: 100%;
-      min-height: 360px;
+      height: 280px;
       background: white;
-      border-radius: 20px;
+      border-radius: 18px;
       border: 1px solid rgba(31,42,68,0.08);
       box-shadow: 0 16px 32px rgba(18, 38, 63, 0.08);
       display: flex;
@@ -438,13 +429,13 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 12px 16px;
+      padding: 10px 14px;
       border-bottom: 1px solid rgba(31,42,68,0.06);
       background: linear-gradient(180deg, #f8fbff, #f3f7fd);
     }
 
     .mockup-topbar strong {
-      font-size: 14px;
+      font-size: 13px;
       color: #24477e;
     }
 
@@ -463,14 +454,15 @@
     .chat-messages {
       flex: 1;
       overflow-y: auto;
-      padding: 15px;
+      padding: 12px;
       display: flex;
       flex-direction: column;
       background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+      scrollbar-width: thin;
     }
 
     .chat-input-container {
-      padding: 10px 14px;
+      padding: 9px 12px;
       border-top: 1px solid rgba(31,42,68,0.08);
       background: #fff;
       box-sizing: border-box;
@@ -480,16 +472,16 @@
 
     .chat-input-container input {
       flex: 1;
-      padding: 10px 12px;
+      padding: 9px 11px;
       border: 1px solid #d6deec;
       border-radius: 999px;
-      font-size: 14px;
+      font-size: 13px;
       outline: none;
       background: #f8fbff;
     }
 
     .chat-input-container button {
-      padding: 10px 15px;
+      padding: 9px 13px;
       background-color: var(--primary);
       color: white;
       border: none;
@@ -498,13 +490,14 @@
       cursor: not-allowed;
       pointer-events: none;
       box-shadow: 0 10px 20px rgba(47,107,255,0.16);
+      font-size: 13px;
     }
 
     .chat-bubble-wrapper {
       display: flex;
       align-items: flex-end;
       gap: 8px;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
       max-width: 100%;
     }
 
@@ -517,8 +510,8 @@
     }
 
     .chat-avatar {
-      width: 30px;
-      height: 30px;
+      width: 28px;
+      height: 28px;
       border-radius: 50%;
       flex-shrink: 0;
       background: var(--primary);
@@ -530,8 +523,8 @@
     }
 
     .chat-avatar svg {
-      width: 16px;
-      height: 16px;
+      width: 15px;
+      height: 15px;
       stroke: currentColor;
       stroke-width: 2;
       fill: none;
@@ -540,12 +533,12 @@
     }
 
     .chat-bubble {
-      padding: 11px 14px;
+      padding: 10px 12px;
       border-radius: 14px;
       max-width: 74%;
       word-wrap: break-word;
-      font-size: 14px;
-      line-height: 1.45;
+      font-size: 13px;
+      line-height: 1.4;
       box-shadow: 0 8px 16px rgba(18, 38, 63, 0.05);
     }
 
@@ -571,14 +564,14 @@
       justify-content: flex-start;
       align-items: flex-end;
       gap: 8px;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
     }
 
     .typing {
       display: flex;
       gap: 4px;
       align-items: center;
-      padding: 11px 14px;
+      padding: 10px 12px;
       border-radius: 14px;
       background: #eef4ff;
       box-shadow: 0 8px 16px rgba(18, 38, 63, 0.05);
@@ -600,43 +593,51 @@
       40% { opacity: 1; }
     }
 
-    /* CONTENT SECTIONS */
+    /* SECTION CARDS */
     .section-card {
-      background: rgba(255,255,255,0.85);
+      background: rgba(255,255,255,0.88);
       border: 1px solid rgba(31,42,68,0.06);
       border-radius: var(--radius-xl);
       box-shadow: var(--shadow);
-      padding: 38px 32px;
+      padding: 28px 24px;
     }
 
     .features {
       display: grid;
+      gap: 16px;
+      margin-top: 24px;
+    }
+
+    .familiar-grid {
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 22px;
-      margin-top: 34px;
+    }
+
+    .helps-grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
     }
 
     .feature-box,
     .pricing-box {
       background: white;
-      padding: 28px 22px;
-      border-radius: 20px;
-      box-shadow: 0 12px 28px rgba(18, 38, 63, 0.07);
+      padding: 18px 16px;
+      border-radius: 18px;
+      box-shadow: 0 12px 24px rgba(18, 38, 63, 0.06);
       border: 1px solid rgba(31,42,68,0.06);
       transition: transform 0.2s ease, box-shadow 0.2s ease;
+      text-align: center;
     }
 
     .feature-box:hover,
     .pricing-box:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 16px 32px rgba(18, 38, 63, 0.10);
+      transform: translateY(-3px);
+      box-shadow: 0 16px 30px rgba(18, 38, 63, 0.09);
     }
 
     .feature-icon {
-      width: 62px;
-      height: 62px;
-      margin: 0 auto 16px;
-      border-radius: 18px;
+      width: 52px;
+      height: 52px;
+      margin: 0 auto 12px;
+      border-radius: 14px;
       background: linear-gradient(180deg, #f4f8ff 0%, #e8f0ff 100%);
       color: var(--primary);
       display: flex;
@@ -646,8 +647,8 @@
     }
 
     .feature-icon svg {
-      width: 28px;
-      height: 28px;
+      width: 24px;
+      height: 24px;
       stroke: currentColor;
       stroke-width: 2;
       fill: none;
@@ -657,8 +658,8 @@
 
     .feature-box h3,
     .pricing-box h3 {
-      margin: 0 0 8px;
-      font-size: 24px;
+      margin: 0 0 6px;
+      font-size: 19px;
       line-height: 1.15;
       color: #24477e;
     }
@@ -667,25 +668,22 @@
     .pricing-box p {
       margin: 0;
       color: var(--muted);
-      font-size: 15px;
-    }
-
-    .familiar-features .feature-box:last-child {
-      grid-column: 2 / 3;
+      font-size: 14px;
+      line-height: 1.4;
     }
 
     .pricing-grid {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 260px));
+      grid-template-columns: repeat(2, minmax(0, 220px));
       justify-content: center;
-      gap: 18px;
-      margin-top: 32px;
+      gap: 16px;
+      margin-top: 20px;
     }
 
     .pricing-box h3 span {
       display: block;
-      margin-top: 6px;
-      font-size: 38px;
+      margin-top: 5px;
+      font-size: 34px;
       color: var(--primary);
       letter-spacing: -0.03em;
     }
@@ -696,34 +694,34 @@
       border-radius: var(--radius-xl);
       box-shadow: var(--shadow-strong);
       text-align: center;
-      padding: 46px 30px;
+      padding: 34px 24px;
     }
 
     .cta-panel h2 {
-      margin: 0 0 12px;
-      font-size: 38px;
+      margin: 0 0 10px;
+      font-size: 34px;
       line-height: 1.08;
       color: #24477e;
     }
 
     .cta-panel p {
       max-width: 680px;
-      margin: 0 auto 24px;
+      margin: 0 auto 18px;
       color: var(--muted);
-      font-size: 17px;
+      font-size: 16px;
     }
 
     .footer {
       background: transparent;
       color: var(--text);
-      padding: 28px 20px 0;
+      padding: 18px 0 0;
       font-size: 14px;
       text-align: center;
     }
 
     .footer-inner {
       border-top: 1px solid rgba(31,42,68,0.08);
-      padding-top: 24px;
+      padding-top: 18px;
     }
 
     .footer a {
@@ -731,50 +729,33 @@
       text-decoration: underline;
     }
 
-    /* MOBILE */
-    @media (max-width: 992px) {
-      .hero-shell {
-        padding: 40px 28px 26px;
-      }
-
-      .hero-copy h1 {
-        font-size: 44px;
-      }
-
+    /* TABLET */
+    @media (max-width: 1100px) {
       .hero-grid {
         grid-template-columns: 1fr;
       }
 
-      .hero-side-card {
-        text-align: center;
-      }
-
-      .mini-item {
-        text-align: left;
-      }
-
-      .features {
+      .helps-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .familiar-features .feature-box:last-child {
-        grid-column: 1 / -1;
-        max-width: 340px;
-        margin: 0 auto;
       }
     }
 
+    /* MOBILE */
     @media (max-width: 768px) {
       body {
         padding-top: 74px;
       }
 
       section {
-        padding: 58px 16px;
+        padding: 34px 0;
+      }
+
+      .container {
+        width: calc(100% - 24px);
       }
 
       .header .container {
-        padding: 14px 16px;
+        padding: 12px 16px;
         gap: 12px;
       }
 
@@ -802,122 +783,150 @@
       }
 
       .hero {
-        padding-top: 28px;
-        padding-bottom: 42px;
+        padding-top: 18px;
+        padding-bottom: 24px;
       }
 
       .hero-shell {
-        padding: 30px 18px 22px;
-        border-radius: 24px;
+        padding: 22px 14px 16px;
+        border-radius: 20px;
+      }
+
+      .hero-grid {
+        gap: 14px;
       }
 
       .hero-copy {
-        margin-bottom: 20px;
+        text-align: center;
+        padding-right: 0;
       }
 
       .hero-copy h1 {
-        font-size: 34px;
+        font-size: 31px;
         line-height: 1.06;
       }
 
-      .hero-copy p {
-        font-size: 17px;
+      .hero-copy > p {
+        font-size: 16px;
+        line-height: 1.55;
+        margin-bottom: 14px;
       }
 
       .hero-actions {
+        justify-content: center;
         flex-direction: column;
         align-items: center;
+        gap: 10px;
       }
 
       .hero-actions .button,
       .hero-actions .button-secondary {
         width: 100%;
-        max-width: 320px;
+        max-width: 300px;
       }
 
       .hero-links {
+        text-align: center;
         font-size: 13px;
       }
 
-      .chatbot-mockup {
-        min-height: 305px;
-      }
-
       .hero-side-card {
-        padding: 22px 18px;
+        padding: 18px 16px;
+        text-align: center;
       }
 
       .hero-side-card h3 {
-        font-size: 24px;
+        font-size: 22px;
+      }
+
+      .mini-item {
+        text-align: left;
+      }
+
+      .chatbot-mockup {
+        height: 238px;
+      }
+
+      .section-heading {
+        margin-bottom: 10px;
       }
 
       .section-heading h2 {
-        font-size: 30px;
+        font-size: 27px;
       }
 
       .section-heading p {
-        font-size: 16px;
+        font-size: 15px;
       }
 
       .section-card {
-        padding: 28px 18px;
-        border-radius: 24px;
+        padding: 20px 14px;
+        border-radius: 20px;
       }
 
       .features {
-        grid-template-columns: 1fr;
-        gap: 14px;
-        margin-top: 28px;
+        gap: 10px;
+        margin-top: 18px;
+      }
+
+      .familiar-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .helps-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
       .feature-box,
       .pricing-box {
-        padding: 22px 18px;
+        padding: 14px 10px;
+        border-radius: 14px;
+      }
+
+      .feature-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 10px;
+        margin-bottom: 10px;
+      }
+
+      .feature-icon svg {
+        width: 20px;
+        height: 20px;
       }
 
       .feature-box h3,
       .pricing-box h3 {
-        font-size: 22px;
+        font-size: 15px;
       }
 
       .feature-box p,
       .pricing-box p {
-        font-size: 14px;
-        line-height: 1.45;
-      }
-
-      .feature-icon {
-        width: 54px;
-        height: 54px;
-        border-radius: 14px;
-        margin-bottom: 14px;
-      }
-
-      .feature-icon svg {
-        width: 24px;
-        height: 24px;
+        font-size: 12px;
+        line-height: 1.3;
       }
 
       .pricing-grid {
-        grid-template-columns: 1fr;
-        gap: 14px;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
       }
 
       .pricing-box h3 span {
-        font-size: 34px;
+        font-size: 28px;
       }
 
       .cta-panel {
-        padding: 34px 18px;
-        border-radius: 24px;
+        padding: 24px 14px;
+        border-radius: 20px;
       }
 
       .cta-panel h2 {
-        font-size: 31px;
+        font-size: 28px;
       }
 
       .cta-panel p {
-        font-size: 16px;
+        font-size: 15px;
+        margin-bottom: 14px;
       }
     }
   </style>
@@ -953,13 +962,23 @@
     <div class="container">
       <div class="hero-shell">
         <div class="hero-inner">
-          <div class="hero-copy">
-            <h1>Your 24/7 AI Reception Team</h1>
-            <p>ReceptionPoint is an AI-powered virtual reception team — instantly answering customer questions, guiding visitors to your booking system, and escalating complex enquiries to your team.</p>
-          </div>
-
           <div class="hero-grid">
-            <div class="hero-visual">
+            <div class="hero-copy">
+              <h1>Your 24/7 AI Reception Team</h1>
+              <p>ReceptionPoint is an AI-powered virtual reception team — instantly answering customer questions, guiding visitors to your booking system, and escalating complex enquiries to your team.</p>
+
+              <div class="hero-actions">
+                <a href="https://buy.stripe.com/8x214mbC5gOq9tjcQq9AA01" class="button" target="_blank">Get Started</a>
+                <a href="how-it-works.html" class="button-secondary">How It Works</a>
+              </div>
+
+              <div class="hero-links">
+                After payment, fill in your business details:
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLScCQykZxBMRkQylLXwAOteXUrPqP3NIgbOjKMZH7P6BIeYcsA/viewform?usp=header" target="_blank">Submit Details</a>
+              </div>
+            </div>
+
+            <div class="hero-side">
               <div class="chatbot-mockup" id="chatbot">
                 <div class="mockup-topbar">
                   <strong>ReceptionPoint Live Chat</strong>
@@ -977,39 +996,29 @@
                   <button disabled>Send</button>
                 </div>
               </div>
-            </div>
 
-            <div class="hero-side-card">
-              <h3>Get Your AI Receptionist Today</h3>
-              <p>Save time, reduce drop-off, and give website visitors an instant next step.</p>
+              <div class="hero-side-card">
+                <h3>Get Your AI Receptionist Today</h3>
+                <p>Save time, reduce drop-off, and give website visitors an instant next step.</p>
 
-              <div class="mini-list">
-                <div class="mini-item">
-                  <div class="mini-dot">24</div>
-                  <div>24/7 answers for your visitors</div>
+                <div class="mini-list">
+                  <div class="mini-item">
+                    <div class="mini-dot">24</div>
+                    <div>24/7 answers for your visitors</div>
+                  </div>
+                  <div class="mini-item">
+                    <div class="mini-dot">→</div>
+                    <div>Guides people to your booking page</div>
+                  </div>
+                  <div class="mini-item">
+                    <div class="mini-dot">✓</div>
+                    <div>Captures leads for complex enquiries</div>
+                  </div>
                 </div>
-                <div class="mini-item">
-                  <div class="mini-dot">→</div>
-                  <div>Guides people to your booking page</div>
-                </div>
-                <div class="mini-item">
-                  <div class="mini-dot">✓</div>
-                  <div>Captures leads for complex enquiries</div>
-                </div>
+
+                <a href="https://buy.stripe.com/8x214mbC5gOq9tjcQq9AA01" class="button" target="_blank">Get Started Now</a>
               </div>
-
-              <a href="https://buy.stripe.com/8x214mbC5gOq9tjcQq9AA01" class="button" target="_blank">Get Started Now</a>
             </div>
-          </div>
-
-          <div class="hero-actions">
-            <a href="https://buy.stripe.com/8x214mbC5gOq9tjcQq9AA01" class="button" target="_blank">Get Started</a>
-            <a href="how-it-works.html" class="button-secondary">How It Works</a>
-          </div>
-
-          <div class="hero-links">
-            After payment, fill in your business details:
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLScCQykZxBMRkQylLXwAOteXUrPqP3NIgbOjKMZH7P6BIeYcsA/viewform?usp=header" target="_blank">Submit Details</a>
           </div>
         </div>
       </div>
@@ -1021,10 +1030,9 @@
       <div class="section-card">
         <div class="section-heading">
           <h2>Is This Familiar?</h2>
-          <p>These are the friction points ReceptionPoint is designed to solve.</p>
         </div>
 
-        <div class="features familiar-features">
+        <div class="features familiar-grid">
           <div class="feature-box">
             <div class="feature-icon">
               <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -1070,10 +1078,9 @@
       <div class="section-card">
         <div class="section-heading">
           <h2>How ReceptionPoint Helps</h2>
-          <p>A fully managed AI receptionist that keeps your website working harder for your business.</p>
         </div>
 
-        <div class="features">
+        <div class="features helps-grid">
           <div class="feature-box">
             <div class="feature-icon">
               <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -1125,7 +1132,6 @@
       <div class="section-card">
         <div class="section-heading">
           <h2>Simple, Transparent Pricing</h2>
-          <p>No hidden costs. Fully managed service.</p>
         </div>
 
         <div class="pricing-grid">
@@ -1148,11 +1154,13 @@
       <div class="cta-panel">
         <h2>Ready to Never Miss Another Customer?</h2>
         <p>Fill in your details and we’ll set up your AI receptionist in under a week.</p>
-        <div class="hero-actions" style="margin-top:0;">
+
+        <div class="hero-actions" style="justify-content:center; margin-bottom:10px;">
           <a href="https://buy.stripe.com/8x214mbC5gOq9tjcQq9AA01" class="button" target="_blank">Get Started</a>
           <a href="contact.html" class="button-secondary">Contact Us</a>
         </div>
-        <div class="hero-links" style="margin-top:16px;">
+
+        <div class="hero-links">
           After payment, fill in your business details:
           <a href="https://docs.google.com/forms/d/e/1FAIpQLScCQykZxBMRkQylLXwAOteXUrPqP3NIgbOjKMZH7P6BIeYcsA/viewform?usp=header" target="_blank">Submit Details</a>
         </div>
@@ -1197,10 +1205,7 @@
     }
 
     function scrollToBottom() {
-      chatMessages.scrollTo({
-        top: chatMessages.scrollHeight,
-        behavior: 'smooth'
-      });
+      chatMessages.scrollTop = chatMessages.scrollHeight;
     }
 
     function showMessage() {
@@ -1233,13 +1238,13 @@
             typingWrapper.parentNode.removeChild(typingWrapper);
           }
           appendMessage(msg);
-        }, 1200);
+        }, 1000);
       } else {
         appendMessage(msg);
       }
 
       index++;
-      setTimeout(showMessage, 2000);
+      setTimeout(showMessage, 1500);
     }
 
     function appendMessage(msg) {
