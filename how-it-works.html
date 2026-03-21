@@ -398,15 +398,46 @@
 
     .setup-steps {
       display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
+      flex-direction: column;
       gap: 16px;
       margin-top: 24px;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     .setup-steps .feature-box {
-      flex: 0 1 calc((100% - 32px) / 3);
-      max-width: calc((100% - 32px) / 3);
+      width: 100%;
+      max-width: 100%;
+      display: flex;
+      align-items: flex-start;
+      text-align: left;
+      gap: 14px;
+      padding: 18px 18px;
+    }
+
+    .setup-steps .feature-box > div:last-child {
+      flex: 1;
+    }
+
+    .setup-steps .feature-icon {
+      width: 44px;
+      height: 44px;
+      min-width: 44px;
+      margin: 0;
+      border-radius: 12px;
+      font-size: 18px;
+    }
+
+    .setup-steps .feature-box h3 {
+      margin: 0 0 6px;
+      font-size: 18px;
+    }
+
+    .setup-steps .feature-box p {
+      margin: 0;
+      font-size: 14px;
+      line-height: 1.45;
     }
 
     .cta-panel {
@@ -568,7 +599,6 @@
       }
 
       .setup-steps .feature-box {
-        flex: none;
         width: 100%;
         max-width: 100%;
         display: flex;
@@ -607,13 +637,6 @@
       .pricing-box {
         padding: 14px 10px;
         border-radius: 14px;
-      }
-
-      .feature-icon {
-        width: 40px;
-        height: 40px;
-        border-radius: 10px;
-        margin-bottom: 10px;
       }
 
       .feature-box h3,
@@ -754,25 +777,21 @@
 
         <div class="features standard-grid">
           <div class="feature-box">
-            <div class="feature-icon">W</div>
             <h3>Your Website</h3>
             <p>We use your website and business information to tailor your AI receptionist.</p>
           </div>
 
           <div class="feature-box">
-            <div class="feature-icon">B</div>
             <h3>Your Booking Link</h3>
             <p>So visitors can be guided straight to the right place when they’re ready to book.</p>
           </div>
 
           <div class="feature-box">
-            <div class="feature-icon">F</div>
             <h3>Your FAQs</h3>
             <p>Common questions like services, pricing, opening hours, and location help the chatbot respond accurately.</p>
           </div>
 
           <div class="feature-box">
-            <div class="feature-icon">C</div>
             <h3>Your Contact Details</h3>
             <p>So complex enquiries can be passed over to your team when needed.</p>
           </div>
@@ -791,25 +810,21 @@
 
         <div class="features standard-grid">
           <div class="feature-box">
-            <div class="feature-icon">24</div>
             <h3>24/7 Website Chatbot</h3>
             <p>A branded AI receptionist on your website answering visitors around the clock.</p>
           </div>
 
           <div class="feature-box">
-            <div class="feature-icon">→</div>
             <h3>Instant Booking Guidance</h3>
             <p>Visitors are guided to your booking page quickly instead of leaving the site.</p>
           </div>
 
           <div class="feature-box">
-            <div class="feature-icon">✓</div>
             <h3>Lead Capture</h3>
             <p>Complex enquiries are captured and passed to your team for follow-up.</p>
           </div>
 
           <div class="feature-box">
-            <div class="feature-icon">AI</div>
             <h3>Fully Managed Setup</h3>
             <p>We handle the setup, configuration, and ongoing support for you.</p>
           </div>
