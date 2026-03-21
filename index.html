@@ -307,35 +307,45 @@
       display: grid;
       grid-template-columns: minmax(0, 1.1fr) minmax(300px, 0.9fr);
       gap: 16px;
-      align-items: end;
+      align-items: stretch;
     }
 
-    .hero-demo {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .hero-demo-heading {
-      margin: 0;
-      font-size: 20px;
-      line-height: 1.15;
-      color: #24477e;
-      text-align: left;
-    }
-
+    .hero-demo-card,
     .hero-side-card {
       background: white;
       border: 1px solid rgba(31,42,68,0.08);
       border-radius: 20px;
       padding: 22px 20px;
       box-shadow: var(--shadow);
+      height: 340px;
+    }
+
+    .hero-demo-card {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .hero-demo-card h3 {
+      margin: 0 0 12px;
+      font-size: 26px;
+      line-height: 1.12;
+      color: #24477e;
+      text-align: left;
+    }
+
+    .hero-demo-card .chatbot-mockup {
+      flex: 1;
+      height: auto;
+      min-height: 0;
+      box-shadow: none;
+      margin: 0;
+    }
+
+    .hero-side-card {
       text-align: left;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      min-height: 280px;
-      height: 280px;
     }
 
     .hero-side-card h3 {
@@ -732,6 +742,7 @@
         grid-template-columns: 1fr;
       }
 
+      .hero-demo-card,
       .hero-side-card {
         height: auto;
         min-height: 0;
@@ -808,9 +819,21 @@
         line-height: 1.55;
       }
 
-      .hero-demo-heading {
+      .hero-demo-card,
+      .hero-side-card {
+        padding: 18px 16px;
+        height: auto;
+        min-height: 0;
+      }
+
+      .hero-demo-card h3,
+      .hero-side-card h3 {
+        font-size: 22px;
         text-align: center;
-        font-size: 18px;
+      }
+
+      .hero-side-card {
+        text-align: center;
       }
 
       .hero-grid {
@@ -834,22 +857,11 @@
         font-size: 13px;
       }
 
-      .hero-side-card {
-        padding: 18px 16px;
-        text-align: center;
-        height: auto;
-        min-height: 0;
-      }
-
-      .hero-side-card h3 {
-        font-size: 22px;
-      }
-
       .mini-item {
         text-align: left;
       }
 
-      .chatbot-mockup {
+      .hero-demo-card .chatbot-mockup {
         height: 238px;
       }
 
@@ -973,8 +985,8 @@
         </div>
 
         <div class="hero-grid">
-          <div class="hero-demo">
-            <h3 class="hero-demo-heading">See It In Action!</h3>
+          <div class="hero-demo-card">
+            <h3>See It In Action!</h3>
 
             <div class="chatbot-mockup" id="chatbot">
               <div class="mockup-topbar">
